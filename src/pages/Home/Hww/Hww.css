@@ -1,0 +1,67 @@
+.hww-div {
+  background-image: url('../../../img/how-we-work.jpg');
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 2rem;
+}
+.upper-div {
+  height: 200px;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hww-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #000;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+.hww-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 1rem;
+  text-align: start;
+}
+@media only screen and (max-width: 600px) {
+  .hww-div {
+    height: 50vh;
+  }
+  .upper-div {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .hww-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .hww-subtitle {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .MuiCard-root {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 1.5rem !important;
+  }
+  .MuiCardContent-root {
+    padding: 1rem !important;
+  }
+  .MuiButton-root.hww-btn {
+    width: 100% !important;
+    margin-left: 12% !important;
+    margin-top: 0.5rem !important;
+    width: 50% !important;
+  }
+}

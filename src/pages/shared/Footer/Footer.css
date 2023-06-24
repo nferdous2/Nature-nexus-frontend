@@ -1,0 +1,133 @@
+.footerBox {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0;
+}
+.footerLogo {
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+}
+.workingHours {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.footerLi {
+  color: white;
+  font-size: 1.5rem;
+  text-align: start;
+}
+.footerSpan {
+  color: chocolate;
+  font-size: 1rem;
+}
+.footerSpan2 {
+  color: rgba(231, 140, 3, 0.864);
+  font-size: 1.3rem;
+}
+.footerSpan3 {
+  color: chocolate;
+  font-size: 1rem;
+}
+.contactUs {
+  color: white;
+  display: flex;
+  text-align: center;
+
+  margin-top: 20px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  overflow: hidden;
+}
+
+.galleryImage {
+  display: block;
+  width: 85px;
+  height: 80px;
+  transition: transform 0.8s ease-in-out;
+}
+
+.image:hover .galleryImage {
+  transform: scale(1.1);
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.image:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+}
+
+.footerHr {
+  border: 0.5px solid #ccc;
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+.footerCopyrightText {
+  color: grey;
+  font-size: 0.9rem;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .footerBox {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+  }
+  .workingHours {
+    margin-bottom: 0;
+  }
+  .contactUs {
+    margin-top: 0;
+  }
+  .footerLogo {
+    width: 100px;
+    text-align: center;
+  }
+  .footerLi {
+    font-size: 1.2rem;
+  }
+  .col-md-4 {
+    float: left;
+    width: 33.33333333%;
+  }
+}
