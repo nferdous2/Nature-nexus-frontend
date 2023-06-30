@@ -1,18 +1,18 @@
-import * as React from 'react'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
-import './Hww.css'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import "../../Styles/Style.css";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export default function Hww() {
   return (
     <div>
-      <div className="upper-div">
+      {/* <div className="upper-div">
         <p className="hww-title">How we work</p>
         <p className="hww-subtitle">
           As the world’s leading conservation organization, we work in nearly
@@ -21,7 +21,31 @@ export default function Hww() {
           <br></br>
           of nature, people, and climate.
         </p>
-      </div>
+      </div> */}
+      <Box
+        sx={{
+          marginBottom: 3,
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{ marginBottom: 3, color: "#444", fontWeight: "bold" }}
+        >
+          How we work{" "}
+        </Typography>
+        <Typography
+          sx={{ marginBottom: 5, fontSize: "24px", letterSpacing: "3px" }}
+        >
+          As the world’s leading conservation organization, we work in nearly
+          <br></br>
+          100 countries to tackle the most critical issues at the intersection
+          <br></br>
+          of nature, people, and climate.
+        </Typography>
+      </Box>
+
       <div className="hww-div">
         <Box>
           <Grid
@@ -35,12 +59,12 @@ export default function Hww() {
                   <Typography
                     sx={{
                       fontSize: 50,
-                      fontFamily: 'Roboto',
-                      fontWeight: '400',
-                      color: '#000',
-                      textAlign: 'start',
+                      fontFamily: "Roboto",
+                      fontWeight: "400",
+                      color: "#000",
+                      textAlign: "start",
                       ml: 5,
-                      latterSpacing: '0',
+                      latterSpacing: "0",
                     }}
                     color="text.secondary"
                     gutterBottom
@@ -51,10 +75,10 @@ export default function Hww() {
                   <Typography
                     sx={{
                       mb: 1.5,
-                      color: '#000',
+                      color: "#000",
                       ml: 5,
-                      textAlign: 'start',
-                      width: '80%',
+                      textAlign: "start",
+                      width: "80%",
                     }}
                     color="text.secondary"
                   >
@@ -68,9 +92,9 @@ export default function Hww() {
                     className="hww-btn"
                     size="small"
                     sx={{
-                      backgroundColor: '#f8bf02',
-                      color: '#fff',
-                      width: '25%',
+                      backgroundColor: "#f8bf02",
+                      color: "#fff",
+                      width: "25%",
                       ml: 5,
                     }}
                   >
@@ -83,5 +107,5 @@ export default function Hww() {
         </Box>
       </div>
     </div>
-  )
+  );
 }
