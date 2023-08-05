@@ -1,69 +1,70 @@
-import * as React from 'react'
-import './Header.css'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import MenuIcon from '@mui/icons-material/Menu'
-import ImportContactsIcon from '@mui/icons-material/ImportContacts'
-import { Menu } from '@mui/material'
-import { NavLink } from 'react-router-dom'
-import logo from '../../../img/logo.png'
+import * as React from 'react';
+import './Header.css';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Menu } from '@mui/material';
+import { NavLink, } from 'react-router-dom';
+import logo from '../../../img/logo.png';
+import { UserContext } from '../../Authentication/userContext';
+import { useContext } from 'react';
 
 export default function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
-  const [isScrolled, setIsScrolled] = React.useState(false)
-  const [anchorElServices, setAnchorElServices] = React.useState(null)
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [anchorElServices, setAnchorElServices] = React.useState(null);
+  const { isLoggedIn, handleLogout } = useContext(UserContext);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY
-      const threshold = 50 // Adjust the threshold as needed
+      const scrollTop = window.scrollY;
+      const threshold = 50; // Adjust the threshold as needed
+      setIsScrolled(scrollTop > threshold);
+    };
 
-      setIsScrolled(scrollTop > threshold)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navbarStyle = {
     backgroundColor: isScrolled ? 'rgba(4, 9, 30, 0.7)' : 'rgba(4, 9, 30, 0.7)',
     backdropFilter: isScrolled ? 'blur(20px)' : 'none',
     boxShadow: isScrolled ? '0 0 10px rgba(0, 0, 0, 0.2)' : 'none',
-  }
-
-  //for  changing color on scrolling
+  };
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget)
-  }
+    setAnchorElNav(event.currentTarget);
+  };
+
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+    setAnchorElNav(null);
+  };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+    setAnchorElUser(null);
+  };
 
-  // for dropdown menu
   const handleOpenServicesMenu = (event) => {
-    setAnchorElServices(event.currentTarget)
-  }
+    setAnchorElServices(event.currentTarget);
+  };
+
   const handleCloseServicesMenu = () => {
-    setAnchorElServices(null)
-  }
+    setAnchorElServices(null);
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -73,11 +74,8 @@ export default function Header() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* icon for large screen */}
-
           <img src={logo} className="logo" />
 
-          {/* pages for small screen */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -124,9 +122,9 @@ export default function Header() {
                   style={({ isActive }) =>
                     isActive
                       ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
+                        color:"white",
+                      }
+                      : {color:"white",}
                   }
                   to="/"
                   className="headerLink"
@@ -134,28 +132,6 @@ export default function Header() {
                   Home
                 </NavLink>
               </Button>
-              {/* <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
-                  }
-                  to="/books"
-                  className="headerLink"
-                >
-                  Services
-                </NavLink>
-              </Button> */}
               <Button
                 sx={{
                   fontSize: 18,
@@ -190,7 +166,6 @@ export default function Header() {
                     Service 1
                   </NavLink>
                 </MenuItem>
-
                 <MenuItem onClick={handleCloseServicesMenu}>
                   <NavLink
                     style={{ textDecoration: 'none', color: 'inherit' }}
@@ -201,7 +176,6 @@ export default function Header() {
                   </NavLink>
                 </MenuItem>
               </Menu>
-
               <Button
                 sx={{
                   fontSize: 18,
@@ -214,9 +188,9 @@ export default function Header() {
                   style={({ isActive }) =>
                     isActive
                       ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
+                        color: "white",
+                      }
+                      : { color: "white", }
                   }
                   to="/feedback"
                   className="headerLink"
@@ -236,9 +210,9 @@ export default function Header() {
                   style={({ isActive }) =>
                     isActive
                       ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
+                        color: "white",
+                      }
+                      : { color: "white", }
                   }
                   to="/contact"
                   className="headerLink"
@@ -246,81 +220,44 @@ export default function Header() {
                   Contact Us
                 </NavLink>
               </Button>
-              <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
+              {/* Conditionally render "SignUp" or "Logout" based on the user's login status */}
+              {isLoggedIn ? (
+                // If user is logged in, show "Logout"
+                <Typography
+                  sx={{
+                    fontSize: 18,
+                    display: 'block',
+                    color: "white",
+                    width: '300px',
+                    textAlign: 'left',
+                  }}
+                  onClick={handleLogout}
+
+                >
+                  Logout
+                </Typography>
+              ) : (
+                // If user is not logged in, show "SignUp"
                 <NavLink
                   style={({ isActive }) =>
                     isActive
                       ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
+                        color: "white",
+                      }
+                      : {
+                        color: "white",
+                      }
                   }
                   to="/signup"
                   className="headerLink"
                 >
                   SignUp
                 </NavLink>
-              </Button>
 
-              {/* <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
-                  }
-                  to="/signin"
-                  className="headerLink"
-                >
-                  SignOut
-                </NavLink>
-              </Button> */}
-
-              {/* <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          color: 'black',
-                        }
-                      : { color: 'black' }
-                  }
-                  to="/signin"
-                  className="headerLink"
-                >
-                  SignIn
-                </NavLink>
-              </Button> */}
+              )}
             </Menu>
           </Box>
-          {/* icon for small screen */}
 
-          {/* logo for small screen */}
-
-          {/* pages for large screen */}
           <Box
             sx={{
               flexGrow: 0,
@@ -332,10 +269,10 @@ export default function Header() {
               style={({ isActive }) =>
                 isActive
                   ? {
-                      color: '#f8bf02',
-                      fontFamily: 'times new roman',
-                    }
-                  : { color: 'white', fontFamily: 'times new roman' }
+                    color: '#f8bf02',
+                    fontFamily: 'times new roman',
+                  }
+                  : {color:"white",fontFamily: 'times new roman' }
               }
               to="/"
               className="headerLink"
@@ -343,19 +280,6 @@ export default function Header() {
               Home
             </NavLink>
 
-            {/* <NavLink
-              style={({ isActive }) =>
-                isActive
-                 ? {
-                      color: '#f8bf02',
-                    }
-                  : { color: 'white' }
-              }
-              to="/books"
-              className="headerLink"
-            >
-             Services
-            </NavLink> */}
             <Button
               color="inherit"
               onMouseEnter={handleOpenServicesMenu}
@@ -364,9 +288,6 @@ export default function Header() {
                 fontWeight: 'bold',
                 fontFamily: 'times new roman',
                 fontSize: 16,
-                // textAlign: 'center',
-
-                // color: 'white',
                 marginTop: '-10px',
                 marginLeft: '-12px',
                 marginRight: '12px',
@@ -388,21 +309,20 @@ export default function Header() {
                   horizontal: 'left',
                 }}
               >
-                {/* first service */}
                 <MenuItem onClick={handleCloseServicesMenu}>
                   <NavLink
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            color: '#f8bf02',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: '#f8bf02',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                         : {
-                            color: 'black',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: 'black',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                     }
                     exact
                     to="/freshfarm"
@@ -410,21 +330,20 @@ export default function Header() {
                     Fresh Farm
                   </NavLink>
                 </MenuItem>
-                {/* second service */}
                 <MenuItem onClick={handleCloseServicesMenu}>
                   <NavLink
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            color: '#f8bf02',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: '#f8bf02',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                         : {
-                            color: 'black',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: 'black',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                     }
                     exact
                     to="/service2"
@@ -432,21 +351,20 @@ export default function Header() {
                     Wild Life
                   </NavLink>
                 </MenuItem>
-                {/* third service */}
                 <MenuItem onClick={handleCloseServicesMenu}>
                   <NavLink
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            color: '#f8bf02',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: '#f8bf02',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                         : {
-                            color: 'black',
-                            textDecoration: 'none',
-                            fontFamily: 'times new roman',
-                          }
+                          color: 'black',
+                          textDecoration: 'none',
+                          fontFamily: 'times new roman',
+                        }
                     }
                     exact
                     to="/service2"
@@ -456,79 +374,73 @@ export default function Header() {
                 </MenuItem>
               </Menu>
             </Button>
+
             <NavLink
               style={({ isActive }) =>
                 isActive
                   ? {
-                      color: '#f8bf02',
-                      fontFamily: 'times new roman',
-                    }
-                  : { color: 'white', fontFamily: 'times new roman ' }
+                    color: '#f8bf02',
+                    fontFamily: 'times new roman',
+                  }
+                  : { color: "white", fontFamily: 'times new roman ' }
               }
               to="/feedback"
               className="headerLink"
             >
               Cart
             </NavLink>
+
             <NavLink
               style={({ isActive }) =>
                 isActive
                   ? {
-                      color: '#f8bf02',
-                      fontFamily: 'times new roman',
-                    }
-                  : { color: 'white', fontFamily: 'times new roman ' }
+                    color: '#f8bf02',
+                    fontFamily: 'times new roman',
+                  }
+                  : { color: "white", fontFamily: 'times new roman ' }
               }
               to="/contact"
               className="headerLink"
             >
               Contact Us
             </NavLink>
-            <NavLink
-              style={({ isActive }) =>
-                isActive
-                  ? {
-                      color: '#f8bf02',
-                      fontFamily: 'times new roman',
-                    }
-                  : { color: 'white', fontFamily: 'times new roman ' }
-              }
-              to="/signup"
-              className="headerLink"
-            >
-              SignUp
-            </NavLink>
 
-            {/* <NavLink
-              style={({ isActive }) =>
-                isActive
-                 ? {
-                      color: '#f8bf02',
+            {/* Conditionally render "SignUp" or "Logout" based on the user's login status */}
+            {isLoggedIn ? (
+              // If user is logged in, show "Logout"
+
+              <Typography
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+                onClick={handleLogout}
+
+              >
+                Logout
+              </Typography>
+            ) : (
+              // If user is not logged in, show "SignUp"
+              <NavLink
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                      color: "white",
                     }
-                  : { color: 'white' }
-              }
-              to="/signin"
-              className="headerLink"
-            >
-              SignOut
-            </NavLink> */}
-            {/* 
-            <NavLink
-              style={({ isActive }) =>
-                isActive
-               ? {
-                      color: '#f8bf02',
-                    }
-                  : { color: 'white' }
-              }
-              to="/signin"
-              className="headerLink"
-            >
-              SignIn
-            </NavLink> */}
+                    : { color: "white", }
+                }
+                to="/signup"
+                className="headerLink"
+              >
+                SignUp
+              </NavLink>
+
+            )}
           </Box>
-          {/* user menu */}
 
+          {/* user menu */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -561,8 +473,8 @@ export default function Header() {
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            color: 'black',
-                          }
+                          color: 'black',
+                        }
                         : { color: '#0d284e' }
                     }
                     to="/dashboard"
@@ -577,5 +489,5 @@ export default function Header() {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }
