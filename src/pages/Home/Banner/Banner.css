@@ -20,6 +20,7 @@ body {
   width: 100%;
   height: 100vh;
   background: #000;
+  top: -150px; /* 150px is the height of the navbar */
 }
 
 .swiper-slide {

@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Organic orange",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/4.jpg"
+  },
+  {
+    "id": 2,
+
+    "name": "Organic banana",
+    "price": "$70.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/8.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Organic orange bread",
+    "price": "$100.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/10.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Organic blueberry",
+    "price": "$120.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/9.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Organic lime",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/22.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Organic cucumber",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/15.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Organic eggplant",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/17.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Organic apple",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/33.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Organic grape",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/21.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Organic tomato",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/20.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Organic strawberry",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/30.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Organic orange juice",
+    "price": "$80.00",
+    "image": "http://demo1.cloodo.com/html/freshmart/img/product/14.jpg"
+  }
+]

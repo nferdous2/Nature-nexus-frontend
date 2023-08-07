@@ -1,0 +1,12 @@
+.aboutus-box {
+  /* background-color: red; */
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+.aboutus-image {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  margin-top: -5rem;
+}
