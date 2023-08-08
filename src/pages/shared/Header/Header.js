@@ -384,7 +384,7 @@ export default function Header() {
                   }
                   : { color: "white", fontFamily: 'times new roman ' }
               }
-              to="/feedback"
+              to="/cart"
               className="headerLink"
             >
               Cart
@@ -443,7 +443,7 @@ export default function Header() {
           {/* user menu */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>

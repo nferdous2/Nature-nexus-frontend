@@ -5,7 +5,6 @@ import MostStory from '../MostStory/MostStory'
 import './FreshFarm.css'
 import FarmService from '../FarmService'
 import Review from './Review/Review'
-import Products from '../Products/Products'
 import Product from '../Product/Product'
 
 const FreshFarm = () => {
@@ -13,8 +12,7 @@ const FreshFarm = () => {
     <div>
       <FreshFarmBanner></FreshFarmBanner>
       <Category></Category>
-      <Products></Products>
-      {/* <Product></Product> */}
+      <Product></Product>
       {/* <hr /> */}
       <MostStory></MostStory>
       {/* <VHome></VHome> */}
