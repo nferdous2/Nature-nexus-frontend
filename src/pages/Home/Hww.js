@@ -28,6 +28,7 @@ export default function Hww() {
           display: 'flex',
           justifyContent: 'space-around',
           py: 5,
+          overflow: 'hidden',
         }}
       >
         <Typography
@@ -55,7 +56,8 @@ export default function Hww() {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid item xs={4}>
-              <Card sx={{ minWidth: 555, height: 350, ml: 25, mt: 10 }}>
+              <Card sx={{ minWidth: 555, height: 350, ml: 25, mt: 10 ,          overflow: 'hidden',
+}}>
                 <CardContent>
                   <Typography
                     sx={{

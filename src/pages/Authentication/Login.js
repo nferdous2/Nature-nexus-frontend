@@ -1,17 +1,25 @@
-import React, { useContext, useState } from "react";
-import login from "../../img/login.png";
-import {
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from "@mui/material";
+import Avatar from '@mui/material/Avatar';
+import CssBaseline from '@mui/material/CssBaseline';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { UserContext } from "./userContext";
 import axios from "axios";
+import React, { useContext, useState } from "react";
+
+import {
+    Box,
+    Button,
+    Grid,
+    IconButton,
+    InputAdornment,
+    Paper,
+    TextField,
+  } from "@mui/material";
+const defaultTheme = createTheme();
+
 
 const Login = () => {
   const { setIsLoggedIn } = useContext(UserContext); // Access the UserContext
@@ -61,11 +69,40 @@ const Login = () => {
 
 
   return (
-    <Container sx={{ p:5}}>
-      <Grid container spacing={2}>
-        {/* Left column with form */}
-        <Grid item xs={12} md={6} sx={{marginTop:"20%" }}>
-          <form onSubmit={handleSubmit}>
+       <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Log in
+            </Typography>
+         <form onSubmit={handleSubmit}>
           <TextField
               sx={{ width: "100%", mb: 1 }}
               id="standard-basic-1"
@@ -122,14 +159,11 @@ const Login = () => {
               </Button>
             </NavLink>
           </form>
-        </Grid>
-
-        {/* Right column with image */}
-        <Grid item xs={12} md={6} sx={{marginTop:"15%"}}>
-          <img src={login} alt="login image" style={{ maxWidth: "100%" }} />
+          </Box>
         </Grid>
       </Grid>
-    </Container>
+    </ThemeProvider>
+
   );
 };
 

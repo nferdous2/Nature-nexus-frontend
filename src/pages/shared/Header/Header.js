@@ -110,39 +110,31 @@ export default function Header() {
                 },
               }}
             >
-              <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
+              <NavLink
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                      color: "white",
+                    }
+                    : { color: "white", }
+                }
+                to="/"
+                className="headerLink"
               >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                        color:"white",
-                      }
-                      : {color:"white",}
-                  }
-                  to="/"
-                  className="headerLink"
-                >
-                  Home
-                </NavLink>
-              </Button>
-              <Button
+                Home
+              </NavLink>
+
+              <Typography
                 sx={{
                   fontSize: 18,
-                  display: 'block',
+                  // display: 'block',
                   width: '300px',
                   textAlign: 'left',
                 }}
                 onMouseEnter={handleOpenServicesMenu}
               >
                 Services
-              </Button>
+              </Typography>
               <Menu
                 anchorEl={anchorElServices}
                 open={Boolean(anchorElServices)}
@@ -272,7 +264,7 @@ export default function Header() {
                     color: '#f8bf02',
                     fontFamily: 'times new roman',
                   }
-                  : {color:"white",fontFamily: 'times new roman' }
+                  : { color: "white", fontFamily: 'times new roman' }
               }
               to="/"
               className="headerLink"
@@ -286,9 +278,9 @@ export default function Header() {
               onMouseLeave={handleCloseServicesMenu}
               sx={{
                 fontWeight: 'bold',
-                fontFamily: 'times new roman',
+                // fontFamily: 'times new roman',
                 fontSize: 16,
-                marginTop: '-10px',
+                marginTop: '-1%',
                 marginLeft: '-12px',
                 marginRight: '12px',
                 cursor: 'pointer',
@@ -441,7 +433,7 @@ export default function Header() {
           </Box>
 
           {/* user menu */}
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu}>
                 <Avatar alt="" src="/static/images/avatar/2.jpg" />
@@ -485,7 +477,7 @@ export default function Header() {
                 </Button>
               </MenuItem>
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
