@@ -17,6 +17,8 @@ const AboutUs = () => {
       >
         Who We Are{' '}
       </Typography>
+
+   
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Typography
@@ -43,6 +45,7 @@ const AboutUs = () => {
         <Typography variant="h4" gutterBottom sx={{ textAlign: 'left' }}>
           Our Impact
         </Typography>
+        
         <Typography
           variant="h6"
           gutterBottom

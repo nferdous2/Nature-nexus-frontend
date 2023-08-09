@@ -427,7 +427,7 @@ export default function Header() {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                      color: "white",
+                      color: '#f8bf02',
                     }
                     : { color: "white", }
                 }
@@ -444,7 +444,7 @@ export default function Header() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -477,10 +477,10 @@ export default function Header() {
                         }
                         : { color: '#0d284e' }
                     }
-                    to="/dashboard"
+                    to="/profile"
                     className="headerLink"
                   >
-                    Dashboard
+                    Profile
                   </NavLink>
                 </Button>
               </MenuItem>

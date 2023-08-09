@@ -29,17 +29,21 @@ const SignUp = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); //for form submission event
     const { name, email, password, address } = formData;
     if (!name || !email || !password || !address) {
       alert("Please fill in all the required fields.");
       return;
     }
+    
+  // Password validation using regex
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  if (!passwordRegex.test(password)) {
+    alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.");
+    return;
+  }
 
-    if (password.length < 6) {
-      alert("Password must have at least 6 characters.");
-      return;
-    }
+
 
     axios
       .post("http://localhost:8000/register", formData) // Pass the formData in the request
@@ -134,11 +138,11 @@ const SignUp = () => {
                 ),
               }}
             />
-            <NavLink to="/pass">
+            {/* <NavLink to="/pass">
               <Button sx={{ width: "100%", background: "#F6FAFD", mt: 2 }}>
                 Forgot Password?
               </Button>
-            </NavLink>
+            </NavLink> */}
             <Button
               sx={{ width: "100%", mb: 1, mt: 2 }}
               variant="contained"

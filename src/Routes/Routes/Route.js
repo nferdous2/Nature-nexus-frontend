@@ -4,6 +4,7 @@ import Home from '../../pages/Home/Home/Home'
 import FreshFarm from '../../pages/Services/Freshfarm/FreshFarm/FreshFarm';
 import SignUp from '../../pages/Authentication/SignUp';
 import Login from '../../pages/Authentication/Login';
+import Profile from '../../pages/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,10 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>,
       },
-   
+      {
+        path: '/profile',
+        element: <Profile></Profile>,
+      },
     ],
   },
 ])

@@ -99,11 +99,11 @@ const Login = () => {
                 ),
               }}
             />
-            <NavLink to="/pass">
+            {/* <NavLink to="/pass">
               <Button sx={{ width: "100%", background: "#F6FAFD",mt:2 }}>
                 Forgot Password?
               </Button>
-            </NavLink>
+            </NavLink> */}
             <Button
               sx={{ width: "100%", mb: 1,mt:3 }}
               variant="contained"
