@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React  from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import {  Typography } from '@mui/material'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -44,9 +44,7 @@ export default function Category() {
             <p className="text">Text in the middle</p>
             <ArrowForwardIcon className="slide-icon" />
           </div>
-          {/* <div className="slide-icon">
-            <img src="path/to/icon.png" alt="Icon" />
-          </div> */}
+        
           <div
             slot="container-start"
             className="category-slide-1"

@@ -8,11 +8,10 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import './Banner.css'
-
 // import required modules
 import { Parallax, Pagination, Navigation } from 'swiper'
 
-export default function App() {
+export default function Banner() {
   return (
     <>
       <Swiper

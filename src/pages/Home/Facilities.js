@@ -1,21 +1,12 @@
 import React from "react";
 import {
   Typography,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  InputAdornment,
-  Button,
   Grid,
-  IconButton,
-  Container,
-  Paper,
+
   Box,
 } from "@mui/material";
 import {
-  Facebook,
-  Twitter,
-  Instagram,
+
   CardGiftcard,
   Undo,
   LocalShipping,
@@ -28,13 +19,13 @@ const styles = {
     boxShadow: "none",
     border: "none",
     display: "flex",
-    height:"150%",
+    height: "150%",
     borderRadius: "5px",
     alignItems: "center",
   },
 };
 
-const NewsletterSection = () => {
+const Facilities = () => {
   return (
     <Box sx={{ flexGrow: 2, p: 5, overflow: "hidden" }}>
       <Grid
@@ -87,4 +78,4 @@ const NewsletterSection = () => {
   );
 };
 
-export default NewsletterSection;
+export default Facilities;

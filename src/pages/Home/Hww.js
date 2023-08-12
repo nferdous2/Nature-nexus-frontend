@@ -50,14 +50,17 @@ export default function Hww() {
 
       <div className="hww-div">
         <Box>
-          <Grid
-            container
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={4}>
-              <Card sx={{ minWidth: 555, height: 350, ml: 25, mt: 10 ,          overflow: 'hidden',
-}}>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card sx={{
+                minWidth: { md: 555, lg: 555 },
+                height: { md: 350, lg: 350 },
+                ml: 25,
+                mt: 10,
+                overflow: 'hidden',
+              }}>
+
+
                 <CardContent>
                   <Typography
                     sx={{

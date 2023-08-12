@@ -1,16 +1,14 @@
-import { Box, Divider, Grid, Typography } from '@mui/material'
+import { Box, Container, Divider, Grid, Typography } from '@mui/material'
 import React from 'react'
 import veg1 from '../../img/veg-1.png'
 import veg2 from '../../img/veg.png'
 import forest from '../../img/forest.png'
 import animal from '../../img/wildlife.png'
-import './Goal.css'
 
 const Goal = () => {
   return (
-    <Box
-      sx={{ marginBottom: 5, p: 5, overflow: 'hidden' }}
-      className="goal-box"
+    <Container
+      sx={{ marginBottom: 5,}}
     >
       <Box sx={{ marginBottom: 3, textAlign: 'left' }}>
         <Divider
@@ -38,9 +36,9 @@ const Goal = () => {
 
       <Grid
         container
-        rowSpacing={1}
+        rowSpacing={2}
         sx={{ p: 4 }}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+        columnSpacing={{ xs: 1, sm: 2, md: 12 }}
       >
         <Grid
           item
@@ -115,7 +113,7 @@ const Goal = () => {
           </Typography>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   )
 }
 

@@ -16,7 +16,7 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from 'react-router-dom';
 
-const Product = ({ }) => {
+const FarmProduct = ({ }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
@@ -34,7 +34,7 @@ const Product = ({ }) => {
   };
 
   return (
-    <Box sx={{p:3,overflow:"hidden"}}>
+    <Box sx={{ p: 3, overflow: "hidden" }}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={9}>
           <Grid container spacing={3}>
@@ -44,7 +44,7 @@ const Product = ({ }) => {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-               
+
                     marginTop: 3,
                     marginBottom: 2,
                   }}
@@ -61,7 +61,7 @@ const Product = ({ }) => {
                       >
                         <FavoriteIcon />
                       </IconButton>
-                      <Button sx={{backgroundColor:"#ffb600",color:"white", fontWeight:"bold",}}>Details</Button>
+                      <Button sx={{ backgroundColor: "#ffb600", color: "white", fontWeight: "bold", }}>Details</Button>
 
                       {/* <Link to={`/bookDataCollection/${product.id}`}>
                         <button className="button">Details</button>
@@ -75,52 +75,38 @@ const Product = ({ }) => {
                     alt={`${product.name} cover`}
                   />
                 </Card>
-                
+
               </Grid>
             ))}
           </Grid>
         </Grid>
         <Grid item xs={12} md={3}>
-        <Card>
-        <CardContent>
-          <Typography variant="h6">Cart Items: {cartItems.length}</Typography>
-          <List>
-                  {cartItems.map((item, index) => (
-                    <ListItem key={index}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6">Cart Items: {cartItems.length}</Typography>
+              <List>
+                {cartItems.map((item, index) => (
+                  <ListItem key={index}>
                     <ListItemText
-              primary={`${item.name} - ${item.price}`}
-              secondary={
-                <>
-                <Button sx={{backgroundColor:"#ffb600",color:"black", fontWeight:"bold",m:2}}>Delete</Button>
-                <Button sx={{backgroundColor:"#ffb600",color:"black", fontWeight:"bold",}}>Buy</Button>
+                      primary={`${item.name} - ${item.price}`}
+                      secondary={
+                        <>
+                          <Button sx={{ backgroundColor: "#ffb600", color: "black", fontWeight: "bold", m: 2 }}>Delete</Button>
+                          <Button sx={{ backgroundColor: "#ffb600", color: "black", fontWeight: "bold", }}>Buy</Button>
 
-                  
-                </>
-              }
-            />
-                      {/* <ListItemText
-                        primary={`${item.name} - ${item.price}`}
-                        secondary={
-                          <Link to={`/bookDataCollection/${item.id}`}>
-                            <button className="button">Delete</button>
-                          </Link>
-                        }
-                      /> */}
-                    </ListItem>
-                  ))}
-                </List>
-          {/* <ul>
-            {cartItems.map((item, index) => (
-              <li key={index}>
-                {item.name} - {item.price}
-                <button className="button">Details</button>
 
-              </li>
-         
-            ))}
-          </ul> */}
-        </CardContent>
-      </Card>        </Grid>
+                        </>
+                      }
+                    />
+
+                  </ListItem>
+                ))}
+              </List>
+
+            </CardContent>
+          </Card>      
+          
+          </Grid>
 
       </Grid>
 
@@ -128,4 +114,4 @@ const Product = ({ }) => {
   );
 };
 
-export default Product;
+export default FarmProduct;

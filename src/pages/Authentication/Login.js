@@ -136,18 +136,15 @@ const Login = () => {
                 ),
               }}
             />
-            {/* <NavLink to="/pass">
-              <Button sx={{ width: "100%", background: "#F6FAFD",mt:2 }}>
-                Forgot Password?
-              </Button>
-            </NavLink> */}
+         
             <Button
               sx={{ width: "100%", mb: 1,mt:3 }}
               variant="contained"
               type="submit"
               style={{
-                backgroundColor: "green",
+                backgroundColor: "rgba(4, 9, 30, 0.7)",
                 color: "white",
+                fontWeight: "bold",
               }}
             >
               Login

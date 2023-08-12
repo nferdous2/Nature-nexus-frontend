@@ -1,21 +1,19 @@
 import React from 'react'
 import FreshFarmBanner from '../FreshFarmBanner/FreshFarmBanner'
 import Category from '../Category/Category'
-import MostStory from '../MostStory/MostStory'
-import './FreshFarm.css'
 import FarmService from '../FarmService'
 import Review from './Review/Review'
-import Product from '../Product/Product'
+import FarmProduct from './FarmProduct'
+import MostStory from './MostStory'
 
 const FreshFarm = () => {
   return (
     <div>
+
       <FreshFarmBanner></FreshFarmBanner>
       <Category></Category>
-      <Product></Product>
-      {/* <hr /> */}
+      <FarmProduct/>
       <MostStory></MostStory>
-      {/* <VHome></VHome> */}
       <Review></Review>
       <FarmService></FarmService>
     </div>
