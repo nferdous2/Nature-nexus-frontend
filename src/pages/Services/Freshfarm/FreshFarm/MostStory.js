@@ -12,6 +12,7 @@ const MostStory = () => {
     iconImage: {
       position: 'relative',
     },
+    
     playIcon: {
       top: '40%',
       color: '#fff',

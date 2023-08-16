@@ -35,30 +35,35 @@ const SignUp = () => {
     const handleInputChange = (event) => {
       setFormData({ ...formData, [event.target.name]: event.target.value });
     };
-  
     const handleSubmit = (event) => {
-      event.preventDefault(); //for form submission event
+      event.preventDefault();
       const { name, email, password, address } = formData;
+    
       if (!name || !email || !password || !address) {
         alert("Please fill in all the required fields.");
         return;
       }
-      
-    // Password validation using regex
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if (!passwordRegex.test(password)) {
-      alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.");
-      return;
-    }
-  
-  
-  
+    
+      // Password validation using regex
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+      if (!passwordRegex.test(password)) {
+        alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.");
+        return;
+      }
+    
+      // Email domain validation
+      const allowedDomain = "gmail.com";
+      const emailDomain = email.split('@')[1];
+      if (emailDomain !== allowedDomain) {
+        alert("Only Gmail addresses are allowed. Please use a Gmail email address.");
+        return;
+      }
+    
       axios
-        .post("http://localhost:8000/register", formData) // Pass the formData in the request
+        .post("http://localhost:8000/register", formData)
         .then((res) => {
           alert(res.data.message);
           const token = res.data.token;
-          // Store the token in local storage or a cookie
           localStorage.setItem("token", token);
           setIsLoggedIn(true);
           setFormData({
@@ -82,6 +87,52 @@ const SignUp = () => {
           }
         });
     };
+    // const handleSubmit = (event) => {
+    //   event.preventDefault(); //for form submission event
+      // const { name, email, password, address } = formData;
+    //   if (!name || !email || !password || !address) {
+    //     alert("Please fill in all the required fields.");
+    //     return;
+    //   }
+      
+    // // Password validation using regex
+    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    // if (!passwordRegex.test(password)) {
+    //   alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.");
+    //   return;
+    // }
+  
+  
+  
+    //   axios
+    //     .post("http://localhost:8000/register", formData) // Pass the formData in the request
+    //     .then((res) => {
+    //       alert(res.data.message);
+    //       const token = res.data.token;
+    //       // Store the token in local storage or a cookie
+    //       localStorage.setItem("token", token);
+    //       setIsLoggedIn(true);
+    //       setFormData({
+    //         name: "",
+    //         email: "",
+    //         password: "",
+    //         address: "",
+    //       });
+    //       window.location.href = "/";
+    //     })
+    //     .catch((err) => {
+    //       console.error("Error registering user:", err);
+    //       if (
+    //         err.response &&
+    //         err.response.data &&
+    //         err.response.data.error === "User already exists"
+    //       ) {
+    //         alert("User already exists. Please choose a different email.");
+    //       } else {
+    //         alert("Registration failed. Please try again.");
+    //       }
+    //     });
+    // };
   
     const handleTogglePasswordVisibility = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);

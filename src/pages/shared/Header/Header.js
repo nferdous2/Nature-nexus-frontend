@@ -126,7 +126,7 @@ function Header() {
                 <>
                   <Typography
                     onClick={handleLogout}
-                    sx={{ color: "#0D6EFD", borderColor: "#0D6EFD", mr: 2 }}
+                    sx={{ color: "white", mr: 2,cursor: "pointer" }}
                   >
                     Logout
                   </Typography>
@@ -266,7 +266,7 @@ function Header() {
               <>
                 <Typography
                   onClick={handleLogout}
-                  sx={{ color: "#0D6EFD", mr: 2, fontSize: "20px" }}
+                  sx={{ color: "white", mr: 2, fontSize: "20px",cursor: "pointer" }}
                 >
                   Logout
                 </Typography>
