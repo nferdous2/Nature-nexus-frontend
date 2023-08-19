@@ -5,6 +5,7 @@ import SignUp from '../../pages/Authentication/SignUp';
 import Login from '../../pages/Authentication/Login';
 import Profile from '../../pages/Profile/Profile';
 import Home from '../../pages/Home/Home';
+import OTPVerification from '../../pages/Authentication/OTP';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile></Profile>,
+      },
+      {
+        path: '/otp',
+        element: <OTPVerification></OTPVerification>,
       },
     ],
   },
