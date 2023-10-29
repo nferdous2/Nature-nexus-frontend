@@ -10,6 +10,7 @@ const Goal = () => {
     <Container
       sx={{ marginBottom: 5,}}
     >
+    {/* 1st box  */}
       <Box sx={{ marginBottom: 3, textAlign: 'left' }}>
         <Divider
           sx={{
@@ -34,12 +35,14 @@ const Goal = () => {
         </Typography>
       </Box>
 
+{/* icons text  */}
       <Grid
         container
         rowSpacing={2}
         sx={{ p: 4 }}
         columnSpacing={{ xs: 1, sm: 2, md: 12 }}
       >
+      {/* 1st grid  */}
         <Grid
           item
           xs={12}
@@ -58,6 +61,7 @@ const Goal = () => {
             Rebuild food systems to nourish people and nature
           </Typography>
         </Grid>
+        {/* 2nd grid  */}
         <Grid
           item
           xs={12}
@@ -76,6 +80,7 @@ const Goal = () => {
             Rebuild food systems to nourish people and nature
           </Typography>
         </Grid>
+        {/* 3rd grid  */}
         <Grid
           item
           xs={12}
@@ -94,6 +99,7 @@ const Goal = () => {
             Conserve the world's most important forests
           </Typography>
         </Grid>
+        {/* 4th grid  */}
         <Grid
           item
           xs={12}
@@ -112,6 +118,7 @@ const Goal = () => {
             Conserve and save wildlife
           </Typography>
         </Grid>
+          
       </Grid>
     </Container>
   )

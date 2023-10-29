@@ -5,8 +5,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isVerified, setIsVerified] = useState(false); // Add this state
-
+  // const [isVerified, setIsVerified] = useState(false); // Add this state
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -33,7 +32,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn,  handleLogout,isVerified, setIsVerified }}
+      value={{ isLoggedIn, setIsLoggedIn,  handleLogout}}
     >
       {children}
     </UserContext.Provider>

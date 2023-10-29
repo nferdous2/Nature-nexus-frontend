@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,12 +10,13 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Link, NavLink } from "react-router-dom";
-import { UserContext } from '../../Authentication/userContext';
+import { UserContext } from "../../../Authentication/userContext";
+
+//main code start here
 
 function Header() {
   const { isLoggedIn, handleLogout } = useContext(UserContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,9 +35,7 @@ function Header() {
     setAnchorEl(null);
   };
   const navbarStyle = {
-    backgroundColor: isScrolled ? 'rgba(4, 9, 30, 0.7)' : 'rgba(4, 9, 30, 0.7)',
-    backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-    boxShadow: isScrolled ? '0 0 10px rgba(0, 0, 0, 0.2)' : 'none',
+    backgroundColor:"rgba(4, 9, 30, 0.7)"
   };
 
   return (
@@ -53,10 +50,10 @@ function Header() {
           disableGutters
           sx={{ justifyContent: "center", alignItems: "center" }}
         >
+
           <Typography
             variant="h6"
             noWrap
-            component="a"
             href="/"
             sx={{
               mr: 2,
@@ -108,6 +105,54 @@ function Header() {
               >
                 <MenuItem sx={{ color: "black", fontSize: "20px", }}>Home</MenuItem>
               </NavLink>
+              <MenuItem
+              onClick={handleOpenSubMenu}
+              sx={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "20px"
+              }}
+            >
+              Service
+            </MenuItem>
+
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {/* Manually added menu items */}
+              <Link to="/freshfarm" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "black", // Set text color to black
+                    fontSize: "20px",
+                  }}
+                >
+                  Freshfarm
+                </MenuItem>
+              </Link>
+              <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "black", // Set text color to black
+                    fontSize: "20px",
+                  }}
+                >
+                  WildLife
+                </MenuItem>
+              </Link>
+              <Link exact to="/service2" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "black", // Set text color to black
+                    fontSize: "20px",
+                  }}
+                >
+                  Tree Plant
+                </MenuItem>
+              </Link>
+            </Menu>
 
               {isLoggedIn && (
                 <NavLink
@@ -126,7 +171,7 @@ function Header() {
                 <>
                   <Typography
                     onClick={handleLogout}
-                    sx={{ color: "white", mr: 2,cursor: "pointer" }}
+                    sx={{ color: "white", mr: 2, cursor: "pointer" }}
                   >
                     Logout
                   </Typography>
@@ -159,7 +204,7 @@ function Header() {
             </Menu>
           </Box>
 
-          {/* From here user menu for small devices start  */}
+          {/* From here user menu for large devices start  */}
 
           <Typography
             variant="h5"
@@ -200,6 +245,7 @@ function Header() {
             >
               Service
             </MenuItem>
+
             <Menu
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
@@ -216,7 +262,7 @@ function Header() {
                   Freshfarm
                 </MenuItem>
               </Link>
-              <Link exact to="/service2" style={{ textDecoration: 'none' }}>
+              <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
                     color: "black", // Set text color to black
@@ -266,7 +312,7 @@ function Header() {
               <>
                 <Typography
                   onClick={handleLogout}
-                  sx={{ color: "white", mr: 2, fontSize: "20px",cursor: "pointer" }}
+                  sx={{ color: "white", mr: 2, fontSize: "20px", cursor: "pointer" }}
                 >
                   Logout
                 </Typography>
@@ -284,9 +330,10 @@ function Header() {
                 </NavLink>{" "}
                 <Link to="login">
                   <Button
-                    sx={{
+                    sx={{ 
                       ml: 4,
                       borderRadius: "10px",
+                      textTransform: "capitalize",
                       backgroundColor: "#FFB800", // Default background color
                       color: "black", // Text color
                       fontWeight: "bold",

@@ -9,19 +9,14 @@ import {
   Grid,
   IconButton,
   Container,
-  Paper,
 } from "@mui/material";
 import {
   Facebook,
   Twitter,
   Instagram,
-  CardGiftcard,
-  Undo,
-  LocalShipping,
-  Headset,
+
 } from "@mui/icons-material";
 import "../../Styles/Style.css"; // Import the external CSS file
-// import { hover } from "@testing-library/user-event/dist/hover";
 
 const NewsLetter = () => {
   return (

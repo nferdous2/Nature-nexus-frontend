@@ -1,10 +1,10 @@
 import React from 'react'
-import FreshFarmBanner from '../FreshFarmBanner/FreshFarmBanner'
-import Category from '../Category/Category'
-import FarmService from '../FarmService'
-import Review from './Review/Review'
+import FreshFarmBanner from './FreshFarmBanner/FreshFarmBanner'
+import Category from './Category/Category'
 import FarmProduct from './FarmProduct'
 import MostStory from './MostStory'
+import Review from './Review'
+import FarmService from './FarmService'
 
 const FreshFarm = () => {
   return (

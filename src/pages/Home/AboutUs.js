@@ -46,8 +46,8 @@ const AboutUs = () => {
             the climate crisis, and protect and restore wildlife and their
             habitats.
           </Typography>
-          <Grid sx={{ mb: { xs: 5, sm: 5 }, display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 2 }}>
-            <Button
+          {/* 1st button  */}
+          <Button
               sx={{
                 mr: 4,
                 width: '40%',
@@ -61,7 +61,7 @@ const AboutUs = () => {
             >
               Donate Now
             </Button>
-
+ {/* 2nd button  */}
             <Button
               sx={{
                 mr: 4,
@@ -74,7 +74,7 @@ const AboutUs = () => {
             >
               More ways you can help
             </Button>
-          </Grid>
+    
         </Grid>
 
         <Grid item xs={12} sm={12} md={6} lg={6} sx={{ mt: { xs: 3, sm: 4 ,md:-5}}}>

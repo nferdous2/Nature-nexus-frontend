@@ -11,34 +11,57 @@ import {
   List,
   ListItem,
   ListItemText,
+  TextField,
   Typography,
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Link } from 'react-router-dom';
 
 const FarmProduct = ({ }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // Fetch data from JSON file (you might need to adjust the path)
+    // Fetch all products from your API
     fetch('http://localhost:8000/products')
       .then(response => response.json())
-      .then(data => setProducts(data))
+      .then(data => {
+        // Filter the products with the "freshfood" category
+        const freshFoodProducts = data.filter(product => product.category === "freshfood");
+        setProducts(freshFoodProducts);
+      })
       .catch(error => console.error('Error fetching products:', error));
   }, []);
-
+  
+//for searching
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  // add to cart
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
     alert('Added to cart')
   };
 
+  //main code starts here
+
   return (
     <Box sx={{ p: 3, overflow: "hidden" }}>
       <Grid container spacing={3}>
+    
         <Grid item xs={12} md={9}>
+       <Box style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+       <Typography variant='h4'>Search You desired product here</Typography>
+       <TextField
+            type="text"
+            placeholder="Search products"
+            value={searchQuery}
+            onChange={event => setSearchQuery(event.target.value)}
+          />
+
+       </Box>
           <Grid container spacing={3}>
-            {products.map(product => (
+          {filteredProducts.map(product => (
               <Grid key={product.id} item xs={12} sm={12} md={4} lg={4}>
                 <Card
                   sx={{
@@ -62,10 +85,6 @@ const FarmProduct = ({ }) => {
                         <FavoriteIcon />
                       </IconButton>
                       <Button sx={{ backgroundColor: "#ffb600", color: "white", fontWeight: "bold", }}>Details</Button>
-
-                      {/* <Link to={`/bookDataCollection/${product.id}`}>
-                        <button className="button">Details</button>
-                      </Link> */}
                     </CardContent>
                   </Box>
                   <CardMedia

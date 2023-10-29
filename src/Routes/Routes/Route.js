@@ -1,11 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Main from '../../Layout/Main/Main'
-import FreshFarm from '../../pages/Services/Freshfarm/FreshFarm/FreshFarm';
-import SignUp from '../../pages/Authentication/SignUp';
-import Login from '../../pages/Authentication/Login';
-import Profile from '../../pages/Profile/Profile';
+import FreshFarm from '../../pages/Services/Freshfarm/FreshFarm';
+import Login from '../../Authentication/Login';
+import SignUp from '../../Authentication/SignUp';
 import Home from '../../pages/Home/Home';
-import OTPVerification from '../../pages/Authentication/OTP';
+import WHome from '../../pages/Services/WildLife/WHome';
+import DashboardNav from '../../Dashboard/DashboardNav';
+import OTPVerification from '../../Authentication/OTP';
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,20 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: '/profile',
-        element: <Profile></Profile>,
+        path:'/wildlife',
+        element: <WHome></WHome>,
       },
+      // {
+      //   path: '/profile',
+      //   element: <Profile></Profile>,
+      // },
       {
         path: '/otp',
         element: <OTPVerification></OTPVerification>,
+      },
+      {
+        path: '/dashboard',
+        element: <DashboardNav/>
       },
     ],
   },

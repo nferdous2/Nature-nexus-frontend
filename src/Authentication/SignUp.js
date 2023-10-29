@@ -90,6 +90,7 @@ const SignUp = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  
 
   return (
     <ThemeProvider theme={defaultTheme}>

@@ -1,5 +1,4 @@
 import React  from 'react'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import {  Typography } from '@mui/material'

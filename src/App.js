@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { RouterProvider } from 'react-router-dom'
 import route from './Routes/Routes/Route'
-import { UserProvider } from './pages/Authentication/userContext'
+import { UserProvider } from './Authentication/userContext'
 
 function App() {
   return (

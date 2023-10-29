@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { UserContext } from "./userContext";
 import axios from "axios";
 import React, { useContext, useState } from "react";
 
@@ -18,6 +17,7 @@ import {
     Paper,
     TextField,
   } from "@mui/material";
+import { UserContext } from './userContext';
 const defaultTheme = createTheme();
 
 

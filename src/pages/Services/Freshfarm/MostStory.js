@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
-import moststoryimg from '../../../../img/grocery-about-us.webp'
+import moststoryimg from '../../../img/grocery-about-us.webp'
 import { Link } from 'react-router-dom'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { Button,CardContent, CardMedia, Container, Typography } from '@mui/material'

@@ -2,7 +2,6 @@ import React from "react";
 import {
   Email,
   Facebook,
-  Image,
   Instagram,
   LocationOn,
   Phone,
@@ -39,20 +38,22 @@ const Footer = () => {
     { img: image5 },
     { img: image6 },
   ];
+  // icon style 
   const iconStyle = {
     color: "orange",
     marginRight: "8px",
   };
   return (
     <div className="footer-bg">
-      <Container maxWidth="lg" sx={{mt:5}}>
+      <Container maxWidth="lg" sx={{ mt: 5 }}>
         <Grid container spacing={3}>
           {/* section one  */}
           <Grid item xs={12} md={3} className="footer-text">
             <div>
               <img src={logo} style={{ width: "50%" }} alt="" />
             </div>
-            <div              style={{
+            <div
+              style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -61,27 +62,27 @@ const Footer = () => {
             >
               <List>
                 <ListItem>
-                <Typography gutterBottom display="flex">
-              <LocationOn style={iconStyle} />
-              123 Main St, Anytown, USA
-            </Typography>
+                  <Typography gutterBottom display="flex">
+                    <LocationOn style={iconStyle} />
+                    Sylhet,Bangladesh
+                  </Typography>
                 </ListItem>
                 <ListItem>
-                <Typography gutterBottom display="flex">
-              <Phone style={iconStyle} />
-              (123) 456-7890
-            </Typography>
+                  <Typography gutterBottom display="flex">
+                    <Phone style={iconStyle} />
+                    +880 01770203333
+                  </Typography>
                 </ListItem>
 
                 <ListItem>
-                <Typography gutterBottom display="flex">
-              <Email style={iconStyle} />
-              info@naturen01.com
-            </Typography>
+                  <Typography gutterBottom display="flex">
+                    <Email style={iconStyle} />
+                    naturenexus0@gmail.com
+                  </Typography>
                 </ListItem>
               </List>
             </div>
-          
+
           </Grid>
 
           {/* links sections  */}
@@ -119,6 +120,8 @@ const Footer = () => {
                     Our Services
                   </Link>
                 </ListItem>
+
+
               </List>
             </div>
           </Grid>
@@ -130,6 +133,7 @@ const Footer = () => {
             >
               Our Gallery
             </Typography>
+            {/* get image  */}
             <ImageList cols={3} gap={5} rowHeight="auto">
               {images.map((image) => (
                 <ImageListItem key={image.img}>
@@ -140,40 +144,8 @@ const Footer = () => {
           </Grid>
           {/* subscription section  */}
           <Grid item xs={12} md={4} className="footer-text">
-            <Typography
-              sx={{ fontSize: "22px", fontWeight: "bold", color: "#FFBC62" }}
-              gutterBottom
-            >
-              Subscribe
-            </Typography>
-            <Typography gutterBottom>
-              Subscribe to our newsletter for updates on the latest news and
-              offers.
-            </Typography>
-            <form
-              method="POST"
-              target="_blank"
-              style={{ marginTop: "4%", display: "flex" }}
-            >
-              <TextField
-                name="email"
-                size="small"
-                placeholder="Enter your email"
-                sx={{ backgroundColor: "white" }}
-              />
 
-              <Button
-                type="submit"
-                sx={{
-                  padding: "2%",
-                  marginLeft: "2%",
-                  backgroundColor: "#FFBC62",
-                  color: "white",
-                }}
-              >
-                Subscribe
-              </Button>
-            </form>
+
             <div style={{ marginTop: "4%" }}>
               <Typography
                 sx={{ fontSize: "22px", fontWeight: "bold", color: "#FFBC62" }}
@@ -182,26 +154,27 @@ const Footer = () => {
                 Connect with us
               </Typography>
               <IconButton
-                aria-label="Facebook"
                 style={{ color: "white", padding: "2%" }}
               >
-                <Facebook />
+                <Facebook style={{ fontSize: "30px" }} />
               </IconButton>
               <IconButton
-                aria-label="Twitter"
                 style={{ color: "white", padding: "2%" }}
               >
-                <Twitter />
+                <Twitter style={{ fontSize: "30px" }} />
               </IconButton>
               <IconButton
-                aria-label="Instagram"
                 style={{ color: "white", padding: "2%" }}
               >
-                <Instagram />
+
+                <Instagram style={{ fontSize: "30px" }} />
               </IconButton>
             </div>
           </Grid>
         </Grid>
+
+
+
         <Typography className="footer-text" style={{ textAlign: "center" }}>
           {" "}
           Copyright © 2023 .All rights reserved.
