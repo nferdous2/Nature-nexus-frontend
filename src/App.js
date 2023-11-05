@@ -7,12 +7,11 @@ import { UserProvider } from './Authentication/userContext'
 function App() {
   return (
     <UserProvider>
-  <div className="App">
-      <RouterProvider router={route}></RouterProvider>
-    </div>
+      <div className="App">
+        <RouterProvider router={route}></RouterProvider>
+      </div>
     </UserProvider>
-  
   )
 }
 
-export default App;
+export default App

@@ -1,17 +1,18 @@
 import React from 'react'
 import './FreshFarmBanner.css'
+import { Typography } from '@mui/material'
 import deliveryicon from '../../../../img/delivery-icon-2.webp'
 
 const FreshFarmBanner = () => {
   return (
     <div
-      className="hero"
+      className="freshfarmhero"
       style={{
         display: 'flex',
         flexDirection: 'column',
       }}
     >
-      <p className="organic">
+      <p className="freshfarmorganic">
         ORGANIC
         <br />
         GROCERY

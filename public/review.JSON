@@ -1,0 +1,72 @@
+[
+  {
+    "product": "Product A",
+    "rating": 4.0,
+    "reviewer": "Alice Smith",
+    "date": "2023-11-04",
+    "comment": "Product A is quite good. It serves its purpose well, but I wish it were a bit more affordable."
+  },
+  {
+    "product": "Product B",
+    "rating": 5.0,
+    "reviewer": "Bob Johnson",
+    "date": "2023-11-04",
+    "comment": "Product B is amazing! It's exactly what I needed. Great quality, easy to use, and reasonably priced."
+  },
+  {
+    "product": "Product C",
+    "rating": 3.5,
+    "reviewer": "Eva Garcia",
+    "date": "2023-11-04",
+    "comment": "Product C is okay. It gets the job done, but I expected a bit more in terms of features."
+  },
+  {
+    "product": "Product D",
+    "rating": 4.5,
+    "reviewer": "David Brown",
+    "date": "2023-11-04",
+    "comment": "Product D exceeded my expectations. It's versatile and well-built, making it a great addition to my tools."
+  },
+  {
+    "product": "Product E",
+    "rating": 2.0,
+    "reviewer": "Grace Wilson",
+    "date": "2023-11-04",
+    "comment": "Product E is disappointing. It broke after only a few uses, and the customer support was unhelpful."
+  },
+  {
+    "product": "Product F",
+    "rating": 4.0,
+    "reviewer": "Frank Martin",
+    "date": "2023-11-04",
+    "comment": "Product F is a good value for the price. It's not perfect, but it does what it's supposed to."
+  },
+  {
+    "product": "Product G",
+    "rating": 5.0,
+    "reviewer": "Olivia Lee",
+    "date": "2023-11-04",
+    "comment": "Product G is outstanding! It's well-designed and very user-friendly. I'm extremely satisfied."
+  },
+  {
+    "product": "Product H",
+    "rating": 3.5,
+    "reviewer": "James Anderson",
+    "date": "2023-11-04",
+    "comment": "Product H is decent, but it could use some improvements. It's a bit overpriced for what it offers."
+  },
+  {
+    "product": "Product I",
+    "rating": 4.5,
+    "reviewer": "Sophia Clark",
+    "date": "2023-11-04",
+    "comment": "Product I is a fantastic addition to my home. It's durable and stylish. Highly recommended!"
+  },
+  {
+    "product": "Product J",
+    "rating": 2.0,
+    "reviewer": "Michael Rodriguez",
+    "date": "2023-11-04",
+    "comment": "Product J is a complete waste of money. It doesn't work as advertised, and the build quality is poor."
+  }
+]

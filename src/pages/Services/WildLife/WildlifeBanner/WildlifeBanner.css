@@ -1,0 +1,71 @@
+.hero {
+  background-image: url(../../../../img/wildlife-6.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 110vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+  margin-top: -4rem;
+  background-attachment: scroll;
+}
+/* .subtitle {
+  color: #ffb600;
+  border-radius: 5px;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 30rem;
+  margin-left: 30%;
+} */
+.organic {
+  font-weight: bold;
+  font-size: 4rem;
+  margin-top: 10rem;
+  text-align: center;
+  margin-left: 45%;
+  color: #ffffff;
+}
+
+.shop-online-btn {
+  background-color: #ffb600;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 3rem;
+  margin-left: 30%;
+}
+.shop-online-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* CSS for mobile screens */
+@media (max-width: 767px) {
+  .organic {
+    font-size: 3rem;
+    margin-top: 5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .shop-online-btn {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-left: 0;
+    padding: 10px 30px;
+  }
+}

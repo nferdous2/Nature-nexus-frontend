@@ -8,8 +8,15 @@ import './Review.css'
 import { EffectCoverflow, Pagination } from 'swiper'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 
-
 export default function Review() {
+  const [review, setReview] = React.useState([])
+  React.useEffect(() => {
+    fetch('./review.JSON')
+      .then((res) => res.json())
+      .then((data) => {
+        setReview(data)
+      })
+  }, [])
   return (
     <>
       <Typography
@@ -35,7 +42,7 @@ export default function Review() {
         modules={[EffectCoverflow, Pagination]}
         className="review-Swiper"
       >
-        <SwiperSlide className="review-swiper-slide">
+        {/* <SwiperSlide className="review-swiper-slide">
           <Card>
             <CardMedia
               sx={{ width: '50%', mx: 'auto' }}
@@ -52,8 +59,8 @@ export default function Review() {
               </CardContent>
             </CardContent>
           </Card>{' '}
-        </SwiperSlide>
-        <SwiperSlide className="review-swiper-slide">
+        </SwiperSlide> */}
+        {/* <SwiperSlide className="review-swiper-slide">
           <Card>
             <CardMedia
               sx={{ width: '50%', mx: 'auto' }}
@@ -70,25 +77,32 @@ export default function Review() {
               </CardContent>
             </CardContent>
           </Card>{' '}
-        </SwiperSlide>
-        <SwiperSlide className="review-swiper-slide">
-          <Card>
-            <CardMedia
-              sx={{ width: '50%', mx: 'auto' }}
-              component="img"
-              src="//cdn.shopify.com/s/files/1/0768/6533/9704/files/grocery-testimonial-03.png?v=1684730857&amp;"
-              alt="Customer 3"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Denial
-              </Typography>
+        </SwiperSlide> */}
+        {review.map((review, index) => (
+          <SwiperSlide className="review-swiper-slide" key={index}>
+            <Card>
+              {/* <CardMedia
+                sx={{ width: '50%', mx: 'auto' }}
+                component="img"
+                src={reviewData.imageUrl}
+                alt={`Customer ${index + 1}`}
+              /> */}
               <CardContent>
-                <Typography variant="subtitle2">Maureen biologist</Typography>
+                <Typography gutterBottom variant="h5" component="div">
+                  {review.reviewer}
+                </Typography>
+                <CardContent>
+                  <Typography variant="subtitle2">
+                    Rating:{review.rating}
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    {review.comment}
+                  </Typography>
+                </CardContent>
               </CardContent>
-            </CardContent>
-          </Card>
-        </SwiperSlide>
+            </Card>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   )

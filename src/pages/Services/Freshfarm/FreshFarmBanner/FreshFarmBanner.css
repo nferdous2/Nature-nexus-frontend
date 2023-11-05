@@ -1,4 +1,4 @@
-.hero {
+.freshfarmhero {
   background-image: url(../../../../img/slider-1.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,7 +14,7 @@
   margin-top: -4rem;
   background-attachment: scroll;
 }
-.organic {
+.freshfarmorganic {
   font-weight: bold;
   font-size: 6rem;
   margin-top: 10rem;
@@ -42,7 +42,7 @@
   font-weight: 400;
   margin-left: 10px;
 }
-.shop-online-btn{
+.shop-online-btn {
   background-color: #ffb600;
   color: #fff;
   border-radius: 5px;
@@ -55,7 +55,7 @@
   margin-top: 3rem;
   margin-left: 30%;
 }
-.shop-online-btn:hover{
+.shop-online-btn:hover {
   background-color: #fff;
   color: #000;
 }

@@ -1,7 +1,7 @@
-import React  from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import {  Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -11,7 +11,7 @@ import './Category.css'
 export default function Category() {
   return (
     <div>
-     <Typography
+      <Typography
         variant="h3"
         gutterBottom
         sx={{ marginBottom: 3, color: '#444', fontWeight: 'bold' }}
@@ -43,7 +43,7 @@ export default function Category() {
             <p className="text">Text in the middle</p>
             <ArrowForwardIcon className="slide-icon" />
           </div>
-        
+
           <div
             slot="container-start"
             className="category-slide-1"

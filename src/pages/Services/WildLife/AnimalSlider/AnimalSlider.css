@@ -1,0 +1,160 @@
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.category-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.category-slide-1,
+.category-slide-2,
+.category-slide-3,
+.category-slide-4,
+.category-slide-5,
+.category-slide-6,
+.category-slide-7,
+.category-slide-8,
+.category-slide-9 {
+  position: absolute;
+  left: 30%;
+  top: -65%;
+  width: 40%;
+  height: 80vh;
+  -webkit-background-size: cover;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* background-image: url(../../../img/african-leopard-female-pose-beautiful-evening-light.jpg); */
+}
+
+.category-slide-1 {
+  background-image: url(../../../../img/c-1.png);
+}
+.category-slide-2 {
+  background-image: url(../../../../img/cat-02.png);
+}
+.category-slide-3 {
+  background-image: url(../../../../img/cat-03.png);
+}
+.category-slide-4 {
+  background-image: url(../../../../img/cat-04.png);
+}
+.category-slide-5 {
+  background-image: url(../../../../img/cat-05.png);
+}
+.category-slide-6 {
+  background-image: url(../../../../img/cat-06.png);
+}
+.category-slide-7 {
+  background-image: url(../../../../img/cat-06.png);
+}
+.category-slide-8 {
+  background-image: url(../../../../img/cat-01.png);
+}
+.category-slide-9 {
+  background-image: url(../../../../img/cat-04.png);
+}
+.myCategorySwiper {
+  width: 100%;
+  max-width: 1350px;
+  margin-bottom: 5rem;
+}
+.category-swiper-slide {
+  height: 230px;
+  background: #fff;
+  line-height: 300px;
+  text-align: center;
+}
+.category-slide-1 {
+  background-image: url(../../../../img/cat-01.png);
+}
+.swiper-slide:nth-child(1) {
+  background: #9fb75c71;
+}
+.swiper-slide:nth-child(2) {
+  background: #8acc7d6a;
+}
+.swiper-slide:nth-child(3) {
+  background: #b7cc7d80;
+}
+.swiper-slide:nth-child(4) {
+  background: #9fb75c70;
+}
+.swiper-slide:nth-child(5) {
+  background: #7da8cc79;
+}
+.swiper-slide:nth-child(8) {
+  background: #96cc7d62;
+}
+.swiper-slide:nth-child(7) {
+  background: #cc7dae67;
+}
+
+.slide-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  /* margin-left: -45px; */
+
+  display: none;
+  background-color: #000;
+}
+
+.text {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-top: 150px;
+  background-color: red;
+}
+
+.slide-icon {
+  align-items: center;
+  transition: margin 0.3s ease;
+  display: none;
+  background-color: green;
+}
+/* 
+.category-swiper-slide:hover .slide-content {
+  display: block;
+  margin-left: 5px;
+}
+
+.category-swiper-slide:hover .slide-icon {
+  margin-right: 5px;
+  display: block;
+} */
+
+/* CSS for mobile screens */
+@media (max-width: 767px) {
+  .category-slide-1,
+  .category-slide-2,
+  .category-slide-3,
+  .category-slide-4,
+  .category-slide-5,
+  .category-slide-6,
+  .category-slide-7,
+  .category-slide-8,
+  .category-slide-9 {
+    left: 34%;
+    top: -25%;
+    width: 30%;
+    height: 40vh;
+  }
+}
