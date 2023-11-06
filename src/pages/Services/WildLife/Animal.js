@@ -1,68 +1,72 @@
-// import {
-//   Box,
-//   Card,
-//   CardContent,
-//   CardMedia,
-//   Grid,
-//   IconButton,
-//   Typography,
-// } from '@mui/material'
-// import React from 'react'
-// // import './Book.css'
-// import FavoriteIcon from '@mui/icons-material/Favorite'
-// import { Link } from 'react-router-dom'
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  IconButton,
+  Typography,
+} from '@mui/material'
+import React from 'react'
+// import './Book.css'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { Link } from 'react-router-dom'
 
-// const Animal = (props) => {
-//   const { name, image, id } = props.animal
-//   console.log(props.animal)
-//   return (
-   
-//     <Grid item xs={12} sm={6} md={3} lg={3}>
-//       <Card
-//         sx={{
-//           display: 'flex',
-//           alignItems: 'center',
-//           // justifyContent: 'center',
-//           width: 370,
-//           height: 250,
-//           marginTop: 5,
-//           marginBottom: 5,
-//         }}
-//       >
-//         <Box
-//           sx={{
-//             display: 'flex',
-//             flexDirection: 'column',
-//           }}
-//         >
-//           <CardContent sx={{ flex: '1 0 auto' }}>
-//             <Typography component="div" variant="h5">
-//               {name}
-//             </Typography>
-//             {/* <Typography
-//               variant="subtitle1"
-//               color="text.secondary"
-//               component="div"
-//             >
-//               -by{authername}
-//             </Typography> */}
-//             <IconButton aria-label="add to favorites">
-//               <FavoriteIcon />
-//             </IconButton>
-//             <Link to={`/bookDataCollection/${id}`}>
-//               <button className="button">Details</button>
-//             </Link>
-//           </CardContent>
-//         </Box>
-//         <CardMedia
-//           component="img"
-//           sx={{ width: 200, height: 250 }}
-//           image={image}
-//           alt="Live from space album cover"
-//         />
-//       </Card>
-//     </Grid>
-//   )
-// }
+const Animal = (props) => {
+  const { name, image, id, Neutered, Age, Gender } = props.animal
+  console.log(props.animal)
+  return (
+    <Grid item xs={12} sm={6} md={3} lg={3}>
+      <Card sx={{ maxWidth: 330, margin: '25px' }}>
+        <CardMedia
+          image={image}
+          title="green iguana"
+          sx={{
+            width: 150,
+            height: 150,
+            margin: 'auto',
+            borderRadius: '50%',
+            mt: '20px',
+          }}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="body1" component="div">
+            Name:{name}
+          </Typography>
+          <Typography gutterBottom variant="body1" component="div">
+            Gender: {Gender}
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="body1"
+            component="div"
+            sx={{ color: 'black' }}
+          >
+            Neutered:{Neutered}
+          </Typography>
+          <Typography gutterBottom variant="body1" component="div">
+            Age:{Age}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Link
+            sx={{ margin: 'auto' }}
+            to={{
+              pathname: `/details/${id}`,
+            //   state: { myState: 'myStateValue' },
+              // state: { animals }, // Pass the full animal data as state
+            }}
+          >
+            <Button variant="contained" size="small" sx={{ margin: 'auto' }}>
+              Details
+            </Button>
+          </Link>
+        </CardActions>
+      </Card>
+    </Grid>
+  )
+}
 
-// export default Animal
+export default Animal

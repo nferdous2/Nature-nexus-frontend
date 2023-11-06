@@ -14,7 +14,7 @@ import {
 // import { useQuery } from '@tanstack/react-query'
 import Animal from '../Animal'
 import { Link } from 'react-router-dom'
-import Category from './../AnimalSlider/AnimalSlider';
+import Category from './../AnimalSlider/AnimalSlider'
 
 const Animals = () => {
   const [animals, setAnimals] = useState([])
@@ -36,7 +36,7 @@ const Animals = () => {
       .then((res) => res.json())
       .then((data) => setAnimals(data))
   }, [])
-  // useEffect(() => { 
+  // useEffect(() => {
   //   //fetch all animals from api
   //   fetch('http://localhost:8000/products')
   //     .then((res) => res.json())
@@ -51,17 +51,17 @@ const Animals = () => {
     <>
       <Box sx={{ flexGrow: 1 }}>
         <Typography variant="h4" sx={{ py: 1, px: 2, mt: 5, mb: 5 }}>
-          Books are Available
+         Find a new friend
         </Typography>
-        {/* <Grid container>
+        <Grid container>
           {animals.map((animal) => (
             <Animal key={animal.id} animal={animal}></Animal>
           ))}
-        </Grid> */}
+        </Grid>
 
-        {animals.map((animals) => (
-          <Grid key={animals.id} item xs={12} sm={12} md={2} lg={2} >
-            <Card sx={{ maxWidth: 345 }}>
+        {/* {animals.map((animals) => (
+          <Grid container spacing={2} key={animals.id} item xs={12} sm={12} md={2} lg={2} >
+            <Card sx={{ maxWidth: 300}}>
               <CardMedia
                 image={animals.image}
                 title="green iguana"
@@ -106,7 +106,105 @@ const Animals = () => {
                 </CardActions>
             </Card>
           </Grid>
-        ))}
+          <Grid container spacing={2} key={animals.id}>
+            <Grid item xs={12} sm={12} md={6} lg={4}>
+               <Card sx={{ maxWidth: 300}}>
+              <CardMedia
+                image={animals.image}
+                title="green iguana"
+                sx={{
+                  width: 150,
+                  height: 200,
+                  margin: 'auto',
+                  borderRadius: 'rounded',
+                }}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="body1" component="div">
+                  Name:{animals.name}
+                </Typography>
+                <Typography gutterBottom variant="body1" component="div">
+                  Gender: {animals.Gender}
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  sx={{ color: 'black' }}
+                >
+                  Neutered:{animals.Neutered}
+                </Typography>
+                <Typography gutterBottom variant="body1" component="div">
+                  Age:{animals.Age}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                   <Link
+                  to={{
+                    pathname: `/details/${animals.id}`,
+                    state: {myState: "myStateValue"},
+                    // state: { animals }, // Pass the full animal data as state
+                  }}
+                >
+                  <Button variant="contained" size="small" sx={{ margin: 'auto' }}>
+                    Details
+                  </Button>
+                </Link>
+                </CardActions>
+            </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4}>
+              <Card sx={{ maxWidth: 300}}>
+              <CardMedia
+                image={animals.image}
+                title="green iguana"
+                sx={{
+                  width: 150,
+                  height: 200,
+                  margin: 'auto',
+                  borderRadius: 'rounded',
+                }}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="body1" component="div">
+                  Name:{animals.name}
+                </Typography>
+                <Typography gutterBottom variant="body1" component="div">
+                  Gender: {animals.Gender}
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  sx={{ color: 'black' }}
+                >
+                  Neutered:{animals.Neutered}
+                </Typography>
+                <Typography gutterBottom variant="body1" component="div">
+                  Age:{animals.Age}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                   <Link
+                  to={{
+                    pathname: `/details/${animals.id}`,
+                    state: {myState: "myStateValue"},
+                    // state: { animals }, // Pass the full animal data as state
+                  }}
+                >
+                  <Button variant="contained" size="small" sx={{ margin: 'auto' }}>
+                    Details
+                  </Button>
+                </Link>
+                </CardActions>
+            </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4}>
+              f
+            </Grid>
+           
+          </Grid>
+        ))} */}
       </Box>
     </>
   )

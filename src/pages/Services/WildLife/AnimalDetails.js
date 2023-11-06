@@ -30,11 +30,11 @@ const ExpandMore = styled((props) => {
 export default function AnimalDetails(props) {
   const [expanded, setExpanded] = React.useState(false)
   const [animal, setAnimal] = React.useState({})
-  const { id } = useParams()
+  // const { id } = useParams()
   const location = useLocation()
-const { myState } = location.state
+// const { myState } = location.state
   // console.log(props.location.state)
-  console.log(myState)
+  // console.log(myState)
 
 
 
@@ -49,28 +49,28 @@ const { myState } = location.state
   // }, [id])
   // const [userData, setUserData] = React.useState(null);
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('./wildlifeAnimalData.JSON') // Adjust the path accordingly
-        const data = await response.text()
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('./wildlifeAnimalData.JSON') // Adjust the path accordingly
+  //       const data = await response.text()
 
-        const user = data.find((user) => user.id == Number(id))
+  //       const user = data.find((user) => user.id == Number(id))
 
-        if (user) {
-          setAnimal(user)
-        } else {
-          console.log('User not found')
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
+  //       if (user) {
+  //         setAnimal(user)
+  //       } else {
+  //         console.log('User not found')
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error)
+  //     }
+  //   }
 
-    fetchData()
-  }, [id])
+  //   fetchData()
+  // }, [id])
 
-  console.log(animal, id)
+  // console.log(animal, id)
   return (
     <Card sx={{ maxWidth: 800, margin: 'auto', mt: 15 }}>
       <CardHeader
