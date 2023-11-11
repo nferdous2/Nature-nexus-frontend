@@ -1,15 +1,12 @@
-import { Box, Button, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 import aboutimg from '../../../img/wildlife-about.png'
-import WildSwiper from '../../../CommonComponent/WildSwiper';
 const Waboutus = () => {
   return (
     <Box sx={{ mb: 5, mt: 4,m:5}}>
-  <Grid container spacing={{ xs: 2, sm: 4, md: 6, lg: 8 }}>
+      <Grid container spacing={{ xs: 2, sm: 4, md: 6, lg: 8 }}>
         <Grid item xs={12} md={6} lg={7} sx={{ textAlign: "left" }}>
-          <Typography sx={{ color: 'rgba(255, 0, 0, 0.67)', fontSize: '1.2rem', mb: 2 }}>
-            Most story for grocery 2023
-          </Typography>
+        
           <Typography sx={{ color: '#000000a4', fontSize: '3rem', fontWeight: 600, mb: 2 }}>
             Words About World <span style={{ color: "#f8bf02" }}> Animals </span>
           </Typography>
@@ -81,7 +78,6 @@ const Waboutus = () => {
          
         </Grid>
       </Grid>
-      <WildSwiper/>
     </Box>
   );
 };

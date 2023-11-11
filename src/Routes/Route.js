@@ -39,8 +39,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/details/:id',
+        loader: ({ params }) => {
+          const animalId = params.id;
+          return fetch('/wildlifeAnimalData.JSON') // Remove extra dots in the path
+          .then((response) => response.json())
+          .then((data) => data[animalId]);
+        
+        },
         element: <AnimalDetails></AnimalDetails>,
       },
+      
       // {
       //   path: '/profile',
       //   element: <Profile></Profile>,

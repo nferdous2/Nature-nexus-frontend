@@ -7,9 +7,6 @@ import {
   CardMedia,
   Grid,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
   TextField,
   Typography,
 } from '@mui/material';
