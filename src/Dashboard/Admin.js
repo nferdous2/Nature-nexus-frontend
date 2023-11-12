@@ -9,14 +9,13 @@ const Admin = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
+        role:"",
 
     });
     const [showPassword, setShowPassword] = useState(false);
 
     const handleAdmin = (event) => {
         event.preventDefault();
-        const { email, password, } = formData;
-
 
         axios
             .post("http://localhost:8000/admin", formData)
@@ -27,6 +26,7 @@ const Admin = () => {
                 setFormData({
                     email: "",
                     password: "",
+                    role: "",
                 });  // Access the UserContext
             })
             .catch((err) => {
@@ -66,6 +66,16 @@ const Admin = () => {
                             name="email"
                             onChange={handleInputChange}
                             value={formData.email}
+                            variant="standard"
+                            required
+                        />
+                           <TextField
+                            sx={{ width: "100%", mb: 1 }}
+                            id="standard-basic-1"
+                            label="Add role"
+                            name="role"
+                            onChange={handleInputChange}
+                            value={formData.role}
                             variant="standard"
                             required
                         />

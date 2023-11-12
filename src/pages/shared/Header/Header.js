@@ -108,6 +108,16 @@ function Header() {
                   Home
                 </MenuItem>
               </NavLink>
+              <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "white", 
+                    fontSize: "20px",
+                  }}
+                >
+                  Cart
+                </MenuItem>
+                </NavLink>
               <MenuItem
                 onClick={handleOpenSubMenu}
                 sx={{
@@ -241,7 +251,16 @@ function Header() {
                 Home
               </MenuItem>
             </Link>
-
+            <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "white",
+                    fontSize: "20px",
+                  }}
+                >
+                  Cart
+                </MenuItem>
+                </NavLink>
             <MenuItem
               onClick={handleOpenSubMenu}
               sx={{

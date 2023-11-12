@@ -5,12 +5,16 @@ import {
   Card,
   CardContent,
   CardMedia,
+  FormControl,
   Grid,
   IconButton,
+  InputAdornment,
+  OutlinedInput,
   TextField,
   Typography,
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Search } from '@mui/icons-material';
 
 const FarmProduct = () => {
   // Initialize cart items from localStorage if available, or an empty array
@@ -34,47 +38,48 @@ const FarmProduct = () => {
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  
   // FarmProduct.js
 
 
   const addToCart = (product) => {
-    // Check if the product is already in the cart
-    const productIndex = cartItems.findIndex((item) => item.id === product.id);
-
-    if (productIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[productIndex].quantity += 1;
-      setCartItems(updatedCartItems);
-      // Update the cart data in local storage
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-    } else {
-      // If the product is not in the cart, add it with a quantity of 1
-      const updatedCart = [...cartItems, { ...product, quantity: 1 }];
-      setCartItems(updatedCart);
-      // Update the cart data in local storage
-      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-    }
+    const updatedCart = [...cartItems, { ...product, quantity: 1 }];
+    setCartItems(updatedCart);
+    // Update the cart data in local storage
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    alert('Added to cart');
   };
+  
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <Box sx={{ p: 3, overflow: 'hidden' }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={9}>
-          <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Grid item xs={12} md={12}>
+          <Box style={{  alignItems: 'center', justifyContent: 'center' }}>
             <Typography variant="h4">Search Your Desired Product Here</Typography>
-            <TextField
-              type="text"
-              placeholder="Search products"
-              value={searchQuery}
+            <br/>
+            <FormControl sx={{ m: 1, width: '30%' }} variant="outlined">
+          <OutlinedInput
+            id="outlined-adornment-weight"
+            placeholder="Search products"
+            value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
-            />
+            endAdornment={<Search position="end"></Search>}
+            aria-describedby="outlined-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />           
+          </FormControl>
+
+           
           </Box>
           <Grid container spacing={3}>
             {filteredProducts.map((product) => (
-              <Grid key={product.id} item xs={12} sm={12} md={4} lg={4}>
+              <Grid key={product.id} item xs={12} sm={12} md={3} lg={3}>
                 <Card
                   sx={{
                     display: 'flex',
@@ -111,7 +116,6 @@ const FarmProduct = () => {
           </Grid>
         </Grid>
 
-      </Grid>
     </Box>
   );
 };

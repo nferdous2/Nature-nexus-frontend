@@ -1,10 +1,9 @@
-import { Box, Card, CardContent, CardMedia, Typography, Grid, CardActions } from '@mui/material';
 import React from 'react';
 import logo from "../../../img/pawprint.webp";
 import b1 from "../../../img/b1.webp";
 import b2 from "../../../img/b2.webp";
 import b3 from "../../../img/b3.webp"
-
+import {Grid , Box, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 
 const Blogs = () => {
     return (
