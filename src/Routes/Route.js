@@ -48,11 +48,7 @@ const router = createBrowserRouter([
         },
         element: <AnimalDetails></AnimalDetails>,
       },
-      
-      // {
-      //   path: '/profile',
-      //   element: <Profile></Profile>,
-      // },
+  
       {
         path: '/otp',
         element: <OTPVerification></OTPVerification>,

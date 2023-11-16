@@ -87,7 +87,7 @@ const SvgBackground = styled("svg")({
 
 export default function DashboardNav() {
     const [open, setOpen] = React.useState(true);
-    const { isLoggedIn, handleLogout } = React.useContext(UserContext);
+    const { isLoggedIn, handleLogout , userRole,} = React.useContext(UserContext);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -224,6 +224,7 @@ export default function DashboardNav() {
                         }
                         sx={{ height: 300, flexGrow: 1, maxWidth: 420, overflowY: "auto" }}
                     >
+                    {userRole === 'admin' && (
                         <TreeItem
                             nodeId="1"
                             label="Admin"
@@ -262,10 +263,27 @@ export default function DashboardNav() {
                                 </ListItemButton>
                             </ListItem>
                         </TreeItem>
+                        )}
+
                     </TreeView>
-                    {isLoggedIn ? (
+                    {/* {isLoggedIn ? (
                         <>
-                            {/* login or logout  */}
+                            <ListItem disablePadding>
+                                <ListItemButton
+                                    style={{ borderRadius: "0 40px 40px 0" }}
+                                //   onClick={handleOrders} // Handle click to render Profile dynamically
+                                >
+                                    <ListItemIcon>
+                                        <LiaProductHunt
+                                            style={{ color: "#000", fontSize: "1.3rem" }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary="orders"
+                                        style={{ marginLeft: "-1rem" }}
+                                    />
+                                </ListItemButton>
+                            </ListItem>
                             <NavLink
                                 onClick={handleLogout}
                                 style={{ textDecoration: "none", width: "100%", color: "#000" }}
@@ -300,7 +318,7 @@ export default function DashboardNav() {
                                 </ListItem>
                             </NavLink>
                         </>
-                    )}
+                    )} */}
                 </List>
             </Drawer>
             <Main open={open}>

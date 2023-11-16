@@ -9,7 +9,6 @@ const Admin = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-        role:"",
 
     });
     const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +25,6 @@ const Admin = () => {
                 setFormData({
                     email: "",
                     password: "",
-                    role: "",
                 });  // Access the UserContext
             })
             .catch((err) => {
@@ -69,16 +67,7 @@ const Admin = () => {
                             variant="standard"
                             required
                         />
-                           <TextField
-                            sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
-                            label="Add role"
-                            name="role"
-                            onChange={handleInputChange}
-                            value={formData.role}
-                            variant="standard"
-                            required
-                        />
+                          
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
                             id="standard-basic"
