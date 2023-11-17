@@ -9,8 +9,9 @@ import OTPVerification from '../Authentication/OTP'
 import Cart from '../pages/Services/Cart'
 import DashboardNav from '../Dashboard/DashboardNav'
 import AnimalDetails from '../pages/Services/WildLife/AnimalDetails'
-import Contact from './../pages/contact/Contact';
-import Feedback from './../pages/Feedback/Feedback';
+import Contact from './../pages/contact/Contact'
+import Feedback from './../pages/Feedback/Feedback'
+import AdoptForm from './../pages/Services/WildLife/AdoptForm'
 
 const router = createBrowserRouter([
   {
@@ -40,15 +41,14 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         loader: ({ params }) => {
-          const animalId = params.id;
+          const animalId = params.id
           return fetch('/wildlifeAnimalData.JSON') // Remove extra dots in the path
-          .then((response) => response.json())
-          .then((data) => data[animalId]);
-        
+            .then((response) => response.json())
+            .then((data) => data[animalId])
         },
         element: <AnimalDetails></AnimalDetails>,
       },
-  
+
       {
         path: '/otp',
         element: <OTPVerification></OTPVerification>,
@@ -68,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: '/feedback',
         element: <Feedback></Feedback>,
+      },
+      {
+        path: '/adoptform',
+        element: <AdoptForm></AdoptForm>,
       },
     ],
   },

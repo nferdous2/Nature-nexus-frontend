@@ -111,13 +111,13 @@ function Header() {
               <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
-                    color: "white", 
-                    fontSize: "20px",
+                    color: 'white',
+                    fontSize: '20px',
                   }}
                 >
                   Cart
                 </MenuItem>
-                </NavLink>
+              </NavLink>
               <MenuItem
                 onClick={handleOpenSubMenu}
                 sx={{
@@ -218,6 +218,9 @@ function Header() {
               <MenuItem sx={{ color: 'black', fontSize: '20px' }}>
                 Contact us
               </MenuItem>
+              <MenuItem sx={{ color: 'black', fontSize: '20px' }}>
+                Feedback
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -252,15 +255,15 @@ function Header() {
               </MenuItem>
             </Link>
             <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
-                <MenuItem
-                  sx={{
-                    color: "white",
-                    fontSize: "20px",
-                  }}
-                >
-                  Cart
-                </MenuItem>
-                </NavLink>
+              <MenuItem
+                sx={{
+                  color: 'white',
+                  fontSize: '20px',
+                }}
+              >
+                Cart
+              </MenuItem>
+            </NavLink>
             <MenuItem
               onClick={handleOpenSubMenu}
               sx={{
@@ -335,9 +338,17 @@ function Header() {
                 ContactUs
               </MenuItem>
             </NavLink>
-            {/* <MenuItem sx={{ color: 'white', fontSize: '20px' }}>
-              Contact us
-            </MenuItem> */}
+            <NavLink
+              to="/feedback"
+              style={{
+                textDecoration: 'none',
+                fontWeight: 'bold',
+              }}
+            >
+              <MenuItem sx={{ color: 'white', fontSize: '20px' }}>
+                Feedback
+              </MenuItem>
+            </NavLink>
           </Box>
 
           <Box
@@ -384,7 +395,6 @@ function Header() {
                       },
                     }}
                   >
-                  
                     Sign In
                   </Button>
                 </Link>
