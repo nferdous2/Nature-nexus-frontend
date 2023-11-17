@@ -4,31 +4,20 @@ import Typography from '@mui/material/Typography'
 import { Grid } from '@mui/material'
 import Animal from './Animal'
 
-// import './Books.css'
-// import Book from '../Book/Book'
-// import { useQuery } from '@tanstack/react-query'
-// import Animal from './Animal'
-// import { Link } from 'react-router-dom'
-
 const Animals = () => {
   const [animals, setAnimals] = useState([])
 
-  // const {data:,isLoading} = useQuery({
-  //   queryKey: ['bookDataCollection'],
-  //   queryFn: () => fetch('https://mylibraryserver.vercel.app/bookDataCollection')
-  //   .then((res) => res.json()),
-
-  // })
-  // fetch data from server
-  // useEffect(() => {
-  //   fetch('https://mylibraryserver.vercel.app/bookDataCollection')
-  //     .then((res) => res.json())
-  //     .then((data) => setBooks(data))
-  // }, [])
   useEffect(() => {
-    fetch('./wildlifeAnimalData.JSON')
+    fetch('http://localhost:8000/products')
       .then((res) => res.json())
-      .then((data) => setAnimals(data))
+      .then((data) => {
+        //FILTER THE animaals to get only the available ones
+        const availableAnimals = data.filter(
+          (product) => product.category === 'animal',
+        )
+        setAnimals(availableAnimals)
+        console.log(availableAnimals)
+      })
   }, [])
   // console.log(animals)
   // useEffect(() => {
@@ -37,9 +26,12 @@ const Animals = () => {
   //     .then((res) => res.json())
   //     .then((data) => {
   //       //FILTER THE animaals to get only the available ones
-  //       const availableAnimals = data.filter((animal) => animal.Category === 'WildLife')
+  //       const availableAnimals = data.filter((animals) => animals.Category === 'WildLife')
   //       setAnimals(availableAnimals)
+  //       console.log(availableAnimals)
   //     } )
+
+  //     console.log(animals)
   // }
   // , [])
   return (

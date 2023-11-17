@@ -8,26 +8,29 @@ const Feedback = () => {
     const form = new FormData(e.currentTarget)
 
     const userData = {
-      username: form.get('name'),
-      description: form.get('text'),
+      product: form.get('product'),
+      rating: form.get('rating'),
+      reviewer: form.get('reviewer'),
+      // date: form.get('date'),
+      comment: form.get('comment'),
     }
 
     console.log(userData)
     // //send data to server
-    // fetch('https://mylibraryserver.vercel.app/feedback', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(userData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       alert('Your review has been added successfully')
-    //     }
-    //   })
-    // e.preventDefault()
+    fetch('http://localhost:8000/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert('Your review has been added successfully')
+        }
+      })
+    e.preventDefault()
   }
 
   return (
@@ -50,7 +53,7 @@ const Feedback = () => {
                 width: { xs: '83%', sm: '90%', md: '90%', lg: '100%' },
                 margin: 2,
                 padding: 2,
-                height: 400,
+                height: 500,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -64,24 +67,56 @@ const Feedback = () => {
                     fontSize: '1.3rem',
                     color: '#fff',
                     background: ' #f8bf02',
+                    marginTop: 5,
                   }}
                 />
                 <form onSubmit={handleSubmit}>
                   <TextField
-                    id=" name*"
+                    id=" Product Name*"
+                    label=" Product Name*"
+                    multiline
+                    required
+                    autoFocus
+                    maxRows={4}
+                    placeholder="Product Name"
+                    name="Product Name"
+                    // onBlur={handleOnBlur}
+                    sx={{
+                      width: '100%',
+                      margin: 1,
+                      marginLeft: 0,
+                    }}
+                  />
+                  <TextField
+                    id=" rating*"
+                    label=" rating*"
+                    multiline
+                    required
+                    autoFocus
+                    maxRows={4}
+                    placeholder="rating"
+                    name="rating"
+                    // onBlur={handleOnBlur}
+                    sx={{
+                      width: '100%',
+                      margin: 1,
+                      marginLeft: 0,
+                    }}
+                  />
+                  <TextField
+                    id=" Full Name*"
                     label=" Full Name*"
                     multiline
                     required
                     autoFocus
                     maxRows={4}
                     placeholder="Full Name"
-                    name="name"
+                    name="Full Name"
                     // onBlur={handleOnBlur}
                     sx={{
                       width: '100%',
                       margin: 1,
                       marginLeft: 0,
-                      marginTop: 5,
                     }}
                   />
                   <TextField
@@ -97,11 +132,7 @@ const Feedback = () => {
                     sx={{ width: '100%', margin: 1, marginLeft: 0 }}
                   />
 
-                  <button
-                    className="reviewButton"
-                    size="small"
-                  
-                  >
+                  <button className="reviewButton" size="small">
                     Submit
                     <SendIcon
                       sx={{

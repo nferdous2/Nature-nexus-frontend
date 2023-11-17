@@ -83,7 +83,7 @@ export default function AnimalDetails() {
       if (navigator.share) {
         await navigator.share({
           title: 'Animal Details',
-          text: `Check out the details of ${animal.name}: ${window.location.href}`,
+          text: `Check out the details of ${animal.pet_name}: ${window.location.href}`,
         })
       } else {
         // Fallback behavior (e.g., show a Snackbar with the shareable link)
@@ -110,12 +110,40 @@ export default function AnimalDetails() {
     setSaveSuccessSnackbarOpen(false)
   }
 
+  const handleSubmit = (e) => {
+    const form = new FormData(e.currentTarget)
+
+    const userData = {
+      name: form.get('name'),
+      email: form.get('email'),
+      phone: form.get('phone'),
+      address: form.get('address'),
+    }
+
+    // console.log(userData)
+    //send data to server
+    fetch('http://localhost:8000/adoptanimals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert('Your review has been added successfully')
+        }
+      })
+    e.preventDefault()
+  }
+
   return (
     <Card sx={{ maxWidth: 800, margin: 'auto', mt: 15 }}>
-      <CardHeader title={`${animal.name}`} />
+      <CardHeader title={`${animal.pet_name}`} />
       <img
         src={animal.image}
-        alt={animal.name}
+        alt={animal.pet_name}
         style={{
           height: '400px',
           width: '100%',
@@ -185,72 +213,90 @@ export default function AnimalDetails() {
       </Collapse>
 
       {/* Modal */}
-      <Dialog open={openModal} onClose={handleCloseModal}>
-        <DialogTitle>Adopt Animal</DialogTitle>
-        <DialogContent>
-          <TextField
-            label=" Name"
-            type="text"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Email address"
-            type="text"
-            value={input2}
-            onChange={(e) => setInput2(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Phone number"
-            type="number"
-            value={input3}
-            onChange={(e) => setInput3(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Address"
-            type="text"
-            value={input4}
-            onChange={(e) => setInput4(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleCloseModal}
-            color="primary"
-            sx={{
-              backgroundColor: '#f44336', // Red color for the button
-              color: 'white',
-              '&:hover': {
-                backgroundColor: '#d32f2f', // Darker red on hover
-              },
-            }}
-          >
-            Cancel
-          </Button>
 
-          <Button
-            onClick={handleSaveModal}
-            color="primary"
-            sx={{
-              backgroundColor: '#4CAF50', // Green color for the button
-              color: 'white',
-              '&:hover': {
-                backgroundColor: '#45a049', // Darker green on hover
-              },
-            }}
-          >
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <form onSubmit={handleSubmit}>
+        <Dialog open={openModal} onClose={handleCloseModal}>
+          <DialogTitle>Adopt Animal</DialogTitle>
+          <DialogContent>
+            <TextField
+              label="Name"
+              type="text"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              fullWidth
+              multiline
+              required
+              autoFocus
+              placeholder=" Name*"
+              margin="normal"
+            />
+            <TextField
+              label=" Email address"
+              type="text"
+              value={input2}
+              onChange={(e) => setInput2(e.target.value)}
+              fullWidth
+              multiline
+              required
+              autoFocus
+              placeholder=" Email address*"
+              margin="normal"
+            />
+            <TextField
+              label=" Phone number"
+              type="number"
+              value={input3}
+              onChange={(e) => setInput3(e.target.value)}
+              fullWidth
+              multiline
+              required
+              autoFocus
+              placeholder=" Phone number*"
+              margin="normal"
+            />
+            <TextField
+              label=" Address"
+              type="text"
+              value={input4}
+              onChange={(e) => setInput4(e.target.value)}
+              fullWidth
+              required
+              autoFocus
+              placeholder=" Address*"
+              margin="normal"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={handleCloseModal}
+              color="primary"
+              sx={{
+                backgroundColor: '#f44336', // Red color for the button
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: '#d32f2f', // Darker red on hover
+                },
+              }}
+            >
+              Cancel
+            </Button>
+
+            <Button
+              onClick={handleSaveModal}
+              color="primary"
+              sx={{
+                backgroundColor: '#4CAF50', // Green color for the button
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: '#45a049', // Darker green on hover
+                },
+              }}
+            >
+              Save
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </form>
 
       {/* Snackbar for share link */}
       <Snackbar

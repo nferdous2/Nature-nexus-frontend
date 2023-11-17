@@ -17,7 +17,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const Animal = (props) => {
   
   const navigate = useNavigate();
-  const { name, image, id, Neutered, Age, Gender } = props.animal
+  const { pet_name, image, _id, Neutered, Age, Gender } = props.animal
   // console.log(props.animal)
   
   return (
@@ -36,7 +36,7 @@ const Animal = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="body1" component="div">
-            Name:{name}
+            Name:{pet_name}
           </Typography>
           <Typography gutterBottom variant="body1" component="div">
             Gender: {Gender}
@@ -57,14 +57,14 @@ const Animal = (props) => {
         <Button variant="contained" size="small" sx={{ margin: 'auto' }} 
         onClick={() => {
           localStorage.setItem('animal', JSON.stringify(props.animal));
-          navigate(`/details/${id}`);
+          navigate(`/details/${_id}`);
         }}>
               Details
           </Button>
           {/* <Link
             sx={{ margin: 'auto' }}
             to={{
-              pathname: `/details/${id}`,
+              pathpet_name: `/details/${id}`,
             //   state: { myState: 'myStateValue' },
               // state: { animals }, // Pass the full animal data as state
             }}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -10,13 +10,21 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 
 export default function Review() {
   const [review, setReview] = React.useState([])
-  React.useEffect(() => {
-    fetch('./review.JSON')
+  // React.useEffect(() => {
+  //   fetch('./review.JSON')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setReview(data)
+  //     })
+  // }, [])
+  
+  useEffect(() => {
+    fetch('http://localhost:8000/feedback')
       .then((res) => res.json())
-      .then((data) => {
-        setReview(data)
-      })
+      .then((data) => setReview(data))
   }, [])
+
+
   return (
     <>
       <Typography
@@ -78,7 +86,7 @@ export default function Review() {
             </CardContent>
           </Card>{' '}
         </SwiperSlide> */}
-        {review.map((review, index) => (
+        {review.map((review, index,user) => (
           <SwiperSlide className="review-swiper-slide" key={index}>
             <Card>
               {/* <CardMedia
@@ -89,12 +97,15 @@ export default function Review() {
               /> */}
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {review.reviewer}
+                  Name:{review.product}
                 </Typography>
                 <CardContent>
                   <Typography variant="subtitle2">
                     Rating:{review.rating}
                   </Typography>
+                  <Typography gutterBottom variant="h5" component="div">
+                  Name:{review.reviewer}
+                </Typography>
                   <Typography variant="subtitle2">
                     {review.comment}
                   </Typography>

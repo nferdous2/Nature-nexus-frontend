@@ -1,5 +1,5 @@
 .reviewButton {
-  background-color:#f8bf02;
+  background-color: #f8bf02;
   border: none;
   color: white;
   padding: 5px;
@@ -11,5 +11,5 @@
   cursor: pointer;
   border-radius: 12px;
   width: 30%;
+  margin-bottom: 50px;
 }
-

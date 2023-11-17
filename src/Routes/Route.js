@@ -39,12 +39,28 @@ const router = createBrowserRouter([
         element: <WHome></WHome>,
       },
       {
-        path: '/details/:id',
+        path: '/details/:_id',
         loader: ({ params }) => {
-          const animalId = params.id
-          return fetch('/wildlifeAnimalData.JSON') // Remove extra dots in the path
-            .then((response) => response.json())
-            .then((data) => data[animalId])
+          const animalId = params._id
+
+          return fetch('http://localhost:8000/products')
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Failed to fetch data: ${response.statusText}`)
+              }
+              return response.json()
+            })
+            .then((data) => {
+              const animal = data.find((animal) => animal.id === animalId)
+              if (!animal) {
+                throw new Error(`Animal with ID ${animalId} not found`)
+              }
+              return animal
+            })
+            .catch((error) => {
+              console.error('Loader Error:', error)
+              return null // Return null or handle the error as needed
+            })
         },
         element: <AnimalDetails></AnimalDetails>,
       },
