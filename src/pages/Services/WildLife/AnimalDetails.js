@@ -14,7 +14,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-import { useLocation, useParams } from 'react-router'
+import { useLocation, useNavigate, useParams } from 'react-router'
+import { Button } from '@mui/material'
+import { useHistory } from 'react-router-dom'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -27,19 +29,32 @@ const ExpandMore = styled((props) => {
   }),
 }))
 
-export default function AnimalDetails(props) {
+export default function AnimalDetails() {
   const [expanded, setExpanded] = React.useState(false)
   const [animal, setAnimal] = React.useState({})
   // const { id } = useParams()
-  const location = useLocation()
-// const { myState } = location.state
+
+  // const { myState } = location.state
   // console.log(props.location.state)
   // console.log(myState)
+  React.useEffect(() => {
+    //setitem use for set
+    //getitem is used for get the animals
+    const animalData = localStorage.getItem('animal')
+    setAnimal(JSON.parse(animalData))
+  }, [])
 
-
+  console.log(animal.name)
 
   const handleExpandClick = () => {
     setExpanded(!expanded)
+  }
+  const navigate = useNavigate()
+
+  // Function to navigate to the adoptform page
+  const navigateToAdoptForm = () => {
+    // Replace '/adoptform' with the actual path of your adoptform page
+    navigate.push('/adoptform')
   }
   // React.useEffect(() => {
   //   // Fetch the animal data based on the ID from your JSON file or API
@@ -73,38 +88,55 @@ export default function AnimalDetails(props) {
   // console.log(animal, id)
   return (
     <Card sx={{ maxWidth: 800, margin: 'auto', mt: 15 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
+      <CardHeader title={`${animal.name}`} />
+      {/* <CardMedia
         component="img"
         height="194"
         image="/static/images/cards/paella.jpg"
         alt="Paella dish"
+      /> */}
+      <img
+        src={animal.image}
+        alt={animal.name}
+        style={{
+          height: '400px',
+          width: '100%',
+          margin: 'auto',
+          objectFit: 'cover',
+        }}
       />
+
       <CardContent>
         {/* <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.
         </Typography> */}
-        title={animal.name}
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <Button
+          variant="contained"
+          size="small"
+          // to='/adoptform'
+          onClick={navigateToAdoptForm}
+          sx={{
+            ml: 4,
+            borderRadius: '10px',
+            textTransform: 'capitalize',
+            backgroundColor: '#FFB800', // Default background color
+            color: 'black', // Text color
+            fontWeight: 'bold',
+            '&:hover': {
+              backgroundColor: '#FFB800', // Keep the same background color on hover
+            },
+          }}
+        >
+          Adopt
+        </Button>
+        {/* <button className="adoptBtn" sx={{color:'red'}}>Adopt</button> */}
+        {/* <IconButton aria-label="add to favorites">
           <FavoriteIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>

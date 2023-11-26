@@ -12,11 +12,14 @@ import {
 import React from 'react'
 // import './Book.css'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Animal = (props) => {
+  
+  const navigate = useNavigate();
   const { name, image, id, Neutered, Age, Gender } = props.animal
-  console.log(props.animal)
+  // console.log(props.animal)
+  
   return (
     <Grid item xs={12} sm={6} md={3} lg={3}>
       <Card sx={{ maxWidth: 330, margin: '25px' }}>
@@ -51,7 +54,14 @@ const Animal = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Link
+        <Button variant="contained" size="small" sx={{ margin: 'auto' }} 
+        onClick={() => {
+          localStorage.setItem('animal', JSON.stringify(props.animal));
+          navigate(`/details/${id}`);
+        }}>
+              Details
+          </Button>
+          {/* <Link
             sx={{ margin: 'auto' }}
             to={{
               pathname: `/details/${id}`,
@@ -59,10 +69,8 @@ const Animal = (props) => {
               // state: { animals }, // Pass the full animal data as state
             }}
           >
-            <Button variant="contained" size="small" sx={{ margin: 'auto' }}>
-              Details
-            </Button>
-          </Link>
+            
+          </Link> */}
         </CardActions>
       </Card>
     </Grid>

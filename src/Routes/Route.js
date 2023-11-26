@@ -6,11 +6,11 @@ import SignUp from '../Authentication/SignUp'
 import Login from '../Authentication/Login'
 import WHome from '../pages/Services/WildLife/WHome'
 import OTPVerification from '../Authentication/OTP'
-import Cart from '../pages/Services/Cart'
+import AdoptForm from '../pages/Services/WildLife/AdoptForm'
 import DashboardNav from '../Dashboard/DashboardNav'
 import AnimalDetails from '../pages/Services/WildLife/AnimalDetails'
-import Contact from './../pages/contact/Contact';
-import Feedback from './../pages/Feedback/Feedback';
+import Contact from './../pages/contact/Contact'
+import Feedback from './../pages/Feedback/Feedback'
 
 const router = createBrowserRouter([
   {
@@ -60,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/feedback',
         element: <Feedback></Feedback>,
+      },
+      {
+        path: '/adoptform',
+        element: <AdoptForm></AdoptForm>,
       },
     ],
   },
