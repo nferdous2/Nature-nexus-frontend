@@ -15,7 +15,7 @@ import { UserContext } from '../../../Authentication/userContext'
 //main code start here
 
 function Header() {
-  const { isLoggedIn, handleLogout } = useContext(UserContext)
+  const { isLoggedIn, handleLogout, userRole } = useContext(UserContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null)
 
   const handleOpenNavMenu = (event) => {
@@ -111,13 +111,23 @@ function Header() {
               <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
-                    color: "white", 
+                    color: "white",
                     fontSize: "20px",
                   }}
                 >
                   Cart
                 </MenuItem>
-                </NavLink>
+              </NavLink>
+              <NavLink exact to="/feedback" style={{ textDecoration: 'none' }}>
+                <MenuItem
+                  sx={{
+                    color: "white",
+                    fontSize: "20px",
+                  }}
+                >
+                  Feedback
+                </MenuItem>
+              </NavLink>
               <MenuItem
                 onClick={handleOpenSubMenu}
                 sx={{
@@ -140,6 +150,8 @@ function Header() {
                     sx={{
                       color: 'black', // Set text color to black
                       fontSize: '20px',
+                      marginBottom: '8px'
+
                     }}
                   >
                     Freshfarm
@@ -150,6 +162,8 @@ function Header() {
                     sx={{
                       color: 'black', // Set text color to black
                       fontSize: '20px',
+                      marginBottom: '8px'
+
                     }}
                   >
                     WildLife
@@ -251,16 +265,8 @@ function Header() {
                 Home
               </MenuItem>
             </Link>
-            <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
-                <MenuItem
-                  sx={{
-                    color: "white",
-                    fontSize: "20px",
-                  }}
-                >
-                  Cart
-                </MenuItem>
-                </NavLink>
+       
+
             <MenuItem
               onClick={handleOpenSubMenu}
               sx={{
@@ -283,6 +289,7 @@ function Header() {
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
+                    marginBottom: '8px'
                   }}
                 >
                   Freshfarm
@@ -293,6 +300,8 @@ function Header() {
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
+                    marginBottom: '8px'
+
                   }}
                 >
                   WildLife
@@ -303,6 +312,7 @@ function Header() {
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
+
                   }}
                 >
                   Tree Plant
@@ -324,6 +334,33 @@ function Header() {
                 </MenuItem>
               </NavLink>
             )}
+            {
+              userRole === 'user' && (
+                <>
+                <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
+                    <MenuItem
+                      sx={{
+                        color: "white",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Cart
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink exact to="/feedback" style={{ textDecoration: 'none' }}>
+                    <MenuItem
+                      sx={{
+                        color: "white",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Feedback
+                    </MenuItem>
+                  </NavLink>
+                </>
+            
+              )
+            }
             <NavLink
               to="/contactus"
               style={{
@@ -332,17 +369,13 @@ function Header() {
               }}
             >
               <MenuItem sx={{ color: 'white', fontSize: '20px' }}>
-                ContactUs
+                Contact Us
               </MenuItem>
             </NavLink>
-            {/* <MenuItem sx={{ color: 'white', fontSize: '20px' }}>
-              Contact us
-            </MenuItem> */}
+
           </Box>
 
-          <Box
-            sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
-          >
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
             {isLoggedIn ? (
               <>
                 <Typography
@@ -384,7 +417,7 @@ function Header() {
                       },
                     }}
                   >
-                  
+
                     Sign In
                   </Button>
                 </Link>

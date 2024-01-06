@@ -17,13 +17,14 @@ const Cart = () => {
     const storedCart = JSON.parse(localStorage.getItem('cartItems'));
     if (storedCart) {
       setCartItems(storedCart);
+      console.log(storedCart)
     }
   }, []);
 
   // Function to handle incrementing the quantity of an item
   const addToCart = (item) => {
     const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.id === item.id) {
+      if (cartItem._id === item._id) {
         return { ...cartItem, quantity: cartItem.quantity + 1 };
       }
       return cartItem;
@@ -37,7 +38,7 @@ const Cart = () => {
   const removeFromCart = (item) => {
     if (item.quantity > 1) {
       const updatedCartItems = cartItems.map((cartItem) => {
-        if (cartItem.id === item.id) {
+        if (cartItem._id === item._id) {
           return { ...cartItem, quantity: cartItem.quantity - 1 };
         }
         return cartItem;
@@ -49,67 +50,84 @@ const Cart = () => {
   };
 
   const handleDelete = (itemToDelete) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== itemToDelete.id);
+    const updatedCartItems = cartItems.filter((item) => {
+      if (item._id !== itemToDelete._id) {
+        return true;
+      } else {
+        console.log(`Deleting item with _id: ${itemToDelete._id}`);
+        return false;
+      }
+    });
 
     setCartItems(updatedCartItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
+const handleBuy = (item) => {
+  window.location.href = `/detail/${item._id}?name=${item.name}&price=${item.price}&quantity=${item.quantity}`;
+};
 
-
-  
   return (
     <div>
-      <h2>Cart Page</h2>
+      <h2 style={{ marginTop: "5%" }}>Cart Page</h2>
       {cartItems.map((item) => (
-        <Card key={item.id} variant="outlined" style={{ marginBottom: '1rem' }}>
-          <CardContent>
-            <Grid container justifyContent="space-between" alignItems="center">
-              <Grid item xs={12} md={2}>
-                <img src={item.image} alt='' style={{ width: '100%' }} />
-              </Grid>
-              <Grid item xs={12} md={2}>
-                <Typography variant="h5" fontWeight="normal" gutterBottom>
-                  {item.name}
-                </Typography>
-                <Typography color="textSecondary">
-                  <span>Price: </span>{item.price}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={2} sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Button
-                  sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold' }}
-                  onClick={() => removeFromCart(item)}
-                >
-                  -
-                </Button>
-                <TextField
-                  sx={{ width: "20%" }}
-                  value={item.quantity}
-                />
-                <Button
-                  sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold' }}
-                  onClick={() => addToCart(item)}
-                >
-                  +
-                </Button>
-              </Grid>
+        <div style={{ display: 'flex', justifyContent: 'center', }}>
+          <Card key={item._id} variant="outlined" style={{ marginBottom: '1rem', width: "75%", }}>
+            <CardContent>
+              <Grid container justifyContent="space-between" alignItems="center">
+                <Grid item xs={12} md={1}>
+                  <img src={item.image} alt='' style={{ width: '100%' }} />
+                </Grid>
+                <Grid item xs={12} md={2}>
+                  <Typography variant="h5" fontWeight="normal" gutterBottom>
+                    {item.name}
+                  </Typography>
+                  <Typography color="textSecondary">
+                    <span>Price:$ </span>{item.price}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={2} sx={{ display: "flex", justifyContent: "space-around" }}>
+                  <Button
+                    sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold' }}
+                    onClick={() => removeFromCart(item)}
+                  >
+                    -
+                  </Button>
+                  <TextField
+                    sx={{ width: "20%" }}
+                    value={item.quantity}
+                  />
+                  <Button
+                    sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold' }}
+                    onClick={() => addToCart(item)}
+                  >
+                    +
+                  </Button>
+                </Grid>
 
-              <Grid item xs={12} md={2} style={{ marginLeft: '1rem' }}>
-                <Typography variant="h5" gutterBottom>
-                  Total Pricr: ${item.price * item.quantity}
-                </Typography>
+                <Grid item xs={12} md={2} style={{ marginLeft: '1rem' }}>
+                  <Typography variant="h5" gutterBottom>
+                    Total Price: ${item.price * item.quantity}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={1} >
+                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }} onClick={() => handleDelete(item)}>
+                    delete
+                  </Button>
+                </Grid>
+                <Grid item xs={12} md={2} >
+                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }} 
+                              onClick={() => handleBuy(item)}>
+                    Buy Now
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={2} style={{ textAlign: 'right' }}>
-                <Button className="text-danger" onClick={() => handleDelete(item)}>
-
-                  delete
-                </Button>
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       ))}
+   
+
     </div>
   );
 };

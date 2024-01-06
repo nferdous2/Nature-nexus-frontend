@@ -1,10 +1,12 @@
+/* fotter style start  */
 .footer-bg{
-    background-color: rgb(36, 35, 35);
+    background-color: rgb(36, 35, 35);  
 }
 .footer-text{
     margin-top: 3%;
     color:aliceblue;
 }
+/* footer style end */
 .nbg {
     background-image: url("../img/nbg.png");
     background-repeat: no-repeat;
@@ -93,4 +95,9 @@
     margin-top: 0.5rem !important;
     width: 50% !important;
   }
+}
+
+/* update page  */
+.update-card{
+  background: linear-gradient(to top, #a1d0d3, #f8f5e2);
 }

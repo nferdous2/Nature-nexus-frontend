@@ -24,12 +24,14 @@ const defaultTheme = createTheme();
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
+    userRole: 'user',
     email: "",
     password: "",
     name: "",
     address: "",
   });
-  const { setIsLoggedIn } = useContext(UserContext); 
+
+  // const { setIsLoggedIn } = useContext(UserContext); 
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };

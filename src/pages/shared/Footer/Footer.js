@@ -8,7 +8,6 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import {
-  Button,
   Container,
   Grid,
   IconButton,
@@ -17,7 +16,6 @@ import {
   Link,
   List,
   ListItem,
-  TextField,
   Typography,
 } from "@mui/material";
 import "../../../Styles/Style.css";
@@ -45,7 +43,7 @@ const Footer = () => {
   };
   return (
     <div className="footer-bg">
-      <Container maxWidth="lg" sx={{ mt: 5 }}>
+      <Container maxWidth="lg"  sx={{ mt: 5 }}>
         <Grid container spacing={3}>
           {/* section one  */}
           <Grid item xs={12} md={3} className="footer-text">

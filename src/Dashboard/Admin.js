@@ -101,7 +101,7 @@ const Admin = () => {
                                 backgroundColor: "#FFB800",
                             },
                         }}>
-                            Verify
+                            Add Admin
                         </Button>
                     </form>
                 </Grid>
