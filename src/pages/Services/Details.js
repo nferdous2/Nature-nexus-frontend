@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
 import "../../Styles/Style.css"
 import { Grid,  CardContent, TextField, Button } from '@mui/material';
+import { UserContext } from '../../Authentication/userContext';
 
 const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-
+const{userId} = useContext(UserContext)
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const Details = () => {
 
   const onSubmit = (data) => {
      data.productId = id;
+     data.userId = userId;
     fetch("http://localhost:8000/purchase", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
