@@ -70,7 +70,6 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const storedUserRole = localStorage.getItem("userRole");
-
     const fetchData = async () => {
       if (token) {
         try {

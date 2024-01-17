@@ -69,7 +69,7 @@ const ProductDetails = () => {
                 }}
                 component="img"
                 height="140"
-                image={product.image}  // Use the actual image URL from your product data
+                image={product.image} 
                 alt="Your Image"
               />
               <TextField

@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Main from '../Layout/Main/Main'
 import Home from '../pages/Home/Home'
 import FreshFarm from '../pages/Services/Freshfarm/FreshFarm'
 import SignUp from '../Authentication/SignUp'
@@ -16,6 +15,7 @@ import PaymentSuccess from '../Payment/PaymentSuccess'
 import PaymentFail from '../Payment/PaymentFail'
 import AdoptForm from '../pages/Services/WildLife/AdoptForm'
 import ProductDetails from '../Dashboard/ProductDetails'
+import Main from '../Layout/Main'
 
 const router = createBrowserRouter([
   {

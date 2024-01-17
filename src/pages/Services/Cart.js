@@ -69,7 +69,7 @@ const handleBuy = (item) => {
 
   return (
     <div>
-      <h2 style={{ marginTop: "5%" }}>Cart Page</h2>
+      <h2 style={{ marginTop: "17%" }}>Cart Page</h2>
       {cartItems.map((item) => (
         <div style={{ display: 'flex', justifyContent: 'center', }}>
           <Card key={item._id} variant="outlined" style={{ marginBottom: '1rem', width: "75%", }}>

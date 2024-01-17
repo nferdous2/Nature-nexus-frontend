@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
 import "../../Styles/Style.css"
-import { Grid,  CardContent, TextField, Button } from '@mui/material';
+import { Grid, CardContent, TextField, Button } from '@mui/material';
 import { UserContext } from '../../Authentication/userContext';
 
 const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-const{userId} = useContext(UserContext)
+  const { userId } = useContext(UserContext)
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -30,8 +30,8 @@ const{userId} = useContext(UserContext)
   const totalPrice = price * quantity;
 
   const onSubmit = (data) => {
-     data.productId = id;
-     data.userId = userId;
+    data.productId = id;
+    data.userId = userId;
     fetch("http://localhost:8000/purchase", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
@@ -47,24 +47,24 @@ const{userId} = useContext(UserContext)
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12} md={6}>
-          <CardContent>
-            <h2 style={{ marginTop: '20%' }}>Place Your Order</h2>
+        <CardContent>
+          <h2 style={{ marginTop: '20%' }}>Place Your Order</h2>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-              {/* Card data */}
-              <TextField sx={{mb:3}} label="Product Name" type="text" {...register('productName')} value={name} fullWidth readOnly />
-              <TextField sx={{mb:3}} label="Card Price" type="text" value={price} fullWidth readOnly />
-              <TextField sx={{mb:3}} label="Card Quantity" type="text" {...register('quantity')} value={quantity} fullWidth readOnly />
-              <TextField sx={{mb:3}} label="Card Total Price" type="text" {...register('totalPrice')} value={totalPrice} fullWidth readOnly />
-                {/* user  information */}
-              <TextField sx={{mb:3}} label="Your Name" type="text" {...register('customerName')} required fullWidth />
-              <TextField sx={{mb:3}} label="Your Phone Number" type="tel" {...register('phoneNumber')} required fullWidth />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Card data */}
+            <TextField sx={{ mb: 3 }} label="Product Name" type="text" {...register('productName')} value={name} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Card Price" type="text" value={price} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Card Quantity" type="text" {...register('quantity')} value={quantity} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Card Total Price" type="text" {...register('totalPrice')} value={totalPrice} fullWidth readOnly />
+            {/* user  information */}
+            <TextField sx={{ mb: 3 }} label="Your Name" type="text" {...register('customerName')} required fullWidth />
+            <TextField sx={{ mb: 3 }} label="Your Phone Number" type="tel" {...register('phoneNumber')} required fullWidth />
 
-              <Button type="submit" variant="contained" color="primary" fullWidth>
-                Submit
-              </Button>
-            </form>
-          </CardContent>
+            <Button type="submit" variant="contained" color="primary" fullWidth>
+              Submit
+            </Button>
+          </form>
+        </CardContent>
       </Grid>
     </Grid>
   );

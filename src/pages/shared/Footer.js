@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import {
   Container,
+
   Grid,
   IconButton,
   ImageList,
@@ -18,14 +19,14 @@ import {
   ListItem,
   Typography,
 } from "@mui/material";
-import "../../../Styles/Style.css";
-import image1 from "../../../img/g-1.jpg";
-import image2 from "../../../img/g-2.jpg";
-import image3 from "../../../img/g-3.jpg";
-import image4 from "../../../img/g-4.jpg";
-import image5 from "../../../img/g-5.jpg";
-import image6 from "../../../img/g-6.jpg";
-import logo from "../../../img/logo.png";
+import "../../Styles/Style.css";
+import image1 from "../../img/g-1.jpg";
+import image2 from "../../img/g-2.jpg";
+import image3 from "../../img/g-3.jpg";
+import image4 from "../../img/g-4.jpg";
+import image5 from "../../img/g-5.jpg";
+import image6 from "../../img/g-6.jpg";
+import logo from "../../img/logo.png";
 
 const Footer = () => {
   const images = [
@@ -42,8 +43,7 @@ const Footer = () => {
     marginRight: "8px",
   };
   return (
-    <div className="footer-bg">
-      <Container maxWidth="lg"  sx={{ mt: 5 }}>
+      <div  className="footer-bg"  >
         <Grid container spacing={3}>
           {/* section one  */}
           <Grid item xs={12} md={3} className="footer-text">
@@ -177,8 +177,7 @@ const Footer = () => {
           {" "}
           Copyright © 2023 .All rights reserved.
         </Typography>
-      </Container>
-    </div>
+      </div>
   );
 };
 
