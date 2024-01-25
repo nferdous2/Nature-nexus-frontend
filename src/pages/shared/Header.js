@@ -111,8 +111,8 @@ function Header() {
               <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
-                    color: "white",
-                    fontSize: "20px",
+                    color: 'white',
+                    fontSize: '20px',
                   }}
                 >
                   Cart
@@ -121,8 +121,8 @@ function Header() {
               <NavLink exact to="/feedback" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
-                    color: "white",
-                    fontSize: "20px",
+                    color: 'white',
+                    fontSize: '20px',
                   }}
                 >
                   Feedback
@@ -150,8 +150,7 @@ function Header() {
                     sx={{
                       color: 'black', // Set text color to black
                       fontSize: '20px',
-                      marginBottom: '8px'
-
+                      marginBottom: '8px',
                     }}
                   >
                     Freshfarm
@@ -162,14 +161,17 @@ function Header() {
                     sx={{
                       color: 'black', // Set text color to black
                       fontSize: '20px',
-                      marginBottom: '8px'
-
+                      marginBottom: '8px',
                     }}
                   >
                     WildLife
                   </MenuItem>
                 </Link>
-                <Link exact to="/service2" style={{ textDecoration: 'none' }}>
+                <Link
+                  exact
+                  to="/treeplantation"
+                  style={{ textDecoration: 'none' }}
+                >
                   <MenuItem
                     sx={{
                       color: 'black', // Set text color to black
@@ -212,7 +214,6 @@ function Header() {
                       fontWeight: 'bold',
                     }}
                   >
-
                     <MenuItem mr={2} sx={{ color: 'black', fontSize: '20px' }}>
                       Create Account
                     </MenuItem>
@@ -266,7 +267,6 @@ function Header() {
                 Home
               </MenuItem>
             </Link>
-       
 
             <MenuItem
               onClick={handleOpenSubMenu}
@@ -290,7 +290,7 @@ function Header() {
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
-                    marginBottom: '8px'
+                    marginBottom: '8px',
                   }}
                 >
                   Freshfarm
@@ -301,19 +301,21 @@ function Header() {
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
-                    marginBottom: '8px'
-
+                    marginBottom: '8px',
                   }}
                 >
                   WildLife
                 </MenuItem>
               </Link>
-              <Link exact to="/service2" style={{ textDecoration: 'none' }}>
+              <Link
+                exact
+                to="/treeplantation"
+                style={{ textDecoration: 'none' }}
+              >
                 <MenuItem
                   sx={{
                     color: 'black', // Set text color to black
                     fontSize: '20px',
-
                   }}
                 >
                   Tree Plant
@@ -335,33 +337,34 @@ function Header() {
                 </MenuItem>
               </NavLink>
             )}
-            {
-              userRole === 'user' && (
-                <>
+            {userRole === 'user' && (
+              <>
                 <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
-                    <MenuItem
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Cart
-                    </MenuItem>
-                  </NavLink>
-                  <NavLink exact to="/feedback" style={{ textDecoration: 'none' }}>
-                    <MenuItem
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Feedback
-                    </MenuItem>
-                  </NavLink>
-                </>
-            
-              )
-            }
+                  <MenuItem
+                    sx={{
+                      color: 'white',
+                      fontSize: '20px',
+                    }}
+                  >
+                    Cart
+                  </MenuItem>
+                </NavLink>
+                <NavLink
+                  exact
+                  to="/feedback"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <MenuItem
+                    sx={{
+                      color: 'white',
+                      fontSize: '20px',
+                    }}
+                  >
+                    Feedback
+                  </MenuItem>
+                </NavLink>
+              </>
+            )}
             <NavLink
               to="/contactus"
               style={{
@@ -373,10 +376,11 @@ function Header() {
                 Contact Us
               </MenuItem>
             </NavLink>
-
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+          <Box
+            sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
+          >
             {isLoggedIn ? (
               <>
                 <Typography
@@ -418,7 +422,6 @@ function Header() {
                       },
                     }}
                   >
-
                     Sign In
                   </Button>
                 </Link>

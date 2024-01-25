@@ -8,14 +8,15 @@ import OTPVerification from '../Authentication/OTP'
 import Cart from '../pages/Services/Cart'
 import DashboardNav from '../Dashboard/DashboardNav'
 import AnimalDetails from '../pages/Services/WildLife/AnimalDetails'
-import Contact from './../pages/contact/Contact';
-import Feedback from './../pages/Feedback/Feedback';
+import Contact from './../pages/contact/Contact'
+import Feedback from './../pages/Feedback/Feedback'
 import Details from '../pages/Services/Details'
 import PaymentSuccess from '../Payment/PaymentSuccess'
 import PaymentFail from '../Payment/PaymentFail'
 import AdoptForm from '../pages/Services/WildLife/AdoptForm'
 import ProductDetails from '../Dashboard/ProductDetails'
 import Main from '../Layout/Main'
+import Thome from '../pages/Services/TreePlantation/Thome.js'
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>,
       },
-     
+
       {
         path: '/wildlife',
         element: <WHome></WHome>,
@@ -48,23 +49,20 @@ const router = createBrowserRouter([
         element: <AnimalDetails></AnimalDetails>,
       },
       {
-        path: "/detail/:id",
-        element: <Details />
-
+        path: '/detail/:id',
+        element: <Details />,
       },
       {
-        path: "/pdetail/:id",
-        element: <ProductDetails />
-
+        path: '/pdetail/:id',
+        element: <ProductDetails />,
       },
       {
-        path: "payment/success/:tranId",
-        element: <PaymentSuccess />
-
-      }, {
-        path: "payment/fail/:tranId",
-        element: <PaymentFail />
-
+        path: 'payment/success/:tranId',
+        element: <PaymentSuccess />,
+      },
+      {
+        path: 'payment/fail/:tranId',
+        element: <PaymentFail />,
       },
       {
         path: '/otp',
@@ -89,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: '/adoptform',
         element: <AdoptForm></AdoptForm>,
+      },
+      {
+        path: '/treeplantation',
+        element: <Thome></Thome>,
       },
     ],
   },
