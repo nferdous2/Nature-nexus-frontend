@@ -1,36 +1,54 @@
-import React, { useEffect } from 'react';
+import { Box } from '@mui/material';
+import React from 'react';
 import { useParams } from 'react-router';
-import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom';
 
 const PaymentSuccess = () => {
     const { tranId } = useParams();
 
-    useEffect(() => {
-        // SweetAlert code
-        Swal.fire({
-            title: `Payment Successful - Tranjection ID-${tranId}`,
-            width: 600,
-            padding: "3em",
-            color: "#716add",
-            background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
-            backdrop: `
-                rgba(0,0,123,0.4)
-                url("https://sweetalert2.github.io/images/nyan-cat.gif")
-                left top
-                no-repeat
-            `,
-            showCancelButton: false,
-            confirmButtonText: 'OK',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirect to the home page using window.location.href
-                window.location.href = '/dashboard';
-            }
-        });
-    }, []);
 
     return (
-        <div>
+        <div style={{
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '10rem',
+            marginBottom: '5rem',
+            padding: '2rem',
+            borderRadius: '1rem',
+            height: '55vh',
+        }}>
+            <h1>Payment Success</h1>
+            <Box sx={{
+                fontSize: '1.5rem',
+                color: '#716add',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                padding: '1rem',
+                margin: '1rem',
+                border: '1px solid #716add',
+                borderRadius: '1rem',
+            }}>
+                <p>Transaction ID- {tranId}</p>
+                <button 
+                style={{
+                    padding: '1rem',
+                    backgroundColor: '#716add',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '1rem',
+                    cursor: 'pointer',
+                }}
+                onClick={() => {
+                    navigator.clipboard.writeText(tranId)
+                    alert('Tranjection ID Copied')
+                }}>
+                    Click here to copy the Tranjection ID
+                </button>
+            </Box>
+            <NavLink to="/dashboard">Go to Dashboard</NavLink>
         </div>
     );
 };

@@ -29,7 +29,7 @@ const AddProduct = () => {
                     image: "",
                     category: "",
                     description: "",
-                });  // Access the UserContext
+                });  
             })
             .catch((err) => {
                 console.error("Error registering user:", err);
