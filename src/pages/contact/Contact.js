@@ -7,21 +7,18 @@ const Contact = () => {
     text-align: center;
   `
   const FormContainer = styled.div`
-    .container {
+
+
+    .contact-form {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
-    }
-
-    .contact-form {
-      max-width: 50rem;
+      height:"100%";
       margin: auto;
-      padding: 1rem;
-      background-color: #f2f2f2;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-
+      background-color:" #f2f2f2";
+      border:" 1px solid #ddd";
+      border-radius:" 5px";
+    }
       .contact-inputs {
         display: flex;
         flex-direction: column;
@@ -60,7 +57,6 @@ const Contact = () => {
   `
   return (
     <Wrapper>
-      <h1>Contact</h1>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7237.890329962205!2d91.8981724906183!3d24.89985199318626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054aeedc809bb%3A0x60b5f614c843a3bf!2sTilagor%2C%20Sylhet!5e0!3m2!1sen!2sbd!4v1699074902887!5m2!1sen!2sbd"
         width="100%"
@@ -71,7 +67,6 @@ const Contact = () => {
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
       <FormContainer>
-        <div className="container">
           <div className="contact-form">
             <form
               action="https://formspree.io/f/mgejqyzk"
@@ -105,7 +100,6 @@ const Contact = () => {
 
               <input type="submit" value="Send" />
             </form>
-          </div>
         </div>
       </FormContainer>
     </Wrapper>

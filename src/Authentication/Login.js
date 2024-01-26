@@ -22,7 +22,7 @@ const defaultTheme = createTheme();
 
 
 const Login = () => {
-  const { setIsLoggedIn,setLoading,setUserRole } = useContext(UserContext); // Access the UserContext
+  const { setIsLoggedIn,setLoading,} = useContext(UserContext); // Access the UserContext
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({

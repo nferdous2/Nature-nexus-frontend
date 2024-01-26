@@ -16,6 +16,8 @@ import PaymentFail from '../Payment/PaymentFail'
 import AdoptForm from '../pages/Services/WildLife/AdoptForm'
 import ProductDetails from '../Dashboard/ProductDetails'
 import Main from '../Layout/Main'
+import IHome from '../pages/Services/IndoorPlants/IHome'
+import PlantBuy from '../pages/Services/IndoorPlants/PlantBuy'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,15 @@ const router = createBrowserRouter([
       {
         path: '/wildlife',
         element: <WHome></WHome>,
+      },
+      {
+        path: '/plants',
+        element: <IHome></IHome>,
+      },
+      {
+        path: "/plantBuy/:id",
+        element: <PlantBuy />
+
       },
       {
         path: '/details/:_id',

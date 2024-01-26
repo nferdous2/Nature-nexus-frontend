@@ -104,7 +104,7 @@ const FarmProduct = ({product}) => {
         {/* product card starts  */}
         <Grid container spacing={3}>
           {filteredProducts.map((product) => (
-            <Grid key={product.id} item xs={12} sm={12} md={3} lg={3}>
+            <Grid key={product.id} item xs={12} sm={12} md={4} lg={3}>
               {userRole === 'admin' ? (
                 <>
                   <Card
@@ -123,17 +123,30 @@ const FarmProduct = ({product}) => {
                         <Typography variant="subtitle1" color="text.secondary" component="div">
                           $ {product.price}
                         </Typography>
+                        {/* Buttons  */}
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <Button onClick={() => handleDelete(product._id)} sx={{ backgroundColor: 'red', color: 'white', fontWeight: 'bold' }}>
+                      <Button onClick={() => handleDelete(product._id)} sx={{
+                        backgroundColor: 'red', color: 'white', fontWeight: 'bold', '&:hover': {
+                          backgroundColor: 'red',
+                          cursor: 'pointer',
+                        },
+                      }}>
                         Delete
-                       </Button>
-                       <Link  to={`/pdetail/${product._id}`} >
-                       <Button  sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>
-                            Update
-                          </Button>
-                    </Link>
-                    
-                        </div>
+                      </Button>
+                      {/* goes to product detail page on dashboard */}
+
+                      <Link to={`/pdetail/${product._id}`} >
+                        <Button sx={{
+                          backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold', '&:hover': {
+                            backgroundColor: '#ffb600',
+                            cursor: 'pointer',
+                          },
+                        }}>
+                          Update
+                        </Button>
+                      </Link>
+
+                    </div>
                        
 
                       </CardContent>

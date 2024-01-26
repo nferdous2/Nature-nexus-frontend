@@ -63,17 +63,46 @@ export default function AnimalDetails() {
   const handleCloseModal = () => {
     setOpenModal(false)
   }
-
+  const animalData = localStorage.getItem('animal')
+  const userId = localStorage.getItem('userId')
   const handleSaveModal = () => {
     // Add logic to save input values or perform any other actions
-    console.log('Input 1:', input1)
-    console.log('Input 2:', input2)
+    // console.log('Input 1:', input1)
+    // console.log('Input 2:', input2)
     console.log('Input 3:', input3)
     console.log('Input 4:', input4)
+    console.log('Animal Data:', JSON.parse(animalData))
+    console.log('User Id:', userId)
+    const data = {
+      phone: input3,
+      address: input4,
+      animal: JSON.parse(animalData),
+      userId: userId,
+    }
+    fetch(`http://localhost:8000/animal`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(async (res) => {
+        const data = await res.json()
+        console.log(data)
+        if (res.status === 200) {
+          alert('Adopted Successfully')
+          window.location.href = '/dashboard'
+        } else {
+          alert('Something went wrong')
+        }
+      })
+      .catch((err) => {
+        console.log(err, 'err on catch')
+        // alert('Something went wrong')
+      })
 
-    
     // Show Snackbar for save success
-    setSaveSuccessSnackbarOpen(true)
+    // setSaveSuccessSnackbarOpen(true)
 
     // Close the modal
     handleCloseModal()
@@ -136,7 +165,7 @@ export default function AnimalDetails() {
             ml: 4,
             borderRadius: '10px',
             textTransform: 'capitalize',
-            backgroundColor: '#FFB800',
+            backgroundCaolor: '#FFB800',
             color: 'black',
             fontWeight: 'bold',
             '&:hover': {
@@ -175,24 +204,9 @@ export default function AnimalDetails() {
       <Dialog open={openModal} onClose={handleCloseModal}>
         <DialogTitle>Adopt Animal</DialogTitle>
         <DialogContent>
+      
           <TextField
-            label=" Name"
-            type="text"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Email address"
-            type="text"
-            value={input2}
-            onChange={(e) => setInput2(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Phone number"
+            label="Phone number"
             type="number"
             value={input3}
             onChange={(e) => setInput3(e.target.value)}
@@ -200,7 +214,7 @@ export default function AnimalDetails() {
             margin="normal"
           />
           <TextField
-            label=" Address"
+            label="Address"
             type="text"
             value={input4}
             onChange={(e) => setInput4(e.target.value)}
@@ -234,7 +248,7 @@ export default function AnimalDetails() {
               },
             }}
           >
-            Save
+            Confirm
           </Button>
         </DialogActions>
       </Dialog>
