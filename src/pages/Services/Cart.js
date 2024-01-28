@@ -69,9 +69,9 @@ const handleBuy = (item) => {
 
   return (
     <div>
-      <h2 style={{ marginTop: "17%" }}>Cart Page</h2>
+      <h2>Here is Your Items</h2>
       {cartItems.map((item) => (
-        <div style={{ display: 'flex', justifyContent: 'center', }}>
+        <div style={{ display: 'flex', justifyContent: 'center',  }}>
           <Card key={item._id} variant="outlined" style={{ marginBottom: '1rem', width: "75%", }}>
             <CardContent>
               <Grid container justifyContent="space-between" alignItems="center">

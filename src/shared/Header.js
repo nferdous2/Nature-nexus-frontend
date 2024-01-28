@@ -44,13 +44,13 @@ function Header() {
       style={{
         ...navbarStyle,
         overflow: 'hidden',
+        marginBottom:"2%"
       }}
     >
       <Container>
         <Toolbar
           disableGutters
-          sx={{ justifyContent: 'center', alignItems: 'center' }}
-        >
+          sx={{ justifyContent: 'center', alignItems: 'center' }}>
           <Typography
             variant="h6"
             noWrap
@@ -326,10 +326,7 @@ function Header() {
                 </MenuItem>
               </NavLink>
             )}
-            {
-              userRole === 'user' && (
-                <>
-                <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
+            <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
                     <MenuItem
                       sx={{
                         color: "white",
@@ -339,11 +336,6 @@ function Header() {
                       Cart
                     </MenuItem>
                   </NavLink>
-                 
-                </>
-            
-              )
-            }
             <NavLink
               to="/contactus"
               style={{

@@ -18,6 +18,7 @@ import ProductDetails from '../Dashboard/ProductDetails'
 import Main from '../Layout/Main'
 import IHome from '../pages/Services/IndoorPlants/IHome'
 import PlantBuy from '../pages/Services/IndoorPlants/PlantBuy'
+import PrivateRoute from './PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/plantBuy/:id",
-        element: <PlantBuy />
+        element:<PrivateRoute> <PlantBuy /> </PrivateRoute> 
 
       },
       {
@@ -91,7 +92,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart></Cart>,
+        element: <PrivateRoute><Cart></Cart> </PrivateRoute>
       },
       {
         path: '/feedback',

@@ -114,6 +114,7 @@ const Products = ({ product }) => {
                     <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
                       Price: $ {product.price}
                     </Typography>
+                    
                     <Link to={`/plantBuy/${product._id}`} >
                       <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", mt: 3 }}>Buy Now</Button>
                     </Link>
