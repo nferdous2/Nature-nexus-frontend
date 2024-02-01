@@ -145,7 +145,7 @@ function Header() {
 
                     }}
                   >
-                    Freshfarm
+                  Fresh Food
                   </MenuItem>
                 </Link>
                 <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
@@ -157,7 +157,7 @@ function Header() {
 
                     }}
                   >
-                    WildLife
+                    Animals
                   </MenuItem>
                 </Link>
                 <Link exact to="/plants" style={{ textDecoration: 'none' }}>
@@ -167,7 +167,7 @@ function Header() {
                       fontSize: '20px',
                     }}
                   >
-                    Tree Plant
+                    Indoor Plant
                   </MenuItem>
                 </Link>
               </Menu>
@@ -284,7 +284,7 @@ function Header() {
                     marginBottom: '8px'
                   }}
                 >
-                  Freshfarm
+                Fresh Food
                 </MenuItem>
               </Link>
               <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
@@ -296,7 +296,7 @@ function Header() {
 
                   }}
                 >
-                  WildLife
+                  Animals
                 </MenuItem>
               </Link>
               <Link exact to="/plants" style={{ textDecoration: 'none' }}>
@@ -307,7 +307,7 @@ function Header() {
 
                   }}
                 >
-                  Tree Plant
+                  Indoor Plant
                 </MenuItem>
               </Link>
             </Menu>

@@ -182,10 +182,10 @@ const FarmProduct = ({product}) => {
                         <IconButton aria-label="add to favorites" onClick={() => addToCart(product)}>
                           <FavoriteIcon />
                         </IconButton>
-                        <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>
-                          Details
-                        </Button>
-
+                        
+                        <Link to={`/pdetail/${product._id}`} >
+                      <Button variant="contained"  sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
+                    </Link>
 
                       </CardContent>
 

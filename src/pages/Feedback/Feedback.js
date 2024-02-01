@@ -24,20 +24,22 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     console.log(formData);
-
     axios.post('http://localhost:8000/review', formData)
       .then((res) => {
         if (res.data.insertedId) {
           alert('Thank you for your valuable opinion');
+          window.location.reload()
         }
+
       });
+      
   };
 
   return (
     <Grid container spacing={2} sx={{ justifyContent: "center", mt: 9, p: 3 }}>
-      <Grid xs={12} md={4} lg={4}>
-        <FormControl
-          onSubmit={handleSubmit}
+      <Grid xs={12} md={7} lg={7}>
+      <form   onSubmit={handleSubmit}>
+      <FormControl
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -98,6 +100,8 @@ const Feedback = () => {
                 </MenuItem>
                 <MenuItem value="freshfood">Fresh Food</MenuItem>
                 <MenuItem value="animal">Animal</MenuItem>
+                <MenuItem value="plants">Indoor Plant</MenuItem>
+
               </Select>
             </Grid>
             <Grid item xs={6}>
@@ -128,6 +132,8 @@ const Feedback = () => {
             Add Review
           </Button>
         </FormControl>
+</form>
+       
       </Grid>
     </Grid>
   );

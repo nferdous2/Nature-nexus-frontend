@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,7 +8,8 @@ import { CardContent, Typography } from '@mui/material';
 import Rating from 'react-rating';
 import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa';
-
+import './Review.css';
+ 
 const Review = ({ review }) => {
   return (
     <>
@@ -73,5 +73,5 @@ const Review = ({ review }) => {
     </>
   );
 };
-
+ 
 export default Review;

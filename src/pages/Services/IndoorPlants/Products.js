@@ -119,6 +119,7 @@ const Products = ({ product }) => {
                       <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", mt: 3 }}>Buy Now</Button>
                     </Link>
                   </CardContent>
+                  
                 </Box>
 
 

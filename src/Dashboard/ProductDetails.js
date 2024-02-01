@@ -5,10 +5,12 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import "../Styles/Style.css"
+import { UserContext } from '../Authentication/userContext';
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { handleSubmit, register, setValue } = useForm();
+  const { userRole } = React.useContext(UserContext);
 
   useEffect(() => {
     // Fetch  id wise
@@ -40,7 +42,7 @@ const ProductDetails = () => {
       // Send your data to the server using axios or other method
       const response = await axios.put(`http://localhost:8000/products/${id}`, data);
       console.log('Response:', response.data);
-  
+
       // Show SweetAlert success message
       Swal.fire({
         title: 'Good job!',
@@ -57,7 +59,7 @@ const ProductDetails = () => {
       console.error('Error updating product description:', error);
     }
   };
-  
+
 
   return (
     <Grid className='update' container spacing={2} justifyContent="center" alignItems="center">
@@ -65,7 +67,7 @@ const ProductDetails = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
 
-          <Card className='update-card' sx={{ mt: 10,mb:5 }}>
+          <Card className='update-card' sx={{ mt: 10, mb: 5 }}>
             <CardContent>
               <CardMedia
                 style={{
@@ -73,16 +75,16 @@ const ProductDetails = () => {
                   width: '30%',
                   margin: 'auto',
                   objectFit: 'cover',
-                  
+
                 }}
                 component="img"
                 height="140"
-                image={product.image} 
+                image={product.image}
                 alt="Your Image"
               />
               <TextField
                 required
-                sx={{ width: "100%", mb: 2 ,mt:5}}
+                sx={{ width: "100%", mb: 2, mt: 5 }}
                 fullWidth
                 variant="outlined"
                 label="Product Image URL"
@@ -122,23 +124,30 @@ const ProductDetails = () => {
                 {...register('price')}
               />
             </CardContent>
-            <Button
-              type="submit"
-              sx={{
-                width: "50%",
-                borderRadius: "10px",
-                mb: 5,
-                textTransform: "capitalize",
-                fontSize: "20px"
-                , backgroundColor: "#FFB800",
-                color: "black",
-                "&:hover": {
-                  backgroundColor: "#FFB800",
-                },
-              }}
-            >
-              Update information
-            </Button>
+            {userRole === 'admin' ? (
+              <>
+                <Button
+                  type="submit"
+                  sx={{
+                    width: "50%",
+                    borderRadius: "10px",
+                    mb: 5,
+                    textTransform: "capitalize",
+                    fontSize: "20px"
+                    , backgroundColor: "#FFB800",
+                    color: "black",
+                    "&:hover": {
+                      backgroundColor: "#FFB800",
+                    },
+                  }}
+                >
+                  Update information
+                </Button>
+              </>
+            ) : (
+              <>   </>
+            )}
+
           </Card>
 
         </form>

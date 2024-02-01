@@ -7,18 +7,9 @@ import { UserContext } from '../../Authentication/userContext';
 
 const Details = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product,] = useState(null);
   const { userId } = useContext(UserContext)
   const { register, handleSubmit } = useForm();
-
-  useEffect(() => {
-    fetch('http://localhost:8000/products')
-      .then((response) => response.json())
-      .then((data) => {
-        const fetchedProduct = data.find((product) => product._id === id);
-        setProduct(fetchedProduct);
-      });
-  }, [id]);
 
   if (!product) {
     return <div>Loading...</div>; // Handle loading state or error as needed
