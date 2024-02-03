@@ -2,22 +2,8 @@
   height: 100%;
 }
 
-
-.review-swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  margin-top: 100px;
-}
-
 .review-swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 400px;
-  height: 400px;
-  box-shadow: none;
+  width: 300px;
+  height: 300px;
 }
 
-/* .swiper-slide img {
-  display: block;
-} */

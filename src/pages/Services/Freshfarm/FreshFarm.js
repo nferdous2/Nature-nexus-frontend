@@ -13,25 +13,19 @@ const FreshFarm = () => {
     fetch('http://localhost:8000/review')
       .then((response) => response.json())
       .then((data) => {
-        // Filter the products with the "freshfood" category
+        // Filter the review with the "freshfood" category
         const reviews = data.filter((product) => product.category === 'freshfood');
         setReview(reviews);
       })
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
-  // useEffect(() => {
-  //   fetch('http://localhost:8000/review')
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setReview(data);
-  //     });
-  // }, []);
+
   return (
     <div>
 
       <FreshFarmBanner></FreshFarmBanner>
       <Category></Category>
-      <FarmProduct/>
+      <FarmProduct />
       <MostStory></MostStory>
       <Review review={review}></Review>
       <FarmService></FarmService>

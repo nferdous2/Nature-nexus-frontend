@@ -1,14 +1,15 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import { EffectCoverflow, Pagination } from 'swiper';
-import { CardContent, Typography } from '@mui/material';
-import Rating from 'react-rating';
-import { CiStar } from 'react-icons/ci';
-import { FaStar } from 'react-icons/fa';
-import './Review.css';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+import { EffectCoverflow, Pagination } from 'swiper'
+import { CardContent, Typography } from '@mui/material'
+import Rating from 'react-rating'
+import { CiStar } from 'react-icons/ci'
+import { FaStar } from 'react-icons/fa'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import './Review.css'
  
 const Review = ({ review }) => {
   return (
@@ -39,12 +40,13 @@ const Review = ({ review }) => {
         {review.map((reviewItem, index) => (
           <SwiperSlide className="review-swiper-slide" key={index}>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {reviewItem.className}
+              <AccountCircleIcon sx={{ fontSize: 100 }}></AccountCircleIcon>
+              <Typography gutterBottom variant="h6" component="div">
+                {reviewItem.name}
               </Typography>
               <CardContent>
                 <Typography variant="subtitle2">
-                  Rating: {reviewItem.rating}
+                  {/* Rating: {reviewItem.rating} */}
                 </Typography>
                 <Typography variant="subtitle2">
                   {reviewItem.opinion}
@@ -71,7 +73,7 @@ const Review = ({ review }) => {
         ))}
       </Swiper>
     </>
-  );
-};
+  )
+}
  
-export default Review;
+export default Review

@@ -17,7 +17,7 @@ import { UserContext } from '../../../Authentication/userContext';
 import { Link } from 'react-router-dom';
 
 
-const FarmProduct = ({product}) => {
+const FarmProduct = ({ product }) => {
   const { userRole } = React.useContext(UserContext);
 
   // Initialize cart items from localStorage if available, or an empty array
@@ -63,23 +63,23 @@ const FarmProduct = ({product}) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-        fetch(`http://localhost:8000/product/${id}`, {
-            method: 'DELETE'
-        }).then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    alert('Deleted Successfully ')
-                    window.location.reload()
-                  
-                }
-            })
+      fetch(`http://localhost:8000/product/${id}`, {
+        method: 'DELETE'
+      }).then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            alert('Deleted Successfully ')
+            window.location.reload()
+
+          }
+        })
     }
-}
+  }
 
   return (
     <Box sx={{ p: 3, overflow: 'hidden' }}>
       <Grid item xs={12} md={12}>
-      {/* search box  */}
+        {/* search box  */}
         <Box style={{ alignItems: 'center', justifyContent: 'center' }}>
           <Typography variant="h4">Search Your Desired Product Here</Typography>
           <br />
@@ -105,100 +105,75 @@ const FarmProduct = ({product}) => {
         <Grid container spacing={3}>
           {filteredProducts.map((product) => (
             <Grid key={product.id} item xs={12} sm={12} md={4} lg={3}>
-              {userRole === 'admin' ? (
-                <>
-                  <Card
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      marginTop: 3,
-                      marginBottom: 2,
-                    }}
-                  >
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                      <CardContent>
-                        <Typography component="div" variant="h5">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div">
-                          $ {product.price}
-                        </Typography>
+
+              <Card
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginTop: 3,
+                  marginBottom: 2,
+                }}
+              >
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent>
+                    <Typography component="div" variant="h5">
+                      {product.name}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                      $ {product.price}
+                    </Typography>
+
+                    {userRole === 'admin' ? (
+                      <>
                         {/* Buttons  */}
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
-                      <Button onClick={() => handleDelete(product._id)} sx={{
-                        backgroundColor: 'red', color: 'white', fontWeight: 'bold', '&:hover': {
-                          backgroundColor: 'red',
-                          cursor: 'pointer',
-                        },
-                      }}>
-                        Delete
-                      </Button>
-                      {/* goes to product detail page on dashboard */}
+                          <Button onClick={() => handleDelete(product._id)} sx={{
+                            backgroundColor: 'red', color: 'white', fontWeight: 'bold', '&:hover': {
+                              backgroundColor: 'red',
+                              cursor: 'pointer',
+                            },
+                          }}>
+                            Delete
+                          </Button>
+                          {/* goes to product detail page on dashboard */}
 
-                      <Link to={`/pdetail/${product._id}`} >
-                        <Button sx={{
-                          backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold', '&:hover': {
-                            backgroundColor: '#ffb600',
-                            cursor: 'pointer',
-                          },
-                        }}>
-                          Update
-                        </Button>
-                      </Link>
+                          <Link to={`/pdetail/${product._id}`} >
+                            <Button sx={{
+                              backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold', '&:hover': {
+                                backgroundColor: '#ffb600',
+                                cursor: 'pointer',
+                              },
+                            }}>
+                              Update
+                            </Button>
+                          </Link>
 
-                    </div>
-                       
-
-                      </CardContent>
-
-                    </Box>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 200, height: 250 }}
-                      image={product.image}
-                      alt={`${product.name} cover`}
-                    />
-                  </Card>
-                </>
-              ) : (
-                <>
-                {/* for user  */}
-                  <Card
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      marginTop: 3,
-                      marginBottom: 2,
-                    }}
-                  >
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                      <CardContent sx={{ flex: '1 0 auto' }}>
-                        <Typography component="div" variant="h5">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div">
-                          $ {product.price}
-                        </Typography>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {/* for user  */}
                         <IconButton aria-label="add to favorites" onClick={() => addToCart(product)}>
                           <FavoriteIcon />
                         </IconButton>
-                        
                         <Link to={`/pdetail/${product._id}`} >
-                      <Button variant="contained"  sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
-                    </Link>
+                          <Button variant="contained" sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
+                        </Link>
 
-                      </CardContent>
+                      </>
+                    )}
 
-                    </Box>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 200, height: 250 }}
-                      image={product.image}
-                      alt={`${product.name} cover`}
-                    />
-                  </Card>
-                </>
-              )}
+
+                  </CardContent>
+
+                </Box>
+                <CardMedia
+                  component="img"
+                  sx={{ width: 200, height: 250 }}
+                  image={product.image}
+                  alt={`${product.name} cover`}
+                />
+              </Card>
 
             </Grid>
           ))}
@@ -211,3 +186,4 @@ const FarmProduct = ({product}) => {
 };
 
 export default FarmProduct
+

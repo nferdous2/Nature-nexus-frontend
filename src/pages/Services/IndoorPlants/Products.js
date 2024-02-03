@@ -51,77 +51,59 @@ const Products = ({ product }) => {
 
       <Grid container spacing={3}>
         {products.map((product) => (
+          //spaces according to screen size   
           <Grid key={product.id} item xs={12} sm={12} md={3} lg={3}>
+
+            {/* Card body  */}
+            <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <CardMedia
+                component="img"
+                sx={{ width: 200, height: 250, alignSelf: 'center' }}
+                image={product.image}
+                alt={`${product.name} cover`}
+              />
+              <CardContent>
+                <Typography sx={{ color: "#8AB29C", fontSize: "20px", fontWeight: "bold" }}>
+                  {product.name}
+                </Typography>
+                <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
+                  Price: $ {product.price}
+                </Typography>
+              </CardContent>
+            </Box>
             {userRole === 'admin' ? (
               <>
-                <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 200, height: 250, alignSelf: 'center' }}
-                    image={product.image}
-                    alt={`${product.name} cover`}
-                  />
-                  <CardContent>
-                    <Typography sx={{ color: "#8AB29C", fontSize: "20px", fontWeight: "bold" }}>
-                      {product.name}
-                    </Typography>
-                    <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Price: $ {product.price}
-                    </Typography>
-                    {/* Buttons  */}
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                      <Button onClick={() => handleDelete(product._id)} sx={{
-                        backgroundColor: 'red', color: 'white', fontWeight: 'bold', mr:5,'&:hover': {
-                          backgroundColor: 'red',
-                          cursor: 'pointer',
-                        },
-                      }}>
-                        Delete
-                      </Button>
-                      {/* goes to product detail page on dashboard */}
+                {/* Buttons  */}
+                <div>
+                  <Button onClick={() => handleDelete(product._id)} sx={{
+                    backgroundColor: 'red', color: 'white', fontWeight: 'bold', mr: 5, '&:hover': {
+                      backgroundColor: 'red',
+                      cursor: 'pointer',
+                    },
+                  }}>
+                    Delete
+                  </Button>
+                  {/* goes to product detail page on dashboard */}
 
-                      <Link to={`/pdetail/${product._id}`} >
-                        <Button sx={{
-                          backgroundColor: '#306B4A', color: 'white', fontWeight: 'bold', '&:hover': {
-                            backgroundColor: '#306B4A',
-                            cursor: 'pointer',
-                          },
-                        }}>
-                          Update
-                        </Button>
-                      </Link>
+                  <Link to={`/pdetail/${product._id}`} >
+                    <Button sx={{
+                      backgroundColor: '#306B4A', color: 'white', fontWeight: 'bold', '&:hover': {
+                        backgroundColor: '#306B4A',
+                        cursor: 'pointer',
+                      },
+                    }}>
+                      Update
+                    </Button>
+                  </Link>
 
-                    </div>
-                  </CardContent>
-                </Box>
-
-
+                </div>
               </>
             ) : (
               <>
-                {/* for user  */}
-                <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    sx={{ width: 200, height: 250, alignSelf: 'center' }}
-                    image={product.image}
-                    alt={`${product.name} cover`}
-                  />
-                  <CardContent>
-                    <Typography sx={{ color: "#8AB29C", fontSize: "20px", fontWeight: "bold" }}>
-                      {product.name}
-                    </Typography>
-                    <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Price: $ {product.price}
-                    </Typography>
-                    
-                    <Link to={`/plantBuy/${product._id}`} >
-                      <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", mt: 3 }}>Buy Now</Button>
-                    </Link>
-                  </CardContent>
-                  
-                </Box>
-
+                {/* goes to plantbuy page */}
+                <Link to={`/plantBuy/${product._id}`} >
+                  <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", }}>Buy Now</Button>
+                </Link>
 
               </>
             )}
