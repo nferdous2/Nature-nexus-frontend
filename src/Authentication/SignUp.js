@@ -59,7 +59,7 @@ const SignUp = () => {
 
 
     axios
-      .post("http://localhost:8000/register", formData)
+      .post("https://nature-nexus.onrender.com/register", formData)
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;

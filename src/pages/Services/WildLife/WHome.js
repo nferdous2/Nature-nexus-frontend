@@ -12,7 +12,7 @@ const WHome = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('http://localhost:8000/review')
+    fetch('https://nature-nexus.onrender.com/review')
       .then((response) => response.json())
       .then((data) => {
         // Filter the products with the "freshfood" category

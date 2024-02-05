@@ -29,7 +29,7 @@
 //   const handleLogout = async () => {
 //     const token = localStorage.getItem("token");
 //     try {
-//       await axios.post("http://localhost:8000/logout", null, {
+//       await axios.post("https://nature-nexus.onrender.com/logout", null, {
 //         headers: { Authorization: token },
 //       });
 //       localStorage.removeItem("token");
@@ -89,10 +89,11 @@ export const UserProvider = ({ children }) => {
     fetchData();
   }, []);
 
+
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
     try {
-      await axios.post("http://localhost:8000/logout", null, {
+      await axios.post("https://nature-nexus.onrender.com/logout", null, {
         headers: { Authorization: token },
       });
       localStorage.removeItem("token");

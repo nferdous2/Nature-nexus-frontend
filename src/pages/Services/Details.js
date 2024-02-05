@@ -23,7 +23,7 @@ const Details = () => {
   const onSubmit = (data) => {
     data.productId = id;
     data.userId = userId;
-    fetch("http://localhost:8000/purchase", {
+    fetch("https://nature-nexus.onrender.com/purchase", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

@@ -28,7 +28,7 @@ const FarmProduct = ({ product }) => {
 
   useEffect(() => {
     // Fetch all products from your API
-    fetch('http://localhost:8000/products')
+    fetch('https://nature-nexus.onrender.com/products')
       .then((response) => response.json())
       .then((data) => {
         // Filter the products with the "freshfood" category
@@ -63,7 +63,7 @@ const FarmProduct = ({ product }) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-      fetch(`http://localhost:8000/product/${id}`, {
+      fetch(`https://nature-nexus.onrender.com/product/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {

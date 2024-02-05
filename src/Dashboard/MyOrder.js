@@ -17,7 +17,7 @@ const MyOrder = () => {
       try {
         const token = localStorage.getItem('token');
         console.log('Token:', token);
-        const response = await fetch(`http://localhost:8000/soldProduct/${localStorage.getItem('userId')}`, {
+        const response = await fetch(`https://nature-nexus.onrender.com/soldProduct/${localStorage.getItem('userId')}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/soldProduct/${userId}`, {
+      fetch(`https://nature-nexus.onrender.com/soldProduct/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/animal/${userId}`, {
+      fetch(`https://nature-nexus.onrender.com/animal/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ const MyOrder = () => {
                           {/* remove */}
                           <Button size="small"
                             onClick={() => {
-                              fetch(`http://localhost:8000/soldProduct/${order._id}`, {
+                              fetch(`https://nature-nexus.onrender.com/soldProduct/${order._id}`, {
                                 method: 'DELETE',
                                 headers: {
                                   'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ const MyOrder = () => {
                             </p> :
                               <p
                                 onClick={() => {
-                                  fetch(`http://localhost:8000/animal/${order._id}`, {
+                                  fetch(`https://nature-nexus.onrender.com/animal/${order._id}`, {
                                     method: 'PATCH',
                                     headers: {
                                       'Content-Type': 'application/json',

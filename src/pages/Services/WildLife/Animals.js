@@ -8,7 +8,7 @@ const Animals = () => {
   const [animals, setAnimals] = useState([])
   useEffect(() => {
     // Fetch all products from your API
-    fetch('http://localhost:8000/products')
+    fetch('https://nature-nexus.onrender.com/products')
       .then((response) => response.json())
       .then((data) => {
         // Filter the products with the "freshfood" category

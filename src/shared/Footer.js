@@ -8,6 +8,7 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import {
+  Container,
   Grid,
   IconButton,
   ImageList,
@@ -41,7 +42,8 @@ const Footer = () => {
     marginRight: "8px",
   };
   return (
-      <div  className="footer-bg"  >
+   
+  <div  className="footer-bg"  >
         <Grid container spacing={3}>
           {/* section one  */}
           <Grid item xs={12} md={3} className="footer-text">
@@ -176,6 +178,8 @@ const Footer = () => {
           Copyright © 2023 .All rights reserved.
         </Typography>
       </div>
+   
+    
   );
 };
 
