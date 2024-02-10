@@ -66,7 +66,7 @@ const PFacilities = () => {
             </Typography>
             <Grid container spacing={{ xs: 2, md: 4 }}>
                 {/* main grid 1 */}
-                <Grid item xs={6} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={6}>
                     <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
                     <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
                         INTERIOR PLANT <br /> SERVICE
@@ -76,7 +76,17 @@ const PFacilities = () => {
                     </Typography>
                 </Grid>
                 {/* 2nd grid  */}
-                <Grid item xs={6} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={6}>
+                    <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
+                    <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
+                        INTERIOR LANDSCAPING <br /> DESIGN
+                    </Typography>
+                    <Typography variant="h6" sx={{color:"#8AB29C", mt: 3, fontWeight: "bold" }}>
+                        We offer a complete range of  <br />design services.
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={6} md={3} lg={6}>
                     <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
                     <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
                         INTERIOR LANDSCAPING <br /> DESIGN
@@ -86,8 +96,17 @@ const PFacilities = () => {
                     </Typography>
                 </Grid>
                 {/* 3rd grid  */}
+                <Grid item xs={6} md={3} lg={6}>
+                    <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
+                    <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
+                        INTERIOR LANDSCAPING <br /> DESIGN
+                    </Typography>
+                    <Typography variant="h6" sx={{color:"#8AB29C", mt: 3, fontWeight: "bold" }}>
+                        We offer a complete range of  <br />design services.
+                    </Typography>
+                </Grid>
 
-                <Grid item xs={6} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={6}>
                     <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
                     <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
                         SEASON HOLIDAY <br /> DECORATING
@@ -98,15 +117,7 @@ const PFacilities = () => {
                 </Grid>
                 {/*4th grid  */}
 
-                <Grid item xs={6} md={3} lg={3}>
-                    <PiPlantThin style={{ fontSize: "5rem", color: "#306B4A ", backgroundColor: "#C6E9D3", padding: "4%", borderRadius: "100%" }} />
-                    <Typography variant="h6" sx={{ color: "#306B4A", mt: 3, fontWeight: "bold" }}>
-                        LANDSCAPING <br />PRODUCTS
-                    </Typography>
-                    <Typography variant="h6" sx={{ color:"#8AB29C", mt: 3, fontWeight: "bold" }}>
-                        We have a wide range of <br />landscaping products.
-                    </Typography>
-                </Grid>
+
 
             </Grid>
         </Box>

@@ -17,7 +17,7 @@ const TreePlantationBanner = () => {
         that always keep <br></br>you company
       </p>
       <button className="explore-btn">Explore</button>
-      <button className="explore-btn2">Explore</button>
+     
     </div>
   )
 }

@@ -1,17 +1,21 @@
-
 import React, { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea } from '@mui/material';
-
-
+import axios from 'axios';
+ 
+ 
 const MyOrder = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [animal, setAnimal] = useState([]);
-
+  const [image, setImage] = useState(null)
+ 
+  const handleFileChange = (e) => {
+    setImage(e.target.files[0]);
+  };
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -37,10 +41,10 @@ const MyOrder = () => {
         setLoading(false);
       }
     };
-
+ 
     fetchOrders();
   }, []);
-
+ 
   const userId = localStorage.getItem('userId');
   useEffect(() => {
     // console.log(userId)
@@ -63,7 +67,7 @@ const MyOrder = () => {
         });
     }
   }, [userId]);
-
+ 
   useEffect(() => {
     // console.log(userId)
     if (userId) {
@@ -86,7 +90,7 @@ const MyOrder = () => {
         });
     }
   }, [userId]);
-
+ 
   // console.log(orders)
   return (
     <div>
@@ -99,14 +103,14 @@ const MyOrder = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             // wrap
-
+ 
             width: '100%',
             gap: '1rem',
           }}>
             {
               orders.length === 0 ? <p>No product orders found in your inventory</p> :
                 orders.map((order, index) => {
-
+ 
                   return (
                     <Card sx={{ maxWidth: 345 }} key={index}>
                       <CardActionArea>
@@ -156,7 +160,7 @@ const MyOrder = () => {
                       </CardActionArea>
                     </Card>
                   );
-
+ 
                 })}
           </ul>
       }
@@ -169,14 +173,14 @@ const MyOrder = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             // wrap
-
+ 
             width: '100%',
             gap: '1rem',
           }}>
             {
               animal?.length === 0 ? <p>No animals orders found in your inventory</p> :
                 animal?.map((order, index) => {
-
+ 
                   return (
                     <Card sx={{ maxWidth: 345 }} key={index}>
                       <CardActionArea>
@@ -205,7 +209,27 @@ const MyOrder = () => {
                             }}>
                               Received Animal
                             </p> :
-                              <p
+ 
+                              <form encType="multipart/form-data" >
+                                <p style={{
+                                  backgroundColor: "green",
+                                  marginTop: "10px",
+                                  color: "white",
+                                  fontWeight: "bold",
+                                  padding: '10px',
+                                  textAlign: 'center',
+                                }}>
+                                  You Received Animal ? Then please submit the image of your recipt.
+                                </p>
+                                <input
+                                  type="file"
+                                  name="image"
+                                  id="image"
+                                  accept="image/*"
+                                  onChange={handleFileChange}
+                                  required
+                                />
+                                <button type="submit" 
                                 onClick={() => {
                                   fetch(`http://localhost:8000/animal/${order._id}`, {
                                     method: 'PATCH',
@@ -223,33 +247,31 @@ const MyOrder = () => {
                                     .catch((err) => {
                                       console.log(err);
                                     });
-                                }}
-                                style={{
+                                }}style={{
                                   backgroundColor: "green",
                                   marginTop: "10px",
                                   color: "white",
                                   fontWeight: "bold",
                                   padding: '10px',
                                   textAlign: 'center',
-                                }}
-                              >
-                                Confirming I've received animal
-                              </p>
+                                }}>Upload</button>
+ 
+                             </form> 
                           }
-
-
+ 
+ 
                         </CardContent>
                       </CardActionArea>
                     </Card>
                   );
-
+ 
                 })}
           </ul>
-
+ 
       }
     </div>
   );
 };
-
+ 
 export default MyOrder;
-
+ 
