@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import { Box, Grid, IconButton, InputAdornment, Typography } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-
+import { Box, Grid, Typography } from '@mui/material';
+import "../Styles/Style.css"
 const AddProduct = () => {
     const [formData, setFormData] = useState({
         name: "",
         price: "",
-        image:"",
+        image: "",
         category: "",
+        description: "",
 
     });
 
@@ -25,10 +25,11 @@ const AddProduct = () => {
                 localStorage.setItem("token", token);
                 setFormData({
                     name: "",
-        price: "",
-        image:"",
-        category: "",
-                });  // Access the UserContext
+                    price: "",
+                    image: "",
+                    category: "",
+                    description: "",
+                });  
             })
             .catch((err) => {
                 console.error("Error registering user:", err);
@@ -40,7 +41,7 @@ const AddProduct = () => {
     };
 
     return (
-        <Box sx={{ marginTop: "8%", marginBottom: "15%" }}>
+        <Box  sx={{ marginTop: "8%", marginBottom: "15%" }}>
 
             {/* main code starts here */}
 
@@ -68,8 +69,8 @@ const AddProduct = () => {
                             variant="standard"
                             required
                         />
-                      
-                      <TextField
+
+                        <TextField
                             sx={{ width: "100%", mb: 1 }}
                             id="standard-basic-1"
                             label="Price"
@@ -79,7 +80,7 @@ const AddProduct = () => {
                             variant="standard"
                             required
                         />
-                          <TextField
+                        <TextField
                             sx={{ width: "100%", mb: 1 }}
                             id="standard-basic-1"
                             label="Img URL"
@@ -89,7 +90,17 @@ const AddProduct = () => {
                             variant="standard"
                             required
                         />
-                          <TextField
+                        <TextField
+                            sx={{ width: "100%", mb: 1 }}
+                            id="standard-basic-1"
+                            label="Product Description"
+                            name="description"
+                            onChange={handleInputChange}
+                            value={formData.description}
+                            variant="standard"
+                            required
+                        />
+                        <TextField
                             sx={{ width: "100%", mb: 1 }}
                             id="standard-basic-1"
                             label="Category"

@@ -20,7 +20,7 @@ import { FaUser } from "react-icons/fa";
 import { FcHome } from "react-icons/fc";
 import { Container } from "@mui/material";
 import { LiaProductHunt } from "react-icons/lia";
-import { BsPersonLinesFill } from "react-icons/bs";
+import { BsPersonLinesFill, BsCart3 } from "react-icons/bs";
 import TreeView from "@mui/lab/TreeView";
 import TreeItem from "@mui/lab/TreeItem";
 import LoginIcon from "@mui/icons-material/Login";
@@ -28,6 +28,9 @@ import LoginIcon from "@mui/icons-material/Login";
 import Admin from "./Admin";
 import AddProduct from "./AddProduct";
 import { UserContext } from "../Authentication/userContext";
+import SoldList from "./SoldList";
+import MyOrder from "./MyOrder";
+import Feedback from "../pages/Feedback/Feedback";
 
 const drawerWidth = 240;
 
@@ -75,19 +78,12 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
 }));
-const SvgBackground = styled("svg")({
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: -1,
-    transform: "rotate(360deg)",
-});
+
+// main code start form here
 
 export default function DashboardNav() {
     const [open, setOpen] = React.useState(true);
-    const { isLoggedIn, handleLogout , userRole,} = React.useContext(UserContext);
+    const { handleLogout, userRole, } = React.useContext(UserContext);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -100,14 +96,36 @@ export default function DashboardNav() {
     // State to manage which component to render dynamically
     const [selectedComponent, setSelectedComponent] = React.useState(null);
 
-    // Handler to render the Profile component
-      const handleproduct= () => {
-        setSelectedComponent(<AddProduct/>);
-      };
-    //     // Handler to render the Profile component
-    const handleadmin = () => {
-          setSelectedComponent(<Admin/>);
+    // add product 
+    const handleproduct = () => {
+        setSelectedComponent(<AddProduct />);
     };
+
+    // add admin
+    const handleadmin = () => {
+        setSelectedComponent(<Admin />);
+    };
+    // See the total sold list
+    const soldProductList = () => {
+        setSelectedComponent(<SoldList />);
+    };
+
+    // see orders
+    const handleOrder = () => {
+        setSelectedComponent(<MyOrder />);
+    };
+    // see feedback
+    const handleFeedback = () => {
+        setSelectedComponent(<Feedback />);
+    };
+
+    // State ,it will show the order page first 
+    React.useEffect(() => {
+        // Set the default selected component when the page loads
+        handleOrder();
+    }, []);
+
+
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -165,7 +183,7 @@ export default function DashboardNav() {
                                 textDecoration: "none",
                             }}
                         >
-                        <span style={{ color: "#FFB800" }}>Nature </span>Nexus
+                            <span style={{ color: "#FFB800" }}>Nature </span>Nexus
                         </Typography>
                     </Toolbar>
                     <IconButton onClick={handleDrawerClose}>
@@ -184,7 +202,7 @@ export default function DashboardNav() {
                                 <ListItemIcon>
                                     <FcHome style={{ color: "#000", fontSize: "1.5rem" }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Overview" />
+                                <ListItemText primary="Home" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
@@ -199,6 +217,8 @@ export default function DashboardNav() {
                                         marginRight: "1rem",
                                     }}
                                 />
+                                <ListItemText primary="See Your Options" />
+
                             </ListItemIcon>
                         </ListItemButton>
                     </ListItem>
@@ -224,101 +244,137 @@ export default function DashboardNav() {
                         }
                         sx={{ height: 300, flexGrow: 1, maxWidth: 420, overflowY: "auto" }}
                     >
-                    {userRole === 'admin' && (
-                        <TreeItem
-                            nodeId="1"
-                            label="Admin"
-                            style={{ color: "#000", background: "#FFFFFF" }}
-                        >
-                            <ListItem disablePadding>
-                                <ListItemButton
-                                    style={{ borderRadius: "0 40px 40px 0" }}
-                                  onClick={handleproduct} // Handle click to render Profile dynamically
-                                >
-                                    <ListItemIcon>
-                                        <LiaProductHunt
-                                            style={{ color: "#000", fontSize: "1.3rem" }}
+
+                        {userRole === 'admin' && (
+                            <TreeItem
+                                nodeId="1"
+                                style={{ color: "#000", background: "#FFFFFF" }}
+                            >
+                                <ListItem disablePadding>
+                                    <ListItemButton
+                                        style={{ borderRadius: "0 40px 40px 0" }}
+                                        onClick={handleproduct} // Handle click to render Profile dynamically
+                                    >
+                                        <ListItemIcon>
+                                            <LiaProductHunt
+                                                style={{ color: "#000", fontSize: "1.3rem" }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            primary="Add Product"
+                                            style={{ marginLeft: "-1rem" }}
                                         />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary="Add Product"
-                                        style={{ marginLeft: "-1rem" }}
-                                    />
-                                </ListItemButton>
-                            </ListItem>
-                            <ListItem disablePadding>
-                                <ListItemButton
-                                    style={{ borderRadius: "0 40px 40px 0" }}
-                                    onClick={handleadmin} // Handle click to render Profile dynamically
-                                >
-                                    <ListItemIcon>
-                                        <BsPersonLinesFill
-                                            style={{ color: "#000", fontSize: "1.3rem" }}
+                                    </ListItemButton>
+                                </ListItem>
+                                <ListItem disablePadding>
+                                    <ListItemButton
+                                        style={{ borderRadius: "0 40px 40px 0" }}
+                                        onClick={handleadmin} // Handle click to render Profile dynamically
+                                    >
+                                        <ListItemIcon>
+                                            <BsPersonLinesFill
+                                                style={{ color: "#000", fontSize: "1.3rem" }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            primary="Add Admin"
+                                            style={{ marginLeft: "-1rem" }}
                                         />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary="Add Admin"
-                                        style={{ marginLeft: "-1rem" }}
-                                    />
-                                </ListItemButton>
-                            </ListItem>
-                        </TreeItem>
+                                    </ListItemButton>
+                                </ListItem>
+
+                                <ListItem disablePadding>
+                                    <ListItemButton
+                                        style={{ borderRadius: "0 40px 40px 0" }}
+                                        onClick={soldProductList} // Handle click to render Profile dynamically
+                                    >
+                                        <ListItemIcon>
+                                            <BsCart3
+                                                style={{ color: "#000", fontSize: "1.3rem" }}
+                                            />
+                                        </ListItemIcon>
+
+                                        <ListItemText
+                                            primary="Details"
+                                            style={{ marginLeft: "-1rem" }}
+                                        />
+                                    </ListItemButton>
+                                </ListItem>
+
+                                <NavLink
+                                    onClick={handleLogout}
+                                    style={{ textDecoration: "none", width: "100%", color: "#000" }}
+                                >
+                                    <ListItem>
+                                        <ListItemButton style={{ borderRadius: "0 40px 40px 0" }}>
+                                            <ListItemIcon>
+                                                <LoginIcon
+                                                    style={{ color: "#000", fontSize: "1.5rem" }}
+                                                />
+                                            </ListItemIcon>
+                                            <ListItemText primary="Logout" />
+                                        </ListItemButton>
+                                    </ListItem>
+                                </NavLink>
+                            </TreeItem>
                         )}
 
-                    </TreeView>
-                    {/* {isLoggedIn ? (
-                        <>
-                            <ListItem disablePadding>
-                                <ListItemButton
-                                    style={{ borderRadius: "0 40px 40px 0" }}
-                                //   onClick={handleOrders} // Handle click to render Profile dynamically
-                                >
-                                    <ListItemIcon>
-                                        <LiaProductHunt
-                                            style={{ color: "#000", fontSize: "1.3rem" }}
+                        {userRole === 'user' && (
+                            <TreeItem
+                                nodeId="1"
+                                style={{ color: "#000", background: "#FFFFFF" }}
+                            >
+                                <ListItem disablePadding>
+                                    <ListItemButton
+                                        style={{ borderRadius: "0 40px 40px 0" }}
+                                        onClick={handleOrder} // Handle click to render Profile dynamically
+                                    >
+                                        <ListItemIcon>
+                                            <LiaProductHunt
+                                                style={{ color: "#000", fontSize: "1.3rem" }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            primary="My Orders"
+                                            style={{ marginLeft: "-1rem" }}
                                         />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary="orders"
-                                        style={{ marginLeft: "-1rem" }}
-                                    />
-                                </ListItemButton>
-                            </ListItem>
-                            <NavLink
-                                onClick={handleLogout}
-                                style={{ textDecoration: "none", width: "100%", color: "#000" }}
-                            >
-                                <ListItem>
-                                    <ListItemButton style={{ borderRadius: "0 40px 40px 0" }}>
-                                        <ListItemIcon>
-                                            <LoginIcon
-                                                style={{ color: "#000", fontSize: "1.5rem" }}
-                                            />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Logout" />
                                     </ListItemButton>
                                 </ListItem>
-                            </NavLink>
-                        </>
-                    ) : (
-                        <>
-                            <NavLink
-                                to="/login"
-                                style={{ textDecoration: "none", width: "100%", color: "#000" }}
-                            >
-                                <ListItem>
-                                    <ListItemButton style={{ borderRadius: "0 40px 40px 0" }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton
+                                        style={{ borderRadius: "0 40px 40px 0" }}
+                                        onClick={handleFeedback} // Handle click to render Profile dynamically
+                                    >
                                         <ListItemIcon>
-                                            <LoginIcon
-                                                style={{ color: "#000", fontSize: "1.5rem" }}
+                                            <BsPersonLinesFill
+                                                style={{ color: "#000", fontSize: "1.3rem" }}
                                             />
                                         </ListItemIcon>
-                                        <ListItemText primary="Login" />
+                                        <ListItemText
+                                            primary="Give Feedback"
+                                            style={{ marginLeft: "-1rem" }}
+                                        />
                                     </ListItemButton>
                                 </ListItem>
-                            </NavLink>
-                        </>
-                    )} */}
+                                <NavLink
+                                    onClick={handleLogout}
+                                    style={{ textDecoration: "none", width: "100%", color: "#000" }}
+                                >
+                                    <ListItem>
+                                        <ListItemButton style={{ borderRadius: "0 40px 40px 0" }}>
+                                            <ListItemIcon>
+                                                <LoginIcon
+                                                    style={{ color: "#000", fontSize: "1.5rem" }}
+                                                />
+                                            </ListItemIcon>
+                                            <ListItemText primary="Logout" />
+                                        </ListItemButton>
+                                    </ListItem>
+                                </NavLink>
+                            </TreeItem>
+                        )}
+                    </TreeView>
+
                 </List>
             </Drawer>
             <Main open={open}>
@@ -326,8 +382,10 @@ export default function DashboardNav() {
                 <Container maxWidth="lg">
                     <Main open={open}>
                         <DrawerHeader />
+
                         <Container maxWidth="lg">
                             {/* Render the selected component */}
+                            
                             {selectedComponent}
                         </Container>
                     </Main>

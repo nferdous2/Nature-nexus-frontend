@@ -22,7 +22,7 @@ const defaultTheme = createTheme();
 
 
 const Login = () => {
-  const { setIsLoggedIn,setLoading,setUserRole } = useContext(UserContext); // Access the UserContext
+  const { setIsLoggedIn,setLoading,} = useContext(UserContext); // Access the UserContext
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -48,6 +48,8 @@ const Login = () => {
         const token = res.data.token;
         // Store the token in local storage or a cookie
         localStorage.setItem("token", token);
+        localStorage.setItem("userId", res.data.userId);
+
         // console.log("Token set:", token);
         setLoading(false);
         localStorage.setItem('userRole', res.data.role);

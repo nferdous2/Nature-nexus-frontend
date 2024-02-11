@@ -2,7 +2,6 @@ import * as React from 'react'
 import { styled } from '@mui/material/styles'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
-import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Collapse from '@mui/material/Collapse'
@@ -21,6 +20,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ShareIcon from '@mui/icons-material/Share'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import { useParams } from 'react-router'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -34,11 +34,10 @@ const ExpandMore = styled((props) => {
 }))
 
 export default function AnimalDetails() {
+  const {_id} = useParams()
   const [expanded, setExpanded] = React.useState(false)
   const [animal, setAnimal] = React.useState({})
   const [openModal, setOpenModal] = React.useState(false)
-  const [input1, setInput1] = React.useState('')
-  const [input2, setInput2] = React.useState('')
   const [input3, setInput3] = React.useState('')
   const [input4, setInput4] = React.useState('')
   const [snackbarOpen, setSnackbarOpen] = React.useState(false)
@@ -62,16 +61,46 @@ export default function AnimalDetails() {
   const handleCloseModal = () => {
     setOpenModal(false)
   }
-
+  const animalData = localStorage.getItem('animal')
+  const userId = localStorage.getItem('userId')
   const handleSaveModal = () => {
     // Add logic to save input values or perform any other actions
-    console.log('Input 1:', input1)
-    console.log('Input 2:', input2)
+    // console.log('Input 1:', input1)
+    // console.log('Input 2:', input2)
     console.log('Input 3:', input3)
     console.log('Input 4:', input4)
+    console.log('Animal Data:', JSON.parse(animalData))
+    console.log('User Id:', userId)
+    const data = {
+      phone: input3,
+      address: input4,
+      animal: JSON.parse(animalData),
+      userId: userId,
+    }
+    fetch(`https://nature-nexus.onrender.com/animal`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(async (res) => {
+        const data = await res.json()
+        console.log(data)
+        if (res.status === 200) {
+          alert('Adopted Successfully')
+          window.location.href = '/dashboard'
+        } else {
+          alert('Something went wrong')
+        }
+      })
+      .catch((err) => {
+        console.log(err, 'err on catch')
+        // alert('Something went wrong')
+      })
 
     // Show Snackbar for save success
-    setSaveSuccessSnackbarOpen(true)
+    // setSaveSuccessSnackbarOpen(true)
 
     // Close the modal
     handleCloseModal()
@@ -112,10 +141,10 @@ export default function AnimalDetails() {
 
   return (
     <Card sx={{ maxWidth: 800, margin: 'auto', mt: 15 }}>
-      <CardHeader title={`${animal.name}`} />
+      <CardHeader title={animal.pet_name} />
       <img
         src={animal.image}
-        alt={animal.name}
+        alt={animal.pet_name}
         style={{
           height: '400px',
           width: '100%',
@@ -134,7 +163,7 @@ export default function AnimalDetails() {
             ml: 4,
             borderRadius: '10px',
             textTransform: 'capitalize',
-            backgroundColor: '#FFB800',
+            backgroundCaolor: '#FFB800',
             color: 'black',
             fontWeight: 'bold',
             '&:hover': {
@@ -163,23 +192,8 @@ export default function AnimalDetails() {
           <Typography variant="h6" paragraph>
             Animal Details:
           </Typography>
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            facilisi. Sed vel magna quis justo pharetra blandit non eget urna.
-          </Typography>
-          <Typography paragraph>
-            Vivamus auctor auctor eros, vel ullamcorper neque cursus ac.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas.
-          </Typography>
-          <Typography paragraph>
-            Fusce commodo nisl nec risus volutpat, in tempus augue efficitur.
-            Curabitur sit amet sapien eu ipsum sagittis hendrerit vitae at
-            justo.
-          </Typography>
-          <Typography paragraph>
-            Quisque tincidunt libero vel fringilla dictum. Nunc vel elit
-            feugiat, tincidunt justo vel, lacinia arcu.
+          <Typography variant="h6" paragraph>
+           {animal.description}
           </Typography>
         </CardContent>
       </Collapse>
@@ -188,24 +202,9 @@ export default function AnimalDetails() {
       <Dialog open={openModal} onClose={handleCloseModal}>
         <DialogTitle>Adopt Animal</DialogTitle>
         <DialogContent>
+      
           <TextField
-            label=" Name"
-            type="text"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Email address"
-            type="text"
-            value={input2}
-            onChange={(e) => setInput2(e.target.value)}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label=" Phone number"
+            label="Phone number"
             type="number"
             value={input3}
             onChange={(e) => setInput3(e.target.value)}
@@ -213,7 +212,7 @@ export default function AnimalDetails() {
             margin="normal"
           />
           <TextField
-            label=" Address"
+            label="Address"
             type="text"
             value={input4}
             onChange={(e) => setInput4(e.target.value)}
@@ -247,7 +246,7 @@ export default function AnimalDetails() {
               },
             }}
           >
-            Save
+            Confirm
           </Button>
         </DialogActions>
       </Dialog>

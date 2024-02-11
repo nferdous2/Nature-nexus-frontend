@@ -42,7 +42,6 @@ const Admin = () => {
         <Box sx={{ marginTop: "8%", marginBottom: "15%" }}>
 
             {/* main code starts here */}
-
             <Grid
                 container
                 justifyContent="center"
@@ -101,7 +100,7 @@ const Admin = () => {
                                 backgroundColor: "#FFB800",
                             },
                         }}>
-                            Verify
+                            Add Admin
                         </Button>
                     </form>
                 </Grid>

@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Main from '../Layout/Main/Main'
 import Home from '../pages/Home/Home'
 import FreshFarm from '../pages/Services/Freshfarm/FreshFarm'
 import SignUp from '../Authentication/SignUp'
@@ -9,9 +8,16 @@ import OTPVerification from '../Authentication/OTP'
 import Cart from '../pages/Services/Cart'
 import DashboardNav from '../Dashboard/DashboardNav'
 import AnimalDetails from '../pages/Services/WildLife/AnimalDetails'
-import Contact from './../pages/contact/Contact'
-import Feedback from './../pages/Feedback/Feedback'
-import AdoptForm from './../pages/Services/WildLife/AdoptForm'
+import Contact from './../pages/contact/Contact';
+import Feedback from './../pages/Feedback/Feedback';
+import Details from '../pages/Services/Details'
+import PaymentSuccess from '../Payment/PaymentSuccess'
+import PaymentFail from '../Payment/PaymentFail'
+import ProductDetails from '../Dashboard/ProductDetails'
+import Main from '../Layout/Main'
+import IHome from '../pages/Services/IndoorPlants/IHome'
+import PlantBuy from '../pages/Services/IndoorPlants/PlantBuy'
+import PrivateRoute from './PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -34,21 +40,43 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>,
       },
+     
       {
         path: '/wildlife',
         element: <WHome></WHome>,
       },
       {
-        path: '/details/:id',
-        loader: ({ params }) => {
-          const animalId = params.id
-          return fetch('/wildlifeAnimalData.JSON') // Remove extra dots in the path
-            .then((response) => response.json())
-            .then((data) => data[animalId])
-        },
+        path: '/plants',
+        element: <IHome></IHome>,
+      },
+      {
+        path: "/plantBuy/:id",
+        element:<PrivateRoute> <PlantBuy /> </PrivateRoute> 
+
+      },
+      {
+        path: '/details/:_id',
         element: <AnimalDetails></AnimalDetails>,
       },
+      {
+        path: "/detail/:id",
+        element: <Details />
 
+      },
+      {
+        path: "/pdetail/:id",
+        element: <ProductDetails />
+
+      },
+      {
+        path: "payment/success/:tranId",
+        element: <PaymentSuccess />
+
+      }, {
+        path: "payment/fail/:tranId",
+        element: <PaymentFail />
+
+      },
       {
         path: '/otp',
         element: <OTPVerification></OTPVerification>,
@@ -63,16 +91,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart></Cart>,
+        element: <PrivateRoute><Cart></Cart> </PrivateRoute>
       },
       {
         path: '/feedback',
         element: <Feedback></Feedback>,
       },
-      {
-        path: '/adoptform',
-        element: <AdoptForm></AdoptForm>,
-      },
+    
     ],
   },
 ])

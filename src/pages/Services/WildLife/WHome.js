@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Waboutus from './Waboutus'
 import WildlifeBanner from './WildlifeBanner/WildlifeBanner'
-import {
-  Grid,
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from '@mui/material'
-import { FcExpand } from 'react-icons/fc'
-import faq from '../../../img/TV.png'
+import { Grid, Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { FcExpand } from "react-icons/fc"
+import faq from "../../../img/TV.png"
 import Blogs from './Blogs'
 import Animals from './Animals'
+import Review from '../Freshfarm/Review'
 
 const WHome = () => {
+  const [review, setReview] = useState([]);
+  useEffect(() => {
+    // Fetch all products from your API
+    fetch('https://nature-nexus.onrender.com/review')
+      .then((response) => response.json())
+      .then((data) => {
+        // Filter the products with the "freshfood" category
+        const reviews = data.filter((product) => product.category === 'animal');
+        setReview(reviews);
+      })
+      .catch((error) => console.error('Error fetching products:', error));
+  }, []);
   return (
     <div>
       <WildlifeBanner />
       <Waboutus />
       <Animals />
-
       {/* Accordion */}
       <div>
         <Typography
@@ -147,8 +153,11 @@ const WHome = () => {
           </Grid>
         </Grid>
       </div>
-      {/* blogs */}
-      <Blogs />
+      <Review review={review}></Review>
+
+{/* blogs */}
+
+<Blogs/>
     </div>
   )
 }

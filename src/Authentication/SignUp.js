@@ -4,11 +4,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { UserContext } from "./userContext";
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 
 import {
   Box,
@@ -24,12 +23,14 @@ const defaultTheme = createTheme();
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
+    userRole: 'user',
     email: "",
     password: "",
     name: "",
     address: "",
   });
-  const { setIsLoggedIn } = useContext(UserContext); 
+
+  // const { setIsLoggedIn } = useContext(UserContext); 
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -63,6 +64,8 @@ const SignUp = () => {
         alert(res.data.message);
         const token = res.data.token;
         localStorage.setItem("token", token);
+        localStorage.setItem("userId", res.data.userId);
+
         setFormData({
           name: "",
           email: "",

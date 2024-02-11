@@ -1,126 +1,142 @@
-import { Box, Card, CardContent, Chip, Grid, TextField } from '@mui/material'
-import React from 'react'
-import './Feedback.css'
-import SendIcon from '@mui/icons-material/Send'
+import React, { useState } from 'react';
+import { Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, Grid } from '@mui/material';
+import { FaHeart } from 'react-icons/fa';
+import axios from 'axios';
+import review from "../../img/review.png"
 
+// main code starts here 
 const Feedback = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    opinion: '',
+    category: '',
+    rating: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (e) => {
-    const form = new FormData(e.currentTarget)
+    e.preventDefault(); // Prevent the default form submission behavior
+    console.log(formData);
+    axios.post('http://localhost:8000/review', formData)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert('Thank you for your valuable opinion');
+          window.location.reload()
+        }
 
-    const userData = {
-      username: form.get('name'),
-      description: form.get('text'),
-    }
-
-    console.log(userData)
-    // //send data to server
-    // fetch('https://mylibraryserver.vercel.app/feedback', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(userData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       alert('Your review has been added successfully')
-    //     }
-    //   })
-    // e.preventDefault()
-  }
+      });
+      
+  };
 
   return (
-    <>
-      {/* <Header /> */}
-
-      <Box sx={{ flexGrow: 1, boxShadow: 5, pt: 10 }} data-aos="fade-up">
-        <Grid
-          container
-          sx={{
+    <Grid container spacing={2} sx={{ justifyContent: "center", p: 3 }}>
+      <Grid xs={12} md={7} lg={7}>
+      <form   onSubmit={handleSubmit}>
+      <FormControl
+          style={{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            flexDirection: 'column',
+            gap: '15px',
+            padding: '2%',
+            borderRadius: '8px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            margin: 'auto',
+            backgroundColor: '#fff',
+            textAlign: "left"
           }}
         >
-          <Grid item xs={12} sm={12} md={3} lg={3}>
-            <Card
-              sx={{
-                minWidth: 275,
-                width: { xs: '83%', sm: '90%', md: '90%', lg: '100%' },
-                margin: 2,
-                padding: 2,
-                height: 400,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <CardContent>
-                <Chip
-                  label="Leave Your Comment"
-                  variant="outlined"
-                  sx={{
-                    fontSize: '1.3rem',
-                    color: '#fff',
-                    background: ' #f8bf02',
-                  }}
-                />
-                <form onSubmit={handleSubmit}>
-                  <TextField
-                    id=" name*"
-                    label=" Full Name*"
-                    multiline
-                    required
-                    autoFocus
-                    maxRows={4}
-                    placeholder="Full Name"
-                    name="name"
-                    // onBlur={handleOnBlur}
-                    sx={{
-                      width: '100%',
-                      margin: 1,
-                      marginLeft: 0,
-                      marginTop: 5,
-                    }}
-                  />
-                  <TextField
-                    id=" Comment*"
-                    label="Comment*"
-                    name="text"
-                    // onBlur={handleOnBlur}
-                    multiline
-                    required
-                    autoFocus
-                    rows={4}
-                    placeholder=" Comment*"
-                    sx={{ width: '100%', margin: 1, marginLeft: 0 }}
-                  />
+          <img src={review} alt='' />
+          <Typography variant="h4" sx={{ textAlign: "center" }}>
+            <span>We</span> Value <span>Your </span>Opinion <FaHeart style={{ color: 'red' }} />
+          </Typography>
+          <Typography>
+            Your Name
+          </Typography>
+          <TextField
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Name"
+            required
+            style={{ width: '100%' }}
+          />
+          <Typography>
+            What Can Be Improved ?
+          </Typography>
+          <TextField
+            name="opinion"
+            value={formData.opinion}
+            onChange={handleChange}
+            placeholder="Opinion"
+            required
+            style={{ width: '100%' }}
+            multiline
+            rows={4}
+          />
 
-                  <button
-                    className="reviewButton"
-                    size="small"
-                  
-                  >
-                    Submit
-                    <SendIcon
-                      sx={{
-                        marginLeft: 1,
-                        fontSize: 15,
-                        color: 'white',
-                      }}
-                    />
-                  </button>
-                </form>
-              </CardContent>
-            </Card>
+          {/* category and rating  */}
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+
+              <Typography>
+                Select the Category
+              </Typography>
+              <Select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+                style={{ width: '100%' }}
+              >
+                <MenuItem value="" disabled>
+                  Category
+                </MenuItem>
+                <MenuItem value="freshfood">Fresh Food</MenuItem>
+                <MenuItem value="animal">Animal</MenuItem>
+                <MenuItem value="plants">Indoor Plant</MenuItem>
+
+              </Select>
+            </Grid>
+            <Grid item xs={6}>
+
+              <Typography>
+                Rate our services
+              </Typography>
+              <Select
+                name="rating"
+                value={formData.rating}
+                onChange={handleChange}
+                required
+                style={{ width: '100%' }}
+              >
+                <MenuItem value="" disabled>Rating</MenuItem>
+                <MenuItem value="1">1</MenuItem>
+                <MenuItem value="2">2</MenuItem>
+                <MenuItem value="3">3</MenuItem>
+                <MenuItem value="4">4</MenuItem>
+                <MenuItem value="5">5</MenuItem>
+              </Select>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
+          {/* submit button  */}
+          <Button type="submit" sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold', mb: 3,'&:hover': {
+      backgroundColor: '#ff9900', 
+    }, }}>
+            Add Review
+          </Button>
+        </FormControl>
+</form>
+       
+      </Grid>
+    </Grid>
+  );
+};
 
-      {/* <Footer /> */}
-    </>
-  )
-}
-
-export default Feedback
+export default Feedback;

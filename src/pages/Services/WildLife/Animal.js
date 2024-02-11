@@ -1,25 +1,25 @@
+
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Grid,
-  IconButton,
   Typography,
 } from '@mui/material'
 import React from 'react'
 // import './Book.css'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from '../../../Authentication/userContext';
 
 const Animal = (props) => {
-  
+  const { userRole } = React.useContext(UserContext);
+
   const navigate = useNavigate();
-  const { name, image, id, Neutered, Age, Gender } = props.animal
+  const { pet_name, image, _id, Neutered, Age, Gender } = props.animal
   // console.log(props.animal)
-  
+
   return (
     <Grid item xs={12} sm={6} md={3} lg={3}>
       <Card sx={{ maxWidth: 330, margin: '25px' }}>
@@ -36,7 +36,7 @@ const Animal = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="body1" component="div">
-            Name:{name}
+            Name:{pet_name}
           </Typography>
           <Typography gutterBottom variant="body1" component="div">
             Gender: {Gender}
@@ -54,23 +54,27 @@ const Animal = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-        <Button variant="contained" size="small" sx={{ margin: 'auto' }} 
-        onClick={() => {
-          localStorage.setItem('animal', JSON.stringify(props.animal));
-          navigate(`/details/${id}`);
-        }}>
-              Details
-          </Button>
-          {/* <Link
-            sx={{ margin: 'auto' }}
-            to={{
-              pathname: `/details/${id}`,
-            //   state: { myState: 'myStateValue' },
-              // state: { animals }, // Pass the full animal data as state
-            }}
-          >
-            
-          </Link> */}
+          {userRole === 'admin' ? (
+            <>
+            <Link to={`/pdetail/${_id}`} >
+                      <Button variant="contained"  sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
+                    </Link>
+            </>
+          ) : (
+            <>
+
+              <Button variant="contained" size="small" sx={{ margin: 'auto' }}
+                onClick={() => {
+                  localStorage.setItem('animal', JSON.stringify(props.animal));
+                  navigate(`/details/${_id}`);
+                }}>
+                Details
+              </Button>
+            </>
+          )}
+
+
+
         </CardActions>
       </Card>
     </Grid>
