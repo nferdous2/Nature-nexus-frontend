@@ -38,8 +38,6 @@ export default function AnimalDetails() {
   const [expanded, setExpanded] = React.useState(false)
   const [animal, setAnimal] = React.useState({})
   const [openModal, setOpenModal] = React.useState(false)
-  const [input1, setInput1] = React.useState('')
-  const [input2, setInput2] = React.useState('')
   const [input3, setInput3] = React.useState('')
   const [input4, setInput4] = React.useState('')
   const [snackbarOpen, setSnackbarOpen] = React.useState(false)
@@ -79,7 +77,7 @@ export default function AnimalDetails() {
       animal: JSON.parse(animalData),
       userId: userId,
     }
-    fetch(`https://nature-nexus.onrender.com/animal`, {
+    fetch(`http://localhost:8000/animal`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

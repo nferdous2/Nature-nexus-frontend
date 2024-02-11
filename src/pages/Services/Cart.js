@@ -49,6 +49,7 @@ const Cart = () => {
     }
   };
 
+  //delete cartItems
   const handleDelete = (itemToDelete) => {
     const updatedCartItems = cartItems.filter((item) => {
       if (item._id !== itemToDelete._id) {
@@ -63,16 +64,19 @@ const Cart = () => {
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
-const handleBuy = (item) => {
-  window.location.href = `/detail/${item._id}?name=${item.name}&price=${item.price}&quantity=${item.quantity}`;
-};
+  //go to details page
+  const handleBuy = (item) => {
+    window.location.href = `/detail/${item._id}?name=${item.name}&price=${item.price}&quantity=${item.quantity}`;
+  };
 
+  //main code start from here
   return (
-    <div>
-      <h2>Here is Your Items</h2>
+    <div style={{ overflow: "hidden",marginBottom:"5%" }}>
+      <h2 style={{ marginTop: "5%" }}>Here is Your Items</h2>
+      {/* map the cart items from local storage */}
       {cartItems.map((item) => (
-        <div style={{ display: 'flex', justifyContent: 'center',  }}>
-          <Card key={item._id} variant="outlined" style={{ marginBottom: '1rem', width: "75%", }}>
+        <div style={{ display: 'flex', justifyContent: 'center', }}>
+          <Card key={item._id} variant="outlined" style={{ marginBottom: '2rem', width: "75%", }}>
             <CardContent>
               <Grid container justifyContent="space-between" alignItems="center">
                 <Grid item xs={12} md={1}>
@@ -111,13 +115,15 @@ const handleBuy = (item) => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={1} >
-                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }} onClick={() => handleDelete(item)}>
+                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold','&:hover': {
+                      backgroundColor: '#ffb600'} }} onClick={() => handleDelete(item)}>
                     delete
                   </Button>
                 </Grid>
                 <Grid item xs={12} md={2} >
-                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }} 
-                              onClick={() => handleBuy(item)}>
+                  <Button sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold','&:hover':{
+                    backgroundColor: '#ffb600'} }}
+                      onClick={() => handleBuy(item)}>
                     Buy Now
                   </Button>
                 </Grid>
@@ -126,7 +132,7 @@ const handleBuy = (item) => {
           </Card>
         </div>
       ))}
-   
+
 
     </div>
   );

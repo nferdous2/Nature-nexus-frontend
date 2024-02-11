@@ -44,7 +44,7 @@ function Header() {
       style={{
         ...navbarStyle,
         overflow: 'hidden',
-        marginBottom:"2%"
+        marginBottom: "2%"
       }}
     >
       <Container>
@@ -67,7 +67,7 @@ function Header() {
             <span style={{ color: '#FFB800' }}>Nature</span>{' '}
             <span style={{ color: '#34DF46 ' }}>Nexus</span>
           </Typography>
-
+          {/* for small device  */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -118,7 +118,7 @@ function Header() {
                   Cart
                 </MenuItem>
               </NavLink>
-         
+
               <MenuItem
                 onClick={handleOpenSubMenu}
                 sx={{
@@ -145,7 +145,7 @@ function Header() {
 
                     }}
                   >
-                  Fresh Food
+                    Fresh Food
                   </MenuItem>
                 </Link>
                 <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
@@ -257,7 +257,7 @@ function Header() {
                 Home
               </MenuItem>
             </Link>
-       
+
 
             <MenuItem
               onClick={handleOpenSubMenu}
@@ -284,7 +284,7 @@ function Header() {
                     marginBottom: '8px'
                   }}
                 >
-                Fresh Food
+                  Fresh Food
                 </MenuItem>
               </Link>
               <Link exact to="/wildlife" style={{ textDecoration: 'none' }}>
@@ -327,15 +327,15 @@ function Header() {
               </NavLink>
             )}
             <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
-                    <MenuItem
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Cart
-                    </MenuItem>
-                  </NavLink>
+              <MenuItem
+                sx={{
+                  color: "white",
+                  fontSize: "20px",
+                }}
+              >
+                Cart
+              </MenuItem>
+            </NavLink>
             <NavLink
               to="/contactus"
               style={{

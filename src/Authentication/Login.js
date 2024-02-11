@@ -42,7 +42,7 @@ const Login = () => {
       return;
     }
     axios
-      .post("https://nature-nexus.onrender.com/login", formData) // Pass the formData in the request
+      .post("http://localhost:8000/login", formData) // Pass the formData in the request
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;

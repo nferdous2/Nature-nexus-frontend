@@ -20,7 +20,7 @@ import { FaUser } from "react-icons/fa";
 import { FcHome } from "react-icons/fc";
 import { Container } from "@mui/material";
 import { LiaProductHunt } from "react-icons/lia";
-import { BsPersonLinesFill ,BsCart3} from "react-icons/bs";
+import { BsPersonLinesFill, BsCart3 } from "react-icons/bs";
 import TreeView from "@mui/lab/TreeView";
 import TreeItem from "@mui/lab/TreeItem";
 import LoginIcon from "@mui/icons-material/Login";
@@ -78,6 +78,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
 }));
+
+// main code start form here
+
 export default function DashboardNav() {
     const [open, setOpen] = React.useState(true);
     const { handleLogout, userRole, } = React.useContext(UserContext);
@@ -97,7 +100,7 @@ export default function DashboardNav() {
     const handleproduct = () => {
         setSelectedComponent(<AddProduct />);
     };
-    
+
     // add admin
     const handleadmin = () => {
         setSelectedComponent(<Admin />);
@@ -107,15 +110,22 @@ export default function DashboardNav() {
         setSelectedComponent(<SoldList />);
     };
 
-       // see orders
-       const handleOrder = () => {
-        setSelectedComponent(<MyOrder/>);
+    // see orders
+    const handleOrder = () => {
+        setSelectedComponent(<MyOrder />);
     };
-// see feedback
-const handleFeedback = () => {
-    setSelectedComponent(<Feedback/>);
-   };
-   
+    // see feedback
+    const handleFeedback = () => {
+        setSelectedComponent(<Feedback />);
+    };
+
+    // State ,it will show the order page first 
+    React.useEffect(() => {
+        // Set the default selected component when the page loads
+        handleOrder();
+    }, []);
+
+
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -192,7 +202,7 @@ const handleFeedback = () => {
                                 <ListItemIcon>
                                     <FcHome style={{ color: "#000", fontSize: "1.5rem" }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Overview" />
+                                <ListItemText primary="Home" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
@@ -207,7 +217,7 @@ const handleFeedback = () => {
                                         marginRight: "1rem",
                                     }}
                                 />
-                        <ListItemText primary="See Your Options" />
+                                <ListItemText primary="See Your Options" />
 
                             </ListItemIcon>
                         </ListItemButton>
@@ -278,14 +288,14 @@ const handleFeedback = () => {
                                         style={{ borderRadius: "0 40px 40px 0" }}
                                         onClick={soldProductList} // Handle click to render Profile dynamically
                                     >
-                                    <ListItemIcon>
+                                        <ListItemIcon>
                                             <BsCart3
                                                 style={{ color: "#000", fontSize: "1.3rem" }}
                                             />
                                         </ListItemIcon>
 
                                         <ListItemText
-                                            primary="Total Sold"
+                                            primary="Details"
                                             style={{ marginLeft: "-1rem" }}
                                         />
                                     </ListItemButton>
@@ -372,8 +382,10 @@ const handleFeedback = () => {
                 <Container maxWidth="lg">
                     <Main open={open}>
                         <DrawerHeader />
+
                         <Container maxWidth="lg">
                             {/* Render the selected component */}
+                            
                             {selectedComponent}
                         </Container>
                     </Main>

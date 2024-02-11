@@ -18,7 +18,7 @@ const AddProduct = () => {
         event.preventDefault();
 
         axios
-            .post("https://nature-nexus.onrender.com/products", formData)
+            .post("http://localhost:8000/products", formData)
             .then((res) => {
                 alert(res.data.message);
                 const token = res.data.token;

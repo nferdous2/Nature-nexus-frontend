@@ -43,7 +43,7 @@ const Footer = () => {
   };
   return (
    
-  <div  className="footer-bg"  >
+  <div className="footer-bg"  >
         <Grid container spacing={3}>
           {/* section one  */}
           <Grid item xs={12} md={3} className="footer-text">
@@ -124,7 +124,7 @@ const Footer = () => {
             </div>
           </Grid>
           {/* Gallery section  */}
-          <Grid item xs={12} md={2} className="footer-text">
+          <Grid item xs={12} md={3} className="footer-text">
             <Typography
               sx={{ fontSize: "22px", fontWeight: "bold", color: "#FFBC62" }}
               gutterBottom
@@ -141,7 +141,7 @@ const Footer = () => {
             </ImageList>
           </Grid>
           {/* subscription section  */}
-          <Grid item xs={12} md={4} className="footer-text">
+          <Grid item xs={12} md={3} className="footer-text">
 
 
             <div style={{ marginTop: "4%" }}>

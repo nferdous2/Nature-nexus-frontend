@@ -13,7 +13,6 @@ import Feedback from './../pages/Feedback/Feedback';
 import Details from '../pages/Services/Details'
 import PaymentSuccess from '../Payment/PaymentSuccess'
 import PaymentFail from '../Payment/PaymentFail'
-import AdoptForm from '../pages/Services/WildLife/AdoptForm'
 import ProductDetails from '../Dashboard/ProductDetails'
 import Main from '../Layout/Main'
 import IHome from '../pages/Services/IndoorPlants/IHome'
@@ -98,10 +97,7 @@ const router = createBrowserRouter([
         path: '/feedback',
         element: <Feedback></Feedback>,
       },
-      {
-        path: '/adoptform',
-        element: <AdoptForm></AdoptForm>,
-      },
+    
     ],
   },
 ])

@@ -4,8 +4,7 @@ import {
   Button,
   CardContent,
   CardMedia,
-  Grid,
-  Typography,
+  Grid,  Typography,
 } from '@mui/material';
 
 import { UserContext } from '../../../Authentication/userContext';
@@ -15,10 +14,11 @@ import { Link } from 'react-router-dom';
 const Products = ({ product }) => {
   const { userRole } = React.useContext(UserContext);
   const [products, setProducts] = useState([]);
-
+  const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const [cartItems, setCartItems] = useState(initialCartItems);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('https://nature-nexus.onrender.com/products')
+    fetch('http://localhost:8000/products')
       .then((response) => response.json())
       .then((data) => {
         //get all products category by plants
@@ -32,7 +32,7 @@ const Products = ({ product }) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-      fetch(`https://nature-nexus.onrender.com/product/${id}`, {
+      fetch(`http://localhost:8000/product/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {
@@ -44,7 +44,21 @@ const Products = ({ product }) => {
         })
     }
   }
+  // Update localStorage when cartItems change
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
+
+  // FarmProduct.js
+
+  const addToCart = (product) => {
+    const updatedCart = [...cartItems, { ...product, quantity: 1 }];
+    setCartItems(updatedCart);
+    // Update the cart data in local storage
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    alert('Added to cart');
+  };
   return (
     <Box sx={{ p: 3, overflow: 'hidden' }}>
       <Typography variant="h4" sx={{ color: "#306B4A", mt: 3, mb: 5, fontWeight: "bold", textShadow: "4px 4px  #00000040" }}>FEATURED PLANTS</Typography>
@@ -100,10 +114,14 @@ const Products = ({ product }) => {
               </>
             ) : (
               <>
-                {/* goes to plantbuy page */}
-                <Link to={`/plantBuy/${product._id}`} >
-                  <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", }}>Buy Now</Button>
-                </Link>
+                {/* Buttons  */}
+                <div>
+                  <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black",mr:3}}>Add to cart</Button>
+                  {/* goes to plantbuy page */}
+                  <Link to={`/plantBuy/${product._id}`} >
+                    <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", }}>Buy Now</Button>
+                  </Link>
+                </div>
 
               </>
             )}

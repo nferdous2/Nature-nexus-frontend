@@ -10,7 +10,7 @@ const FreshFarm = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('https://nature-nexus.onrender.com/review')
+    fetch('http://localhost:8000/review')
       .then((response) => response.json())
       .then((data) => {
         // Filter the review with the "freshfood" category

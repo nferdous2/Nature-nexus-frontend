@@ -1,4 +1,4 @@
-/* fotter style start  */
+/* footer style start  */
 .footer-bg{
     background-color: rgb(36, 35, 35);
     margin-top: 5%;
@@ -9,6 +9,10 @@
     color:aliceblue;
 }
 /* footer style end */
+
+
+
+/* http://localhost:8000 */
 .nbg {
     background-image: url("../img/nbg.png");
     background-repeat: no-repeat;

@@ -24,7 +24,7 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     console.log(formData);
-    axios.post('https://nature-nexus.onrender.com/review', formData)
+    axios.post('http://localhost:8000/review', formData)
       .then((res) => {
         if (res.data.insertedId) {
           alert('Thank you for your valuable opinion');
@@ -36,7 +36,7 @@ const Feedback = () => {
   };
 
   return (
-    <Grid container spacing={2} sx={{ justifyContent: "center", mt: 9, p: 3 }}>
+    <Grid container spacing={2} sx={{ justifyContent: "center", p: 3 }}>
       <Grid xs={12} md={7} lg={7}>
       <form   onSubmit={handleSubmit}>
       <FormControl
