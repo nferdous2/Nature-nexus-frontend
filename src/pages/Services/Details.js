@@ -52,7 +52,6 @@ const Details = () => {
         <CardContent>
           <h2 style={{ marginTop: '20%' }}>Place Your Order</h2>
          {/* form for payment  */}
-      
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Card data */}
             <TextField sx={{ mb: 3 }} label="Product Name" type="text" {...register('productName')} value={name} fullWidth readOnly />
