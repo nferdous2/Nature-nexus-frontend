@@ -40,16 +40,24 @@ const ProductDetails = () => {
       // Send your data to the server using axios or other method
       const response = await axios.put(`http://localhost:8000/products/${id}`, data);
       console.log('Response:', response.data);
-      Swal.fire(
-        'Good job!',
-        'Product Updated Successfully',
-        'success'
-      );
-      // window.location.reload();
+  
+      // Show SweetAlert success message
+      Swal.fire({
+        title: 'Good job!',
+        text: 'Product Updated Successfully',
+        icon: 'success',
+      }).then((result) => {
+        // Check if the user clicked 'OK'
+        if (result.isConfirmed || result.isDismissed) {
+          // Redirect to home
+          window.location.href = "/";
+        }
+      });
     } catch (error) {
       console.error('Error updating product description:', error);
     }
   };
+  
 
   return (
     <Grid className='update' container spacing={2} justifyContent="center" alignItems="center">

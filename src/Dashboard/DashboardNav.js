@@ -207,6 +207,8 @@ const handleFeedback = () => {
                                         marginRight: "1rem",
                                     }}
                                 />
+                        <ListItemText primary="See Your Options" />
+
                             </ListItemIcon>
                         </ListItemButton>
                     </ListItem>
@@ -236,7 +238,6 @@ const handleFeedback = () => {
                         {userRole === 'admin' && (
                             <TreeItem
                                 nodeId="1"
-                                label="Admin"
                                 style={{ color: "#000", background: "#FFFFFF" }}
                             >
                                 <ListItem disablePadding>

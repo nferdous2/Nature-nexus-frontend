@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../pages/shared/Header'
-import Footer from '../pages/shared/Footer'
+import Footer from '../shared/Footer'
 import { Outlet } from 'react-router'
+import Header from '../shared/Header'
 const Main = () => {
   return (
     <div>

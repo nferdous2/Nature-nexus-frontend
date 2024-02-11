@@ -67,6 +67,7 @@ export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     const storedUserRole = localStorage.getItem("userRole");

@@ -1,72 +1,61 @@
-[
-  {
-    "product": "Product A",
-    "rating": 4.0,
-    "reviewer": "Alice Smith",
-    "date": "2023-11-04",
-    "comment": "Product A is quite good. It serves its purpose well, but I wish it were a bit more affordable."
-  },
-  {
-    "product": "Product B",
-    "rating": 5.0,
-    "reviewer": "Bob Johnson",
-    "date": "2023-11-04",
-    "comment": "Product B is amazing! It's exactly what I needed. Great quality, easy to use, and reasonably priced."
-  },
-  {
-    "product": "Product C",
-    "rating": 3.5,
-    "reviewer": "Eva Garcia",
-    "date": "2023-11-04",
-    "comment": "Product C is okay. It gets the job done, but I expected a bit more in terms of features."
-  },
-  {
-    "product": "Product D",
-    "rating": 4.5,
-    "reviewer": "David Brown",
-    "date": "2023-11-04",
-    "comment": "Product D exceeded my expectations. It's versatile and well-built, making it a great addition to my tools."
-  },
-  {
-    "product": "Product E",
-    "rating": 2.0,
-    "reviewer": "Grace Wilson",
-    "date": "2023-11-04",
-    "comment": "Product E is disappointing. It broke after only a few uses, and the customer support was unhelpful."
-  },
-  {
-    "product": "Product F",
-    "rating": 4.0,
-    "reviewer": "Frank Martin",
-    "date": "2023-11-04",
-    "comment": "Product F is a good value for the price. It's not perfect, but it does what it's supposed to."
-  },
-  {
-    "product": "Product G",
-    "rating": 5.0,
-    "reviewer": "Olivia Lee",
-    "date": "2023-11-04",
-    "comment": "Product G is outstanding! It's well-designed and very user-friendly. I'm extremely satisfied."
-  },
-  {
-    "product": "Product H",
-    "rating": 3.5,
-    "reviewer": "James Anderson",
-    "date": "2023-11-04",
-    "comment": "Product H is decent, but it could use some improvements. It's a bit overpriced for what it offers."
-  },
-  {
-    "product": "Product I",
-    "rating": 4.5,
-    "reviewer": "Sophia Clark",
-    "date": "2023-11-04",
-    "comment": "Product I is a fantastic addition to my home. It's durable and stylish. Highly recommended!"
-  },
-  {
-    "product": "Product J",
-    "rating": 2.0,
-    "reviewer": "Michael Rodriguez",
-    "date": "2023-11-04",
-    "comment": "Product J is a complete waste of money. It doesn't work as advertised, and the build quality is poor."
-  }
-]
+
+ [
+      {
+        "name": "Snake Plant",
+        "description": "The Snake Plant, also known as Sansevieria, is a hardy and low-maintenance plant. It features upright, sword-like leaves that are often variegated. Perfect for beginners, it thrives in low light conditions.",
+        "price": 25.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNj0kG_ngim28KkogootRGxa40OkcoIZGGCw&usqp=CAU",
+        "category": "plants"
+      },
+      {
+        "name": "Fiddle Leaf Fig",
+        "description": "The Fiddle Leaf Fig, scientifically known as Ficus lyrata, is a popular choice for indoor decor. It has large, glossy leaves with a violin-like shape. This plant requires bright, indirect light to thrive.",
+        "price": 45.99,
+        "image": "https://m.media-amazon.com/images/I/61F2SPph4PL.jpg",
+        "category": "plants"
+      },
+      {
+        "name": "Peace Lily",
+        "description": "The Peace Lily, or Spathiphyllum, is a beautiful flowering plant known for its elegant white blooms. It thrives in low light and helps purify indoor air. Keep the soil consistently moist for optimal growth.",
+        "price": 19.99,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81iyETTO7gndwq3Oa-w58C860ldSrwb36LA&usqp=CAU",
+        "category": "plants"
+      },
+      {
+        "name": "Spider Plant",
+        "description": "The Spider Plant, scientifically Chlorophytum comosum, is a popular choice for hanging baskets. It produces arching leaves with baby plantlets, creating a cascading effect. It's easy to care for and adaptable.",
+        "price": 12.99,
+        "image": "https://www.pngkey.com/png/full/281-2815719_heres-a-spider-plant-to-purify-the-atmosphere.png",
+        "category": "plants"
+      },
+      {
+        "name": "ZZ Plant",
+        "description": "The ZZ Plant, or Zamioculcas zamiifolia, is a low-maintenance and drought-tolerant plant. It features glossy, dark green leaves that add a touch of elegance to any space. Thrives in low to bright, indirect light.",
+        "price": 30.99,
+        "image": "https://t4.ftcdn.net/jpg/02/68/17/95/360_F_268179518_JxhMIr78eZna4MNeI7XJGme4w8kneZon.jpg",
+        "category": "plants"
+      },
+      {
+        "name": "Monstera Deliciosa",
+        "description": "The Monstera Deliciosa, simply known as Monstera, is a trendy and iconic houseplant with unique split leaves. It prefers bright, indirect light and high humidity. A favorite for interior decoration.",
+        "price": 55.99,
+        "image": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsb2ZmaWNlN19waG90b19vZl9hX2RlY29yYXRpdmVfbW9uc3RlcmFfdHJlZV9wbGFudGVkX3doaV9iMjM1YmY4Ny05ZmQyLTQ2MGQtOGJmNC05M2NlZjg5ZWVlZmJfMS5qcGc.jpg",
+        "category": "plants"
+      },
+      {
+        "name": "Aloe Vera",
+        "description": "Aloe Vera, scientifically Aloe barbadensis miller, is a succulent known for its medicinal properties. It has fleshy, green leaves with a gel-like substance. Requires bright light and well-draining soil.",
+        "price": 18.99,
+        "image": "https://www.foliflora.fr/static/photos/aloe-vera-2.jpg",
+        "category": "plants"
+      },
+  
+      {
+        "name": "Chinese Evergreen",
+        "description": "The Chinese Evergreen, or Aglaonema, is a versatile and attractive plant with patterned leaves. It can tolerate low light conditions and is known for its air-purifying qualities. Keep the soil consistently moist.",
+        "price": 22.99,
+        "image": "https://www.noahgardencentre.com.sg/cdn/shop/products/N8h7xOsA-PhotoRoom_32.png?v=1671506191",
+        "category": "plants"
+      }
+    ]
+  
