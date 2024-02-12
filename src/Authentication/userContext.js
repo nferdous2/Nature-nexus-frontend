@@ -30,8 +30,7 @@ export const UserProvider = ({ children }) => {
 
     fetchData();
   }, []);
-
-
+//handle logout 
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
     try {
