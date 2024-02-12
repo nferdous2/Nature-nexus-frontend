@@ -98,7 +98,7 @@ const Cart = () => {
                     -
                   </Button>
                   <TextField
-                    sx={{ width: "20%" }}
+                    sx={{ width: "50%" }}
                     value={item.quantity}
                   />
                   <Button
