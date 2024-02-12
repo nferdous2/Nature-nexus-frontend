@@ -22,7 +22,7 @@ const MyOrder = () => {
       try {
         const token = localStorage.getItem('token');
         console.log('Token:', token);
-        const response = await fetch(`http://localhost:8000/soldProduct/${localStorage.getItem('userId')}`, {
+        const response = await fetch(`https://nature-nexus-backend.vercel.app/soldProduct/${localStorage.getItem('userId')}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/soldProduct/${userId}`, {
+      fetch(`https://nature-nexus-backend.vercel.app/soldProduct/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/animal/${userId}`, {
+      fetch(`https://nature-nexus-backend.vercel.app/animal/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ const MyOrder = () => {
                           {/* remove */}
                           <Button size="small"
                             onClick={() => {
-                              fetch(`http://localhost:8000/soldProduct/${order._id}`, {
+                              fetch(`https://nature-nexus-backend.vercel.app/soldProduct/${order._id}`, {
                                 method: 'DELETE',
                                 headers: {
                                   'Content-Type': 'application/json',
@@ -249,7 +249,7 @@ const MyOrder = () => {
                                       status: true,
                                     };
 
-                                    fetch(`http://localhost:8000/animal/${order._id}`, {
+                                    fetch(`https://nature-nexus-backend.vercel.app/animal/${order._id}`, {
                                       method: 'PATCH',
                                       headers: {
                                         'Content-Type': 'application/json',
@@ -279,7 +279,82 @@ const MyOrder = () => {
                                   }}>
                                   Submit
                                 </Button>
-                               
+                                {/* <button type="submit"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    const imageInput = document.getElementById('image');
+
+                                    if (!imageInput || !imageInput.files || imageInput.files.length === 0) {
+                                      // Handle case where no file is selected
+                                      alert('Please select an image');
+                                      return;
+                                    }
+
+                                    const selectedFile = imageInput.files[0];
+                                    const data = {
+                                      image: selectedFile,
+                                      status: true,
+                                    };
+
+                                    fetch(`https://nature-nexus-backend.vercel.app/animal/${order._id}`, {
+                                      method: 'PATCH',
+                                      headers: {
+                                        'Content-Type': 'application/json',
+                                        Authorization: localStorage.getItem('token'),
+                                      },
+                                      body: JSON.stringify(data),
+                                    })
+                                      .then((res) => res.json())
+                                      .then((responseData) => {
+                                        console.log(responseData);
+                                        window.location.reload();
+                                      })
+                                      .catch((err) => {
+                                        console.log(err);
+                                      });
+                                  }}
+
+                                  // onClick={(e) => {
+                                  //   e.preventDefault();
+                                  //   const imageInput = document.getElementById('image');
+                                  //   const selectedFile = imageInput.files[0];
+
+                                  //   if (!selectedFile) {
+                                  //     // Handle case where no file is selected
+                                  //     alert('Please select an image');
+                                  //     return;
+                                  //   }
+
+                                  //   const data = {
+                                  //     image: selectedFile,
+                                  //     status: true,
+                                  //   };
+
+                                  //   fetch(`https://nature-nexus-backend.vercel.app/animal/${order._id}`, {
+                                  //     method: 'PATCH',
+                                  //     headers: {
+                                  //       'Content-Type': 'application/json',
+                                  //       Authorization: localStorage.getItem('token'),
+                                  //     },
+                                  //     body: JSON.stringify(data),
+                                  //   })
+                                  //     .then((res) => res.json())
+                                  //     .then((responseData) => {
+                                  //       console.log(responseData);
+                                  //       window.location.reload();
+                                  //     })
+                                  //     .catch((err) => {
+                                  //       console.log(err);
+                                  //     });
+                                  // }}
+                                  style={{
+                                    backgroundColor: "green",
+                                    marginTop: "10px",
+                                    color: "white",
+                                    fontWeight: "bold",
+                                    padding: '10px',
+                                  }}>Submit</button> */}
+
                               </form>
 
 

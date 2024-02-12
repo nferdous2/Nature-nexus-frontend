@@ -8,7 +8,7 @@ const SoldList = () => {
   useEffect(() => {
     const fetchSoldProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/soldProduct');
+        const response = await fetch('https://nature-nexus-backend.vercel.app/soldProduct');
         const data = await response.json();
         setSoldProducts(data);
       } catch (error) {
@@ -21,7 +21,7 @@ const SoldList = () => {
   useEffect(() => {
     const fetchSoldProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/users');
+        const response = await fetch('https://nature-nexus-backend.vercel.app/users');
         const data = await response.json();
         setSoldProducts(data);
       } catch (error) {
@@ -34,9 +34,9 @@ const SoldList = () => {
 
   // delete user
   const handleDelete = id => {
-    const proceed = window.confirm('Are you sure to delete order?')
+    const proceed = window.confirm('Are you sure to remove the user?')
     if (proceed) {
-      fetch(`http://localhost:8000/user/${id}`, {
+      fetch(`https://nature-nexus-backend.vercel.app/user/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {

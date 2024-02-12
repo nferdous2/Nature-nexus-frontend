@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router';
 import Swal from 'sweetalert2';
 
 const PaymentFail = () => {

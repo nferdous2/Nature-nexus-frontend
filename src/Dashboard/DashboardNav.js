@@ -119,11 +119,15 @@ export default function DashboardNav() {
         setSelectedComponent(<Feedback />);
     };
 
-    // State ,it will show the order page first 
-    React.useEffect(() => {
-        // Set the default selected component when the page loads
+// State, it will show the order page first
+React.useEffect(() => {
+    if (userRole === 'admin') {
+        handleadmin();
+    } else {
+        // Call handleOrder for other user roles
         handleOrder();
-    }, []);
+    }
+}, [userRole]); // Include userRole in the dependency array to re-run the effect when it changes
 
 
 

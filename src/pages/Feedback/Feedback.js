@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, Grid } from '@mui/material';
+import { Typography, Button, TextField, Select, MenuItem, FormControl, Grid } from '@mui/material';
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
 import review from "../../img/review.png"
@@ -24,7 +24,7 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     console.log(formData);
-    axios.post('http://localhost:8000/review', formData)
+    axios.post('https://nature-nexus-backend.vercel.app/review', formData)
       .then((res) => {
         if (res.data.insertedId) {
           alert('Thank you for your valuable opinion');

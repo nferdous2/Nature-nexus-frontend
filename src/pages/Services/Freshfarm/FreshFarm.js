@@ -10,7 +10,7 @@ const FreshFarm = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('http://localhost:8000/review')
+    fetch('https://nature-nexus-backend.vercel.app/review')
       .then((response) => response.json())
       .then((data) => {
         // Filter the review with the "freshfood" category

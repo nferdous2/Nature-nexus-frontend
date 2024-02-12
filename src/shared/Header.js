@@ -111,7 +111,7 @@ function Header() {
               <NavLink exact to="/cart" style={{ textDecoration: 'none' }}>
                 <MenuItem
                   sx={{
-                    color: "white",
+                    color: 'black', 
                     fontSize: "20px",
                   }}
                 >
@@ -189,7 +189,7 @@ function Header() {
                 <>
                   <Typography
                     onClick={handleLogout}
-                    sx={{ color: 'white', mr: 2, cursor: 'pointer' }}
+                    sx={{ mr: 2, cursor: 'pointer' }}
                   >
                     Logout
                   </Typography>

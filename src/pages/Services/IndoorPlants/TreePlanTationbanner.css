@@ -49,22 +49,6 @@
   margin-top: 1rem;
 }
 
-/* CSS for mobile screens */
-/* @media (max-width: 767px) {
-  .bannertext {
-    font-size: 3rem;
-    margin-top: 5rem;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .explore-btn {
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-left: 0;
-    padding: 10px 30px;
-  }
-} */
 
 .donation {
   background-image: url(../../../img/donation.jpg);

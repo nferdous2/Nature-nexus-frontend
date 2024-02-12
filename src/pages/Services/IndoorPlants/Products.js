@@ -18,7 +18,7 @@ const Products = ({ product }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('http://localhost:8000/products')
+    fetch('https://nature-nexus-backend.vercel.app/products')
       .then((response) => response.json())
       .then((data) => {
         //get all products category by plants
@@ -32,7 +32,7 @@ const Products = ({ product }) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-      fetch(`http://localhost:8000/product/${id}`, {
+      fetch(`https://nature-nexus-backend.vercel.app/product/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {

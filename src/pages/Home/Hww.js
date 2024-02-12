@@ -12,16 +12,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 export default function Hww() {
   return (
     <div>
-      {/* <div className="upper-div">
-        <p className="hww-title">How we work</p>
-        <p className="hww-subtitle">
-          As the world’s leading conservation organization, we work in nearly
-          <br></br>
-          100 countries to tackle the most critical issues at the intersection
-          <br></br>
-          of nature, people, and climate.
-        </p>
-      </div> */}
       <Box
         sx={{
           marginBottom: 3,

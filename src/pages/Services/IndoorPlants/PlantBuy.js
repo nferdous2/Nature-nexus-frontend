@@ -14,7 +14,7 @@ const PlantBuy = () => {
 
     useEffect(() => {
         // Fetch  id wise
-        fetch(`http://localhost:8000/product/${id}`)
+        fetch(`https://nature-nexus-backend.vercel.app/product/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setProduct(data);
@@ -42,7 +42,7 @@ const PlantBuy = () => {
     
         try {
             // Send your data to the server using axios or other method
-            const response = await axios.post("http://localhost:8000/purchase", data);
+            const response = await axios.post("https://nature-nexus-backend.vercel.app/purchase", data);
             console.log('Response:', response.data);
             Swal.fire(
                 'Good job!',
