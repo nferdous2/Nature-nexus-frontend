@@ -3,7 +3,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 110vh;
-  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -14,14 +13,7 @@
   margin-top: -4rem;
   background-attachment: scroll;
 }
-.organic {
-  font-weight: bold;
-  font-size: 4rem;
-  margin-top: 10rem;
-  text-align: center;
-  margin-left: 45%;
-  color: #ffffff;
-}
+
 
 .shop-online-btn {
   background-color: #ffb600;
@@ -34,7 +26,6 @@
   outline: none;
   cursor: pointer;
   margin-top: 3rem;
-  margin-left: 30%;
 }
 .shop-online-btn:hover {
   background-color: #fff;

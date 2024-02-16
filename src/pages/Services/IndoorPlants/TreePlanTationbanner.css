@@ -3,7 +3,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 110vh;
-  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -14,42 +13,22 @@
   margin-top: -4rem;
   background-attachment: scroll;
 }
-.bannertext {
-  font-weight: bold;
-  font-size: 2rem;
-  text-align: right;
-  margin-left: 60%;
-  color: #3b8f60;
-  font-family: 'Times New Roman', Times, serif;
-}
+
 
 .explore-btn {
   background-color: #3b8f60;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 30px;
-  font-size: 1.3rem;
+  padding: 15px 40px;
+  font-size: 1.5rem;
   font-weight: 500;
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top: 20rem;
-  /* margin-left: 30%; */
-}
-.explore-btn2 {
-  color: #3b8f60;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 10px 30px;
-  font-size: 1.3rem;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-top: 1rem;
+  margin-left: 30%;
 }
 
-
+/* for donation  */
 .donation {
   background-image: url(../../../img/donation.jpg);
   background-repeat: no-repeat;

@@ -56,9 +56,9 @@ const Animal = (props) => {
         <CardActions>
           {userRole === 'admin' ? (
             <>
-            <Link to={`/pdetail/${_id}`} >
-                      <Button variant="contained"  sx={{ backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
-                    </Link>
+              <Link to={`/pdetail/${_id}`}>
+                <Button variant="contained" sx={{ marginLeft:"100%",width:"100%",backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
+              </Link>
             </>
           ) : (
             <>

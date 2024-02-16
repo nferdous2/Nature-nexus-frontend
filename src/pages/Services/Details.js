@@ -5,12 +5,15 @@ import "../../Styles/Style.css"
 import { Grid, CardContent, TextField, Button } from '@mui/material';
 import { UserContext } from '../../Authentication/userContext';
 
+// code start 
+
 const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { userId } = useContext(UserContext)
   const { register, handleSubmit } = useForm();
 
+  // get the product id wise 
   useEffect(() => {
     fetch('https://nature-nexus-backend.vercel.app/products')
       .then((response) => response.json())

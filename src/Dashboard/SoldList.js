@@ -4,7 +4,9 @@ import done from "../img/done.png";
 import pending from "../img/clock.png"
 const SoldList = () => {
   const [soldProducts, setSoldProducts] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
 
+  //get how many products have been sold
   useEffect(() => {
     const fetchSoldProducts = async () => {
       try {
@@ -18,18 +20,19 @@ const SoldList = () => {
 
     fetchSoldProducts();
   }, []);
+  //get all users with  their verified status
   useEffect(() => {
-    const fetchSoldProducts = async () => {
+    const fetchSoldUsers = async () => {
       try {
         const response = await fetch('https://nature-nexus-backend.vercel.app/users');
         const data = await response.json();
-        setSoldProducts(data);
+        setAllUsers(data);
       } catch (error) {
-        console.error('Error fetching sold products:', error);
+        console.error('Error fetching users:', error);
       }
     };
 
-    fetchSoldProducts();
+    fetchSoldUsers();
   }, []);
 
   // delete user
@@ -81,7 +84,7 @@ const SoldList = () => {
 
       <Grid container spacing={2}>
 
-  {soldProducts.map((user, index) => (
+  {allUsers.map((user, index) => (
     <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
       <Card sx={{
         p: 5, m: 3,
