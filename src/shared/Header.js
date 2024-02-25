@@ -27,22 +27,22 @@ function Header() {
   }
   const [anchorEl, setAnchorEl] = useState(null)
 
+  //Sub manu Open
   const handleOpenSubMenu = (event) => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleClose = () => {
+//Sub manu Close 
+  const handleClose = () => {   
     setAnchorEl(null)
   }
-  const navbarStyle = {
-    backgroundColor: 'rgba(4, 9, 30, 0.7)',
-  }
+  
 
   return (
     <AppBar
       position="fixed"
       style={{
-        ...navbarStyle,
+        backgroundColor: 'rgba(4, 9, 30, 0.7)',
         overflow: 'hidden',
         marginBottom: "2%"
       }}
@@ -231,9 +231,7 @@ function Header() {
 
           <Typography
             variant="h5"
-            noWrap
-            component="a"
-            href=""
+        
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

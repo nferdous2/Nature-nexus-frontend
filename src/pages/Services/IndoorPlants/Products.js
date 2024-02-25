@@ -116,11 +116,11 @@ const Products = ({ product }) => {
               <>
                 {/* Buttons  */}
                 <div>
-                  <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black",mr:3}}>Add to cart</Button>
-                  {/* goes to plantbuy page */}
-                  <Link to={`/plantBuy/${product._id}`} >
-                    <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", }}>Buy Now</Button>
-                  </Link>
+                  <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black", mr: 3, textTransform: 'uppercase'}}>Add to cart</Button>
+            <Link to={`/pdetail/${product._id}`}>
+              <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", textTransform: 'uppercase'}}>DETAIL</Button>
+            </Link>
+
                 </div>
 
               </>
