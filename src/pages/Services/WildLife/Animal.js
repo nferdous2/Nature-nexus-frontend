@@ -19,7 +19,22 @@ const Animal = (props) => {
   const navigate = useNavigate();
   const { pet_name, image, _id, Neutered, Age, Gender } = props.animal
   // console.log(props.animal)
+  // delete product 
+  const handleDelete = id => {
+    const proceed = window.confirm('Are you sure to delete order?')
+    if (proceed) {
+      fetch(`http://localhost:8000/product/${id}`, {
+        method: 'DELETE'
+      }).then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            alert('Deleted Successfully ')
+            window.location.reload()
 
+          }
+        })
+    }
+  }
   return (
     <Grid item xs={12} sm={6} md={3} lg={3}>
       <Card sx={{ maxWidth: 330, margin: '25px' }}>
@@ -56,9 +71,16 @@ const Animal = (props) => {
         <CardActions>
           {userRole === 'admin' ? (
             <>
-              <Link to={`/pdetail/${_id}`}>
-                <Button variant="contained" sx={{ marginLeft:"100%",width:"100%",backgroundColor: '#ffb600', color: 'white', fontWeight: 'bold' }}>Details</Button>
-              </Link>
+              {/* Buttons  */}
+                <Button onClick={() => handleDelete(_id)} sx={{
+                  backgroundColor: 'red', color: 'white', fontWeight: 'bold', margin: 'auto','&:hover': {
+                    backgroundColor: 'red',
+                    cursor: 'pointer',
+                  },
+                }}>
+                  Delete
+                </Button>
+
             </>
           ) : (
             <>
