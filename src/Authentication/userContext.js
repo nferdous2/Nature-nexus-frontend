@@ -30,11 +30,12 @@ export const UserProvider = ({ children }) => {
 
     fetchData();
   }, []);
-//handle logout 
+
+
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
     try {
-      await axios.post("https://nature-nexus-backend.vercel.app/logout", null, {
+      await axios.post("http://localhost:8000/logout", null, {
         headers: { Authorization: token },
       });
       localStorage.removeItem("token");

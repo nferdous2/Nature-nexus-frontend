@@ -8,7 +8,7 @@ const Animals = () => {
   const [animals, setAnimals] = useState([])
   useEffect(() => {
     // Fetch all products from your API
-    fetch('https://nature-nexus-backend.vercel.app/products')
+    fetch('http://localhost:8000/products')
       .then((response) => response.json())
       .then((data) => {
         // Filter the products with the "freshfood" category

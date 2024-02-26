@@ -20,7 +20,9 @@ import {
 } from "@mui/material";
 const defaultTheme = createTheme();
 
+//main code 
 const SignUp = () => {
+  
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     userRole: 'user',
@@ -29,11 +31,12 @@ const SignUp = () => {
     name: "",
     address: "",
   });
-
-  // const { setIsLoggedIn } = useContext(UserContext); 
+// change the input
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  //register form 
   const handleSubmit = (event) => {
     event.preventDefault();
     const { name, email, password, address } = formData;
@@ -56,10 +59,9 @@ const SignUp = () => {
       alert("Only Gmail addresses are allowed. Please use a Gmail email address.");
       return;
     }
-
-
+//register the user
     axios
-      .post("https://nature-nexus-backend.vercel.app/register", formData)
+      .post("http://localhost:8000/register", formData)
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;
@@ -88,13 +90,13 @@ const SignUp = () => {
       });
   };
 
-
+//password visibility check
   const handleTogglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   
-
+//
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -132,7 +134,6 @@ const SignUp = () => {
             <form onSubmit={handleSubmit}>
               <TextField
                 sx={{ width: "100%", mb: 1 }}
-                id="standard-basic-1"
                 label="Your Name"
                 name="name"
                 onChange={handleInputChange}
@@ -142,7 +143,6 @@ const SignUp = () => {
               />
               <TextField
                 sx={{ width: "100%", mb: 1 }}
-                id="standard-basic-1"
                 label="Your address"
                 name="address"
                 onChange={handleInputChange}
@@ -152,7 +152,6 @@ const SignUp = () => {
               />
               <TextField
                 sx={{ width: "100%", mb: 1 }}
-                id="standard-basic-1"
                 label="Your mail"
                 name="email"
                 onChange={handleInputChange}

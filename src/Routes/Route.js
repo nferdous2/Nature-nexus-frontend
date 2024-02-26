@@ -16,7 +16,6 @@ import PaymentFail from '../Payment/PaymentFail'
 import ProductDetails from '../Dashboard/ProductDetails'
 import Main from '../Layout/Main'
 import IHome from '../pages/Services/IndoorPlants/IHome'
-import PlantBuy from '../pages/Services/IndoorPlants/PlantBuy'
 import PrivateRoute from './PrivateRoute'
 
 const router = createBrowserRouter([
@@ -48,11 +47,6 @@ const router = createBrowserRouter([
       {
         path: '/plants',
         element: <IHome></IHome>,
-      },
-      {
-        path: "/plantBuy/:id",
-        element:<PrivateRoute> <PlantBuy /> </PrivateRoute> 
-
       },
       {
         path: '/details/:_id',

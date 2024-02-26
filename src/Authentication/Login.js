@@ -42,18 +42,16 @@ const Login = () => {
       return;
     }
     axios
-      .post("https://nature-nexus-backend.vercel.app/login", formData) // Pass the formData in the request
+      .post("http://localhost:8000/login", formData) // Pass the formData in the request
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;
-        // Store the token in local storage or a cookie
+        // Store the token in local storage 
         localStorage.setItem("token", token);
         localStorage.setItem("userId", res.data.userId);
-
         // console.log("Token set:", token);
         setLoading(false);
         localStorage.setItem('userRole', res.data.role);
-
         setIsLoggedIn(true);
         setFormData({
           email: "",
@@ -109,7 +107,6 @@ const Login = () => {
          <form onSubmit={handleSubmit}>
           <TextField
               sx={{ width: "100%", mb: 1 }}
-              id="standard-basic-1"
               label="Your mail"
               name="email"
               onChange={handleInputChange}
@@ -119,7 +116,6 @@ const Login = () => {
             />
             <TextField
               sx={{ width: "100%", mb: 1 }}
-              id="standard-basic"
               label="Your password"
               name="password"
               onChange={handleInputChange}

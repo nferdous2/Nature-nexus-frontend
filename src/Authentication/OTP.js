@@ -6,6 +6,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { UserContext } from './userContext';
 
 const OTPVerification = () => {
+  
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [verificationMsg, setVerificationMsg] = useState('');
@@ -15,7 +16,7 @@ const OTPVerification = () => {
     
     e.preventDefault();
     try {
-      const response = await axios.post('https://nature-nexus-backend.vercel.app/verify-otp', { email: email, otp: otp });
+      const response = await axios.post('http://localhost:8000/verify-otp', { email: email, otp: otp });
       if (response.status === 200) {
         alert('Congratulations. You successfully verified your account!');
 

@@ -51,7 +51,6 @@ const Goal = () => {
         >
           <img src={veg1} alt="" width="60" height="60" />
           <Typography
-            gutterBottom
             sx={{
               marginLeft: 3,
               fontSize: 20,
@@ -70,7 +69,7 @@ const Goal = () => {
         >
           <img src={veg2} alt="" width="60" height="60" />
           <Typography
-            gutterBottom
+            
            sx={{
               marginLeft: 3,
               fontSize: 20,
@@ -89,7 +88,7 @@ const Goal = () => {
         >
           <img src={forest} alt="" width="60" height="60" />
           <Typography
-            gutterBottom
+           
           sx={{
               marginLeft: 3,
               fontSize: 20,
@@ -108,7 +107,7 @@ const Goal = () => {
         >
           <img src={animal} alt="" width="60" height="60" />
           <Typography
-            gutterBottom
+           
            sx={{
               marginLeft: 3,
               fontSize: 20,

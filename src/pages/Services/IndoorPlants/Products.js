@@ -18,7 +18,7 @@ const Products = ({ product }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   useEffect(() => {
     // Fetch all products from your API
-    fetch('https://nature-nexus-backend.vercel.app/products')
+    fetch('http://localhost:8000/products')
       .then((response) => response.json())
       .then((data) => {
         //get all products category by plants
@@ -32,7 +32,7 @@ const Products = ({ product }) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-      fetch(`https://nature-nexus-backend.vercel.app/product/${id}`, {
+      fetch(`http://localhost:8000/product/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {
@@ -116,10 +116,10 @@ const Products = ({ product }) => {
               <>
                 {/* Buttons  */}
                 <div>
-                  <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black",mr:3}}>Add to cart</Button>
+                  <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black",mr:3,textTransform:"uppercase"}}>Add to cart</Button>
                   {/* goes to plantbuy page */}
-                  <Link to={`/plantBuy/${product._id}`} >
-                    <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", }}>Buy Now</Button>
+                  <Link to={`/pdetail/${product._id}`} >
+                    <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", textTransform:"uppercase"}}>Details</Button>
                   </Link>
                 </div>
 

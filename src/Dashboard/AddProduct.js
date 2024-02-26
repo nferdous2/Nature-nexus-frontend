@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, MenuItem, Select, Typography } from '@mui/material';
 import "../Styles/Style.css"
 const AddProduct = () => {
     const [formData, setFormData] = useState({
@@ -14,11 +14,11 @@ const AddProduct = () => {
 
     });
 
+
     const handleAddProduct = (event) => {
         event.preventDefault();
 
-        axios
-            .post("https://nature-nexus-backend.vercel.app/products", formData)
+        axios.post("http://localhost:8000/products", formData)
             .then((res) => {
                 alert(res.data.message);
                 const token = res.data.token;
@@ -29,7 +29,7 @@ const AddProduct = () => {
                     image: "",
                     category: "",
                     description: "",
-                });  
+                });
             })
             .catch((err) => {
                 console.error("Error registering user:", err);
@@ -41,7 +41,7 @@ const AddProduct = () => {
     };
 
     return (
-        <Box  sx={{ marginTop: "8%", marginBottom: "15%" }}>
+        <Box sx={{ marginTop: "8%", marginBottom: "15%" }}>
 
             {/* main code starts here */}
 
@@ -82,7 +82,6 @@ const AddProduct = () => {
                         />
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
                             label="Img URL"
                             name="image"
                             onChange={handleInputChange}
@@ -92,7 +91,6 @@ const AddProduct = () => {
                         />
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
                             label="Product Description"
                             name="description"
                             onChange={handleInputChange}
@@ -100,17 +98,28 @@ const AddProduct = () => {
                             variant="standard"
                             required
                         />
-                        <TextField
-                            sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
-                            label="Category"
+
+
+                        <Typography sx={{fontWeight:"bold",textAlign:"left"}}>
+                            Select the Category
+                        </Typography>
+                        <Select
                             name="category"
-                            onChange={handleInputChange}
                             value={formData.category}
-                            variant="standard"
+                            onChange={handleInputChange}
                             required
-                        />
+                            style={{ width: '100%' }}
+                        >
+                            <MenuItem value="" disabled>
+                                Category
+                            </MenuItem>
+                            <MenuItem value="freshfood">Fresh Food</MenuItem>
+                            <MenuItem value="animal">Animal</MenuItem>
+                            <MenuItem value="plants">Indoor Plant</MenuItem>
+
+                        </Select>
                         <Button fullWidth type="submit" sx={{
+                            marginTop: 5,
                             borderRadius: "10px",
                             textTransform: "capitalize",
                             fontSize: "20px"

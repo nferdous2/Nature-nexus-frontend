@@ -15,7 +15,7 @@ const Details = () => {
 
   // get the product id wise 
   useEffect(() => {
-    fetch('https://nature-nexus-backend.vercel.app/products')
+    fetch('http://localhost:8000/products')
       .then((response) => response.json())
       .then((data) => {
         const fetchedProduct = data.find((product) => product._id === id);
@@ -36,7 +36,7 @@ const Details = () => {
   const onSubmit = (data) => {
     data.productId = id;
     data.userId = userId;
-    fetch("https://nature-nexus-backend.vercel.app/purchase", {
+    fetch("http://localhost:8000/purchase", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -59,9 +59,9 @@ const Details = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Card data */}
             <TextField sx={{ mb: 3 }} label="Product Name" type="text" {...register('productName')} value={name} fullWidth readOnly />
-            <TextField sx={{ mb: 3 }} label="Card Price" type="text" value={price} fullWidth readOnly />
-            <TextField sx={{ mb: 3 }} label="Card Quantity" type="text" {...register('quantity')} value={quantity} fullWidth readOnly />
-            <TextField sx={{ mb: 3 }} label="Card Total Price" type="text" {...register('totalPrice')} value={totalPrice} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Price" type="text" value={price} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Quantity" type="text" {...register('quantity')} value={quantity} fullWidth readOnly />
+            <TextField sx={{ mb: 3 }} label="Total Price" type="text" {...register('totalPrice')} value={totalPrice} fullWidth readOnly />
             {/* user  information */}
             <TextField sx={{ mb: 3 }} label="Your Name" type="text" {...register('customerName')} required fullWidth />
             <TextField sx={{ mb: 3 }} label="Your Phone Number" type="tel" {...register('phoneNumber')} required fullWidth />
