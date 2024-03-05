@@ -20,27 +20,31 @@ import {
 import { UserContext } from './userContext';
 const defaultTheme = createTheme();
 
-
+//main code start 
 const Login = () => {
   const { setIsLoggedIn,setLoading,} = useContext(UserContext); // Access the UserContext
 
   const [showPassword, setShowPassword] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
+  
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
+//form submit
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = formData;
+    //
+
     if ( !email || !password ) {
       alert("Please fill in all the required fields.");
       return;
     }
+    //data post 
     axios
       .post("http://localhost:8000/login", formData) // Pass the formData in the request
       .then((res) => {
@@ -49,15 +53,17 @@ const Login = () => {
         // Store the token in local storage 
         localStorage.setItem("token", token);
         localStorage.setItem("userId", res.data.userId);
+        localStorage.setItem('userRole', res.data.role);
+
         // console.log("Token set:", token);
         setLoading(false);
-        localStorage.setItem('userRole', res.data.role);
         setIsLoggedIn(true);
+
         setFormData({
           email: "",
           password: "",
         });
-        window.location.href = "/";
+        window.location.href = "/"; //redirect to home page
       })
       .catch((err) => {
         console.error("Error logging in:", err);
@@ -104,6 +110,7 @@ const Login = () => {
             <Typography component="h1" variant="h5">
               Log in
             </Typography>
+            {/* login form start  */}
          <form onSubmit={handleSubmit}>
           <TextField
               sx={{ width: "100%", mb: 1 }}

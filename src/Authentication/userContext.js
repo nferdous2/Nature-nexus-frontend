@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
     const fetchData = async () => {
       if (token) {
         try {
-          const decodedToken = JSON.parse(atob(token.split(".")[1])); // assuming token is in the format "header.payload.signature"
+          const decodedToken = JSON.parse(atob(token.split(".")[1]));  
           setUserId(decodedToken.userId);
           setIsLoggedIn(true);
           setUserRole(storedUserRole);

@@ -100,7 +100,6 @@ const Feedback = () => {
                 </MenuItem>
                 <MenuItem value="freshfood">Fresh Food</MenuItem>
                 <MenuItem value="animal">Animal</MenuItem>
-                <MenuItem value="plants">Indoor Plant</MenuItem>
 
               </Select>
             </Grid>
@@ -132,7 +131,7 @@ const Feedback = () => {
             Add Review
           </Button>
         </FormControl>
-</form>
+      </form>
        
       </Grid>
     </Grid>

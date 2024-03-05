@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import "../Styles/Style.css"
 import { UserContext } from '../Authentication/userContext';
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -18,7 +19,6 @@ const ProductDetails = () => {
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
-
         // Set default values for form fields
         setValue('name', data.name || '');
         setValue('image', data.image || '');

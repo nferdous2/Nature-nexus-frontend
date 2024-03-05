@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import { Box, Grid, MenuItem, Select, Typography } from '@mui/material';
 import "../Styles/Style.css"
+
+
 const AddProduct = () => {
     const [formData, setFormData] = useState({
         name: "",
@@ -32,7 +34,7 @@ const AddProduct = () => {
                 });
             })
             .catch((err) => {
-                console.error("Error registering user:", err);
+                console.error("Error adding product:", err);
             });
     };
 
@@ -61,7 +63,6 @@ const AddProduct = () => {
                     <form onSubmit={handleAddProduct}>
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
                             label="Product Name"
                             name="name"
                             onChange={handleInputChange}
@@ -72,7 +73,6 @@ const AddProduct = () => {
 
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
                             label="Price"
                             name="price"
                             onChange={handleInputChange}

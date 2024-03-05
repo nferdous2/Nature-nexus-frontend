@@ -248,7 +248,7 @@ React.useEffect(() => {
                         }
                         sx={{ height: 300, flexGrow: 1, maxWidth: 420, overflowY: "auto" }}
                     >
-
+                          {/* admin options  */}
                         {userRole === 'admin' && (
                             <TreeItem
                                 nodeId="1"
@@ -322,7 +322,7 @@ React.useEffect(() => {
                                 </NavLink>
                             </TreeItem>
                         )}
-
+                      {/* user options  */}
                         {userRole === 'user' && (
                             <TreeItem
                                 nodeId="1"

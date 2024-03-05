@@ -2,6 +2,9 @@ import { Button, Card, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import done from "../img/done.png";
 import pending from "../img/clock.png"
+
+// main code start 
+
 const SoldList = () => {
   const [soldProducts, setSoldProducts] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
@@ -17,12 +20,12 @@ const SoldList = () => {
         console.error('Error fetching sold products:', error);
       }
     };
-
     fetchSoldProducts();
   }, []);
+
   //get all users with  their verified status
   useEffect(() => {
-    const fetchSoldUsers = async () => {
+    const fetchUsers = async () => {
       try {
         const response = await fetch('http://localhost:8000/users');
         const data = await response.json();
@@ -32,7 +35,7 @@ const SoldList = () => {
       }
     };
 
-    fetchSoldUsers();
+    fetchUsers();
   }, []);
 
   // delete user
@@ -80,31 +83,31 @@ const SoldList = () => {
 
       </Grid>
       {/* users grid  */}
-      <Typography variant="h5" sx={{fontWeight:"bold", textAlign:"center",p:5}}>Users Details</Typography>
+      <Typography variant="h5" sx={{ fontWeight: "bold", textAlign: "center", p: 5 }}>Users Details</Typography>
 
       <Grid container spacing={2}>
 
-  {allUsers.map((user, index) => (
-    <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
-      <Card sx={{
-        p: 5, m: 3,
-        alignItems: 'center',
-      }}>
-        <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Name:</span> {user.name}</Typography>
-        <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Email:</span> {user.email}</Typography>
-        <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Verified Status:</span> {user.verified?.toString()}</Typography>
-        <Button onClick={() => handleDelete(user._id)} sx={{
-          backgroundColor: 'red', color: 'white', fontWeight: 'bold', '&:hover': {
-            backgroundColor: 'red',
-            cursor: 'pointer',
-          },
-        }}>
-          Delete
-        </Button>
-      </Card>
-    </Grid>
-  ))}
-</Grid>
+        {allUsers.map((user, index) => (
+          <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
+            <Card sx={{
+              p: 5, m: 3,
+              alignItems: 'center',
+            }}>
+              <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Name:</span> {user.name}</Typography>
+              <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Email:</span> {user.email}</Typography>
+              <Typography variant="h6"><span style={{ fontWeight: "bold" }}>Verified Status:</span> {user.verified?.toString()}</Typography>
+              <Button onClick={() => handleDelete(user._id)} sx={{
+                backgroundColor: 'red', color: 'white', fontWeight: 'bold', '&:hover': {
+                  backgroundColor: 'red',
+                  cursor: 'pointer',
+                },
+              }}>
+                Delete
+              </Button>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
 
     </div>
 

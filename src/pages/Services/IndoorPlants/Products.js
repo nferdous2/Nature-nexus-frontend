@@ -22,8 +22,8 @@ const Products = ({ product }) => {
       .then((response) => response.json())
       .then((data) => {
         //get all products category by plants
-        const freshFoodProducts = data.filter((product) => product.category === 'plants');
-        setProducts(freshFoodProducts);
+        const indoorPlant = data.filter((product) => product.category === 'plants');
+        setProducts(indoorPlant);
       })
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
@@ -74,7 +74,7 @@ const Products = ({ product }) => {
                 component="img"
                 sx={{ width: 200, height: 250, alignSelf: 'center' }}
                 image={product.image}
-                alt={`${product.name} cover`}
+                alt=""
               />
               <CardContent>
                 <Typography sx={{ color: "#8AB29C", fontSize: "20px", fontWeight: "bold" }}>
@@ -117,7 +117,7 @@ const Products = ({ product }) => {
                 {/* Buttons  */}
                 <div>
                   <Button onClick={() => addToCart(product)} variant="contained" sx={{ fontWeight: "bold", background: "black",mr:3,textTransform:"uppercase"}}>Add to cart</Button>
-                  {/* goes to plantbuy page */}
+                  {/* goes to dashboard page */}
                   <Link to={`/pdetail/${product._id}`} >
                     <Button variant="contained" sx={{ fontWeight: "bold", background: "#3B8F60", textTransform:"uppercase"}}>Details</Button>
                   </Link>

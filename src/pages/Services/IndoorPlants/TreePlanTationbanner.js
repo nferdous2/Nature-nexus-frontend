@@ -12,7 +12,12 @@ const TreePlantationBanner = () => {
         overflow: 'hidden'
       }}
     >
-        <Typography  sx={{color:"#3b8f60", textAlign:"center",fontWeight: 'bold', marginTop: { xs: '5rem',  } ,fontSize:{xs:'2rem',md:'4rem'},marginLeft: {md:"30%"},
+        <Typography 
+         sx={{
+          color:"#3b8f60", textAlign:"center",fontWeight: 'bold',
+         marginTop: { xs: '5rem',md:"-8%"  } ,
+        fontSize:{xs:'2rem',md:'3rem'},
+        marginLeft: {md:"50%"},
         }}>
         Plants are friends
         <br />

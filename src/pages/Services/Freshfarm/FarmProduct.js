@@ -17,10 +17,9 @@ import { UserContext } from '../../../Authentication/userContext';
 import { Link } from 'react-router-dom';
 
 
-const FarmProduct = ({ product }) => {
+const FarmProduct = () => {
   const { userRole } = React.useContext(UserContext);
 
-  // Initialize cart items from localStorage if available, or an empty array
   const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(initialCartItems);
@@ -43,7 +42,7 @@ const FarmProduct = ({ product }) => {
   }, [cartItems]);
 
 
-  // FarmProduct.js
+  // cart, add items
 
   const addToCart = (product) => {
     const updatedCart = [...cartItems, { ...product, quantity: 1 }];
@@ -56,6 +55,7 @@ const FarmProduct = ({ product }) => {
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
 
   // delete product 
   const handleDelete = id => {

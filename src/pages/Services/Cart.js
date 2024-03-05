@@ -22,7 +22,7 @@ const Cart = () => {
   }, []);
 
   // Function to handle incrementing the quantity of an item
-  const addToCart = (item) => {
+  const increaseItem = (item) => {
     const updatedCartItems = cartItems.map((cartItem) => {
       if (cartItem._id === item._id) {
         return { ...cartItem, quantity: cartItem.quantity + 1 };
@@ -35,7 +35,7 @@ const Cart = () => {
   };
 
   // Function to handle decrementing the quantity of an item
-  const removeFromCart = (item) => {
+  const decreaseItem = (item) => {
     if (item.quantity > 1) {
       const updatedCartItems = cartItems.map((cartItem) => {
         if (cartItem._id === item._id) {
@@ -93,10 +93,11 @@ const Cart = () => {
                   </Typography>
                 </Grid>
                 {/* quantity  */}
+             
                 <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "space-between" }}>
                   <Button
                     sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold', marginRight: "4%" }}
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => decreaseItem(item)}
                   >
                     -
                   </Button>
@@ -106,11 +107,11 @@ const Cart = () => {
                   />
                   <Button
                     sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold', marginLeft: "4%" }}
-                    onClick={() => addToCart(item)}
+                    onClick={() => increaseItem(item)}
                   >
                     +
                   </Button>
-                </Grid>
+                </Grid> 
                 {/* price  */}
                 <Grid item xs={12} md={2} style={{ marginLeft: '1rem' }}>
                   <Typography variant="h5" gutterBottom>

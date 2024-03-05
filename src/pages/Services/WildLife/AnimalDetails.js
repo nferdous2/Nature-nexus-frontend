@@ -34,7 +34,6 @@ const ExpandMore = styled((props) => {
 }))
 
 export default function AnimalDetails() {
-  const {_id} = useParams()
   const [expanded, setExpanded] = React.useState(false)
   const [animal, setAnimal] = React.useState({})
   const [openModal, setOpenModal] = React.useState(false)
@@ -98,10 +97,6 @@ export default function AnimalDetails() {
         console.log(err, 'err on catch')
         // alert('Something went wrong')
       })
-
-    // Show Snackbar for save success
-    // setSaveSuccessSnackbarOpen(true)
-
     // Close the modal
     handleCloseModal()
   }
@@ -115,7 +110,7 @@ export default function AnimalDetails() {
           text: `Check out the details of ${animal.name}: ${window.location.href}`,
         })
       } else {
-        // Fallback behavior (e.g., show a Snackbar with the shareable link)
+        // Fallback behavior ( show a Snackbar with the shareable link)
         setSnackbarOpen(true)
       }
     } catch (error) {

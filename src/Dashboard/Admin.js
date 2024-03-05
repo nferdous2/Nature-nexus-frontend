@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import { Box, Grid, IconButton, InputAdornment, Typography } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Box, Grid, Typography } from '@mui/material';
 
 const Admin = () => {
     const [formData, setFormData] = useState({
@@ -11,13 +10,11 @@ const Admin = () => {
         password: "",
 
     });
-    const [showPassword, setShowPassword] = useState(false);
-
+ 
     const handleAdmin = (event) => {
         event.preventDefault();
 
-        axios
-            .post("http://localhost:8000/admin", formData)
+        axios.post("http://localhost:8000/admin", formData)
             .then((res) => {
                 alert(res.data.message);
                 const token = res.data.token;
@@ -25,15 +22,13 @@ const Admin = () => {
                 setFormData({
                     email: "",
                     password: "",
-                });  // Access the UserContext
+                });  //reset
             })
             .catch((err) => {
-                console.error("Error registering user:", err);
+                console.error("Error Adding admin:", err);
             });
     };
-    const handleTogglePasswordVisibility = () => {
-        setShowPassword((prevShowPassword) => !prevShowPassword);
-    };
+
     const handleInputChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
@@ -58,7 +53,6 @@ const Admin = () => {
                     <form onSubmit={handleAdmin}>
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic-1"
                             label="Your mail"
                             name="email"
                             onChange={handleInputChange}
@@ -69,26 +63,13 @@ const Admin = () => {
                           
                         <TextField
                             sx={{ width: "100%", mb: 1 }}
-                            id="standard-basic"
                             label="Your password"
                             name="password"
                             onChange={handleInputChange}
                             value={formData.password}
                             variant="standard"
                             required
-                            type={showPassword ? "text" : "password"}
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            onClick={handleTogglePasswordVisibility}
-                                            edge="end"
-                                        >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                ),
-                            }}
+                         
                         />
                         <Button fullWidth type="submit" sx={{
                             borderRadius: "10px",

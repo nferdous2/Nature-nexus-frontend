@@ -60,8 +60,7 @@ const SignUp = () => {
       return;
     }
 //register the user
-    axios
-      .post("http://localhost:8000/register", formData)
+    axios.post("http://localhost:8000/register", formData)
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;
@@ -73,7 +72,7 @@ const SignUp = () => {
           email: "",
           password: "",
           address: "",
-        });  // Access the UserContext
+        });  
         window.location.href = "/otp";
       })
       .catch((err) => {
@@ -131,6 +130,7 @@ const SignUp = () => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+            {/* form start here  */}
             <form onSubmit={handleSubmit}>
               <TextField
                 sx={{ width: "100%", mb: 1 }}

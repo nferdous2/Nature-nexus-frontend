@@ -11,9 +11,9 @@ const Animals = () => {
     fetch('http://localhost:8000/products')
       .then((response) => response.json())
       .then((data) => {
-        // Filter the products with the "freshfood" category
-        const freshFoodProducts = data.filter((product) => product.category === 'animal');
-        setAnimals(freshFoodProducts);
+        // Filter the products with the "animal" category
+        const animals = data.filter((petAnimal) => petAnimal.category === 'animal');
+        setAnimals(animals);
       })
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
