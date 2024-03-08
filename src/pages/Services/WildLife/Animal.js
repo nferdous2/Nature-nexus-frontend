@@ -36,7 +36,7 @@ const Animal = (props) => {
     }
   }
   return (
-    <Grid item xs={12} sm={6} md={3} lg={6}>
+    <Grid item xs={12} sm={6} md={3} lg={4}>
       <Card sx={{ maxWidth: 330, margin: '25px' }}>
         <CardMedia
           image={image}

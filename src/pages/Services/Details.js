@@ -37,6 +37,7 @@ const Details = () => {
     data.productId = id;
     data.userId = userId;
     fetch("https://nature-nexus-backend-sable.vercel.app/purchase", {
+     
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
