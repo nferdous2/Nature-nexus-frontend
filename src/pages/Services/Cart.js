@@ -80,21 +80,7 @@ const Cart = () => {
             <CardContent>
               <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
               {/* img grid  */}
-                <Grid item xs={12} md={2}>
-                  <img src={item.image} alt='' style={{ width: '100%' }} />
-                </Grid>
-                {/* product name  */}
-                <Grid item xs={12} md={1}>
-                  <Typography variant="h5" fontWeight="normal" gutterBottom>
-                    {item.name}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    <span>Price:$ </span>{item.price}
-                  </Typography>
-                </Grid>
-                {/* quantity  */}
-             
-                <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "space-between" }}>
                   <Button
                     sx={{ backgroundColor: '#ffb600', color: 'black', fontWeight: 'bold', marginRight: "4%" }}
                     onClick={() => decreaseItem(item)}
@@ -112,6 +98,21 @@ const Cart = () => {
                     +
                   </Button>
                 </Grid> 
+                {/* product name  */}
+                <Grid item xs={12} md={1}>
+                  <Typography variant="h5" fontWeight="normal" gutterBottom>
+                    {item.name}
+                  </Typography>
+                  <Typography color="textSecondary">
+                    <span>Price:$ </span>{item.price}
+                  </Typography>
+                </Grid>
+                {/* quantity  */}
+             
+               
+                <Grid item xs={12} md={2}>
+                  <img src={item.image} alt='' style={{ width: '100%' }} />
+                </Grid>
                 {/* price  */}
                 <Grid item xs={12} md={2} style={{ marginLeft: '1rem' }}>
                   <Typography variant="h5" gutterBottom>

@@ -60,7 +60,7 @@ const SignUp = () => {
       return;
     }
 //register the user
-    axios.post("http://localhost:8000/register", formData)
+    axios.post("https://nature-nexus-backend-sable.vercel.app/register", formData)
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;

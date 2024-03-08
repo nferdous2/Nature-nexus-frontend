@@ -15,7 +15,7 @@ const Details = () => {
 
   // get the product id wise 
   useEffect(() => {
-    fetch('http://localhost:8000/products')
+    fetch('https://nature-nexus-backend-sable.vercel.app/products')
       .then((response) => response.json())
       .then((data) => {
         const fetchedProduct = data.find((product) => product._id === id);
@@ -36,7 +36,7 @@ const Details = () => {
   const onSubmit = (data) => {
     data.productId = id;
     data.userId = userId;
-    fetch("http://localhost:8000/purchase", {
+    fetch("https://nature-nexus-backend-sable.vercel.app/purchase", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

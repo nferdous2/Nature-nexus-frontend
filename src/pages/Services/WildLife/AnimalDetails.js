@@ -76,7 +76,7 @@ export default function AnimalDetails() {
       animal: JSON.parse(animalData),
       userId: userId,
     }
-    fetch(`http://localhost:8000/animal`, {
+    fetch(`https://nature-nexus-backend-sable.vercel.app/animal`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

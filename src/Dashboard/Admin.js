@@ -14,7 +14,7 @@ const Admin = () => {
     const handleAdmin = (event) => {
         event.preventDefault();
 
-        axios.post("http://localhost:8000/admin", formData)
+        axios.post("https://nature-nexus-backend-sable.vercel.app/admin", formData)
             .then((res) => {
                 alert(res.data.message);
                 const token = res.data.token;

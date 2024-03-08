@@ -15,7 +15,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     // Fetch  id wise
-    fetch(`http://localhost:8000/product/${id}`)
+    fetch(`https://nature-nexus-backend-sable.vercel.app/product/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
@@ -40,7 +40,7 @@ const ProductDetails = () => {
   const onSubmit = async (data) => {
     try {
       // Send your data to the server using axios or other method
-      const response = await axios.put(`http://localhost:8000/products/${id}`, data);
+      const response = await axios.put(`https://nature-nexus-backend-sable.vercel.app/products/${id}`, data);
       console.log('Response:', response.data);
 
       // Show SweetAlert success message

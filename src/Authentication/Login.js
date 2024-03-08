@@ -46,7 +46,7 @@ const Login = () => {
     }
     //data post 
     axios
-      .post("http://localhost:8000/login", formData) // Pass the formData in the request
+      .post("https://nature-nexus-backend-sable.vercel.app/login", formData) // Pass the formData in the request
       .then((res) => {
         alert(res.data.message);
         const token = res.data.token;

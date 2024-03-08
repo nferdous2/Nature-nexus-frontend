@@ -22,7 +22,7 @@ const MyOrder = () => {
       try {
         const token = localStorage.getItem('token');
         console.log('Token:', token);
-        const response = await fetch(`http://localhost:8000/soldProduct/${localStorage.getItem('userId')}`, {
+        const response = await fetch(`https://nature-nexus-backend-sable.vercel.app/soldProduct/${localStorage.getItem('userId')}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/soldProduct/${userId}`, {
+      fetch(`https://nature-nexus-backend-sable.vercel.app/soldProduct/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const MyOrder = () => {
     // console.log(userId)
     if (userId) {
       console.log('userId', userId)
-      fetch(`http://localhost:8000/animal/${userId}`, {
+      fetch(`https://nature-nexus-backend-sable.vercel.app/animal/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ const MyOrder = () => {
                           {/* remove */}
                           <Button size="small"
                             onClick={() => {
-                              fetch(`http://localhost:8000/soldProduct/${order._id}`, {
+                              fetch(`https://nature-nexus-backend-sable.vercel.app/soldProduct/${order._id}`, {
                                 method: 'DELETE',
                                 headers: {
                                   'Content-Type': 'application/json',
@@ -249,7 +249,7 @@ const MyOrder = () => {
                                       status: true,
                                     };
 
-                                    fetch(`http://localhost:8000/animal/${order._id}`, {
+                                    fetch(`https://nature-nexus-backend-sable.vercel.app/animal/${order._id}`, {
                                       method: 'PATCH',
                                       headers: {
                                         'Content-Type': 'application/json',
@@ -296,7 +296,7 @@ const MyOrder = () => {
                                       status: true,
                                     };
 
-                                    fetch(`http://localhost:8000/animal/${order._id}`, {
+                                    fetch(`https://nature-nexus-backend-sable.vercel.app/animal/${order._id}`, {
                                       method: 'PATCH',
                                       headers: {
                                         'Content-Type': 'application/json',
@@ -330,7 +330,7 @@ const MyOrder = () => {
                                   //     status: true,
                                   //   };
 
-                                  //   fetch(`http://localhost:8000/animal/${order._id}`, {
+                                  //   fetch(`https://nature-nexus-backend-sable.vercel.app/animal/${order._id}`, {
                                   //     method: 'PATCH',
                                   //     headers: {
                                   //       'Content-Type': 'application/json',

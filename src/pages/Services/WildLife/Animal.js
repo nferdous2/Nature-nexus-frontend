@@ -23,7 +23,7 @@ const Animal = (props) => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure to delete order?')
     if (proceed) {
-      fetch(`http://localhost:8000/product/${id}`, {
+      fetch(`https://nature-nexus-backend-sable.vercel.app/product/${id}`, {
         method: 'DELETE'
       }).then(res => res.json())
         .then(data => {
@@ -36,7 +36,7 @@ const Animal = (props) => {
     }
   }
   return (
-    <Grid item xs={12} sm={6} md={3} lg={3}>
+    <Grid item xs={12} sm={6} md={3} lg={6}>
       <Card sx={{ maxWidth: 330, margin: '25px' }}>
         <CardMedia
           image={image}

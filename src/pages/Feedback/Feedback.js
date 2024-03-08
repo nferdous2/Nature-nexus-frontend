@@ -24,7 +24,7 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     console.log(formData);
-    axios.post('http://localhost:8000/review', formData)
+    axios.post('https://nature-nexus-backend-sable.vercel.app/review', formData)
       .then((res) => {
         if (res.data.insertedId) {
           alert('Thank you for your valuable opinion');
